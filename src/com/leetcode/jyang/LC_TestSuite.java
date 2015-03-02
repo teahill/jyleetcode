@@ -8,27 +8,21 @@ public class LC_TestSuite {
 	
     @BeforeClass
     public static void oneTimeSetUp() {
-        // one-time initialization code   
-    	System.out.println("@BeforeClass - oneTimeSetUp");
     }
  
     @AfterClass
     public static void oneTimeTearDown() {
-        // one-time cleanup code
-    	System.out.println("@AfterClass - oneTimeTearDown");
     }
  
     @Before
     public void setUp() {
-        System.out.println("@Before - setUp");
     }
  
     @After
     public void tearDown() {
-        System.out.println("@After - tearDown");
     }
 	
-	@Test
+	//@Test
 	public void testLC_006() {
 		
 	   	char[][] matrix = new char[3][5];
@@ -50,6 +44,23 @@ public class LC_TestSuite {
 	}
 	
 	@Test
+	public void testLC_011(){
+		
+		int[][] input = new int[][] {
+				{1,2,1,4,2},
+				{2,5,4,3,7},
+				{9,4,3,0,8},
+				{5,2,12,1,5,3,4,11,9,4}
+			};
+			
+			LC011_WaterContainer lc011 = new LC011_WaterContainer();
+			
+			for (int i=0; i<input.length; i++){
+				System.out.println("Max area of input: is " + lc011.maxArea(input[i]));
+			}
+	}
+	
+	//@Test
 	public void testLC_012() {
 	int[] input = new int[] {
 			1,
@@ -86,7 +97,7 @@ public class LC_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC_014(){
 		
 		String[] inputs = new String[] {

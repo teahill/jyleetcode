@@ -21,64 +21,46 @@ import java.util.Set;
  */
 
 public class LC011_WaterContainer {
-
-    public int maxArea2(int[] height) {
-    	
-    	if (height==null || height.length==0){
-    		return 0;
-    	}
-    	
-    	int maxArea = 0;
-    	
-    	Map<Integer, List<Integer>> map = new HashMap<Integer, List<Integer>>();
-    	List<Integer> hList = new ArrayList<Integer>();
-    	
-//    	int maxHeight = 0;
-//    	int minHeight = Integer.MAX_VALUE;
-//    	
-    	for (int i=0; i<height.length; i++){
-    		
-    		hList.add(height[i]);
-    		
-    		List<Integer> list = map.get(height[i]);
-    		
-    		if (list!=null){
-    			list.add(i);
-    		}
-    		else {
-    			list = new ArrayList<Integer>();
-    			list.add(i);
-    			map.put(height[i], list);
-    		}
-    	}
-    	
-    	Collections.sort(hList);
-    	
-    	
-    	
-    	for (int i=0; i<hList.size(); i++){
-    		System.out.println(hList.get(i));
-    	}
-    	
-    	
-    	
-    	for (Integer key : hList){
-    		
-    		List<Integer> values = map.get(key);
-    		
-    		Collections.sort(values);
-    		
-    		int maxLen = Math.abs(values.get(0) - values.get(values.size()-1));
-    		int area = key * maxLen;
-    		
-    		maxArea = Math.max(maxArea, area);
-    	}
-
-    	return maxArea;
-    }
 	
+	/**
+	 * The idea here is that always consider the furtherest pair of point at the moment.
+	 * 
+	 * for a particular pair of left and right, if h[left] > h[right], then there is no need
+	 * to compute any other left positions with the right, as it is not going to get any larger,
+	 * so we should just move the right to left by 1. Similarly, if h[left < h[right], we can
+	 * skip all the comparisons with all other right positions with respect to the left, so we
+	 * simply more left pointer to the right by 1.
+	 * 
+	 * 
+	 * @param height
+	 * @return
+	 */
+	public int maxArea(int[] height) {
+		
+        int left = 0; 
+        int right = height.length-1;
+        
+        int max = 0;
+        
+        while (right>left) {
+            
+            int area = Math.min(height[left], height[right]) * (right-left);
+            
+            max = Math.max(max, area);
+            
+            if (height[left] < height[right]){
+                left++;
+            }
+            else if (height[left] >= height[right]){
+                right--;
+            }
+        }
+        
+        return max;
+	}
+    
 	// naive solution
-    public int maxArea(int[] height) {
+    public int maxArea3(int[] height) {
     	
     	if (height==null || height.length==0){
     		return 0;
@@ -98,20 +80,32 @@ public class LC011_WaterContainer {
     	
     	return maxArea;
     }
-    //*/
-    
-	public static void main(String[] args) {
-
-		int[][] input = new int[][] {
-			{1,2,1,4,2},
-			{2,5,4,3,7},
-			{9,4,3,0,8},
-		};
-		
-		LC011_WaterContainer lc011 = new LC011_WaterContainer();
-		
-		for (int i=0; i<input.length; i++){
-			System.out.println("Max area of input: is " + lc011.maxArea(input[i]));
+ 
+    public class Point implements Comparable<Point> {
+    	
+    	int x;
+    	int y;
+    	
+    	public Point(int x, int y){
+    		this.x = x;
+    		this.y = y;
+    	}
+    	
+		@Override
+		public int compareTo(Point o) {
+			// TODO Auto-generated method stub
+			if (this.y > o.y) {
+				return 1;
+			}
+			else if (this.y < o.y){
+				return -1;
+			}
+			else {
+				return 0;
+			}
 		}
-	}
+
+	
+    	
+    }
 }
