@@ -1,14 +1,5 @@
 package com.leetcode.jyang;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 /**
  * Given n non-negative integers a1, a2, ..., an, where each represents a point at coordinate (i, ai).
  * n vertical lines are drawn such that the two endpoints of line i is at (i, ai) and (i, 0). Find two
@@ -26,7 +17,7 @@ public class LC011_WaterContainer {
 	 * The idea here is that always consider the furtherest pair of point at the moment.
 	 * 
 	 * for a particular pair of left and right, if h[left] > h[right], then there is no need
-	 * to compute any other left positions with the right, as it is not going to get any larger,
+	 * to compute any other left positions with the right, as it is not going to get any better,
 	 * so we should just move the right to left by 1. Similarly, if h[left < h[right], we can
 	 * skip all the comparisons with all other right positions with respect to the left, so we
 	 * simply more left pointer to the right by 1.
@@ -60,7 +51,7 @@ public class LC011_WaterContainer {
 	}
     
 	// naive solution
-    public int maxArea3(int[] height) {
+    public int maxAreaNaive(int[] height) {
     	
     	if (height==null || height.length==0){
     		return 0;
@@ -79,33 +70,5 @@ public class LC011_WaterContainer {
     	}
     	
     	return maxArea;
-    }
- 
-    public class Point implements Comparable<Point> {
-    	
-    	int x;
-    	int y;
-    	
-    	public Point(int x, int y){
-    		this.x = x;
-    		this.y = y;
-    	}
-    	
-		@Override
-		public int compareTo(Point o) {
-			// TODO Auto-generated method stub
-			if (this.y > o.y) {
-				return 1;
-			}
-			else if (this.y < o.y){
-				return -1;
-			}
-			else {
-				return 0;
-			}
-		}
-
-	
-    	
     }
 }
