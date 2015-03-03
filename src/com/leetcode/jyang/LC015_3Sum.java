@@ -66,21 +66,6 @@ public class LC015_3Sum {
 						results.add(res);						
 					}
 				}
-				
-//				for (int k=j+1; k<num.length; k++){
-//					if (num[k]==gap){
-//						List<Integer> res = new ArrayList<Integer>(3);
-//						res.add(num[i]);
-//						res.add(num[j]);
-//						res.add(num[k]);
-//						
-//						if (!results.contains(res)){
-//							results.add(res);						
-//						}
-//						
-//						break;
-//					}
-//				}
 			}
 		}
 	

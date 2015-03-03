@@ -15,4 +15,8 @@ package com.leetcode.jyang;
 
 public class LC020_ValidParentheses {
 
+    public boolean isValid(String s) {
+        
+    }
+	
 }

@@ -25,4 +25,8 @@ package com.leetcode.jyang;
 
 public class LC018_4Sum {
 
+    public List<List<Integer>> fourSum(int[] num, int target) {
+        
+    }
+	
 }
