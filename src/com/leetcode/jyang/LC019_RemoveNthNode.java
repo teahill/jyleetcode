@@ -23,17 +23,31 @@ public class LC019_RemoveNthNode {
 
     public ListNode removeNthFromEnd(ListNode head, int n) {
     	
+    	ListNode ptr1 = head;
+    	ListNode ptr2 = head;
     	
-        
-    }
-	
-    public class ListNode {
-	    int val;
-	    ListNode next;
-	    ListNode(int x) {
-	    	val = x;
-	    	next = null;
-	    }
+    	int count = 0;
+    	
+    	while (ptr1.next!=null){
+    		
+    		ptr1 = ptr1.next;
+    		count++;
+    		
+    		if (count>n){
+    			ptr2 = ptr2.next;
+    		}
+    	}
+    	
+    	if (count<n-1){
+    		return head;
+    	}
+    	else if (count<n){
+    		return head.next;
+    	}
+    	else {
+    		ptr2.next = ptr2.next.next;
+    		return head;
+    	}
     }
 	
 }

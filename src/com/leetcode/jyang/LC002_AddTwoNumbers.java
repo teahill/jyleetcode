@@ -54,40 +54,6 @@ public class LC002_AddTwoNumbers {
 	    return head;    
 	}
 	
-	public ListNode buildList(int[] input){
-		
-		if (input==null || input.length==0){
-			return null;
-		}
-		
-		ListNode head = new ListNode(input[0]);
-		ListNode ptr = head;
-		
-		for (int i=1; i<input.length; i++){
-			
-			ListNode node = new ListNode(input[i]);
-			ptr.next = node;
-			ptr = node;
-		}
-		
-		return head;
-	}
-	
-	public void printlist(ListNode head){
-		
-		if (head==null){
-			System.out.println("List is null");
-		}
-		
-		ListNode ptr = head;
-		
-		while (ptr!=null){
-			System.out.print(ptr.val + " ");
-			ptr = ptr.next;
-		}
-		System.out.println();
-	}
-	
 	public long getNumber(ListNode head){
 		
 		if (head==null){
@@ -106,15 +72,6 @@ public class LC002_AddTwoNumbers {
 		return Long.parseLong(str);
 	}
 	
-	public static class ListNode {
-	    int val;
-	    ListNode next;
-	    ListNode(int x) {
-	        val = x;
-	        next = null;
-	    }
-	}
-	
 	public static void main(String[] args){
 		
 		int[] list1 = new int[]{1,9,9,9,9,9,9,9,9,9};
@@ -123,18 +80,18 @@ public class LC002_AddTwoNumbers {
 		
 		LC002_AddTwoNumbers atn = new LC002_AddTwoNumbers();
 		
-		ListNode nodelist1 = atn.buildList(list1);
+		ListNode nodelist1 = LeetCodeUtils.buildList(list1);
 		
-		ListNode nodelist2 = atn.buildList(list2);
+		ListNode nodelist2 = LeetCodeUtils.buildList(list2);
 		
-		atn.printlist(nodelist1);
+		LeetCodeUtils.printlist(nodelist1);
 		System.out.println("List 1 as an interger: " + atn.getNumber(nodelist1));
 		
-		atn.printlist(nodelist2);
+		LeetCodeUtils.printlist(nodelist2);
 		System.out.println("List 2 as an interger: " + atn.getNumber(nodelist2));
 		
 		ListNode result = atn.addTwoNumbers(nodelist1, nodelist2);
 		
-		atn.printlist(result);
+		LeetCodeUtils.printlist(result);
 	}
 }
