@@ -1,6 +1,5 @@
 package com.leetcode.jyang;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -193,7 +192,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC026(){
 		int[][] input = new int[][] {
 				{1,2,3,4,4,5,6,7,7,8},
@@ -215,4 +214,70 @@ public class LC200_TestSuite {
 		}
 	}
 	
+	//@Test
+	public void testLC021(){
+		ListNode l1 = LeetCodeUtils.buildList(new int[]{1,3,4,6,9,23,28});	
+		ListNode l2 = LeetCodeUtils.buildList(new int[]{1,2,4,7,10,25,28});
+		
+		LC021_MergeTwoLists lc021 = new LC021_MergeTwoLists();
+		
+		LeetCodeUtils.printlist(lc021.mergeTwoLists(l1, l2));	
+	}
+	
+	//@Test
+	public void testLC027(){
+		
+		LC027_RemoveElement lc027 = new LC027_RemoveElement();
+		
+		int[] A = new int[]{1,1,2,3,4,4,5,6,7,7,8,8,9};
+		
+		lc027.removeElement(new int[]{1,1,2,3,4,4,5,6,7,7,8,8,9}, 4);
+		
+		LeetCodeUtils.printIntArray(A);
+	}
+	
+	//@Test
+	public void testLC028(){
+		
+		//String haystack = "The quick brown fox jumps over the lazy dog";
+		//String needle = "dog?";
+		
+		//String haystack = "mississippi";
+		//String needle = "issipi";
+		
+		String[][] input = new String[][]{
+			{"The quick brown fox jumps over the lazy dog", "dog"},
+			{"mississippi", "issipi"},
+			{"a", "a"},
+			{"mississippi", "pi"},
+			{"abcddef", "def"}
+		};
+		
+		LC028_strStr lc028 = new LC028_strStr();
+		
+		for (int i=0; i<input.length; i++){
+			System.out.println("Needle:" + input[i][1] + " in hatstack: " + input[i][0] +
+					"? " + lc028.strStr(input[i][0], input[i][1]));
+		}
+	}
+	
+	@Test
+	public void test024(){
+		int[][] input = new int[][] {
+				{1,2,3,4,5,6,7,8},
+				{1,2,3,4,5,6,7,8,9},
+				{1,2},
+				{1}
+		};
+		
+		LC024_SwapPairs lc024 = new LC024_SwapPairs();
+		
+		for (int i=0; i<input.length; i++) {
+			ListNode head = LeetCodeUtils.buildList(input[i]);
+			LeetCodeUtils.printlist(head);
+			
+			head = lc024.swapPairs(head);
+			LeetCodeUtils.printlist(head);
+		}
+	}
 }
