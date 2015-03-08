@@ -5,8 +5,6 @@ import java.util.List;
 
 import org.junit.*;
 
-import static org.junit.Assert.*;
-
 public class LC200_TestSuite {
 	
     @BeforeClass
@@ -261,8 +259,8 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
-	public void test024(){
+	//@Test
+	public void testLC024(){
 		int[][] input = new int[][] {
 				{1,2,3,4,5,6,7,8},
 				{1,2,3,4,5,6,7,8,9},
@@ -280,4 +278,72 @@ public class LC200_TestSuite {
 			LeetCodeUtils.printlist(head);
 		}
 	}
+	
+	//@Test
+	public void testLC038(){
+		
+		int[] input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30};
+		
+		LC038_CountAndSay lc038 = new LC038_CountAndSay();
+		
+		for (int i=0; i<input.length; i++) {
+			System.out.println("#" + input[i] + ": " + lc038.countAndSay(input[i]));
+		}
+	}
+	
+	//@Test
+	public void testLC037_1(){
+		
+	    int[][] sudoko = new int[][] {
+	    	           {5,3,0,0,7,0,0,0,0},
+	    	           {6,0,0,1,9,5,0,0,0},
+	    	           {0,9,8,0,0,0,0,6,0},
+	    	           {8,0,0,0,6,0,0,0,3},
+	    	           {4,0,0,8,0,3,0,0,1},
+	    	           {7,0,0,0,2,0,0,0,6},
+	    	           {0,6,0,0,0,0,2,8,0},
+	    	           {0,0,0,4,1,9,0,0,5},
+	    	           {0,0,0,0,8,0,0,7,9}
+	    	      };
+	    
+	    System.out.println("char[][] sudoko = new char[][]{");
+	    
+	    for (int i = 0; i<sudoko.length; i++){
+	    	
+	    	System.out.print("\t{");
+	    	int[] row = sudoko[i];
+	    	
+	    	for (int j = 0; j<row.length; j++){
+	    		System.out.print("'" + row[j]+ "',");
+	    	}
+	    	System.out.println("},");
+	    }
+	    System.out.println("};");
+	}
+	
+	@Test
+	public void testLC037(){
+		char[][] sudoko = new char[][]{
+				{'5','3','0','0','7','0','0','0','0',},
+				{'6','0','0','1','9','5','0','0','0',},
+				{'0','9','8','0','0','0','0','6','0',},
+				{'8','0','0','0','6','0','0','0','3',},
+				{'4','0','0','8','0','3','0','0','1',},
+				{'7','0','0','0','2','0','0','0','6',},
+				{'0','6','0','0','0','0','2','8','0',},
+				{'0','0','0','4','1','9','0','0','5',},
+				{'0','0','0','0','8','0','0','7','9',},
+			};
+		
+		LC037_ValidSudoku lc037 = new LC037_ValidSudoku();
+		
+		boolean isValid = lc037.isValidSudoku(sudoko);
+		
+		System.out.println("Sudoko is valid? " + isValid);
+		
+	}
+	
+	
 }
+
+
