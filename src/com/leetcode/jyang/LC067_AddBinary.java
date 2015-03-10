@@ -34,21 +34,8 @@ public class LC067_AddBinary {
 		
 		while (p1>=0 || p2>=0) {
 
-			char ca, cb;
-			
-			if (p1 >= 0){
-				ca = a.charAt(p1);
-			}
-			else {
-				ca = '0';
-			}
-			
-			if (p2 >= 0){
-				cb = b.charAt(p2);
-			}
-			else {
-				cb = '0';
-			}
+			char ca = p1 >= 0 ? a.charAt(p1) : '0';
+			char cb = p2 >= 0 ? b.charAt(p2) : '0';
 			
 			int ia = (int)(ca-48);
 			int ib = (int)(cb-48);

@@ -403,7 +403,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void test067(){
 		
 		String[][] input = new String[][]{
@@ -422,7 +422,7 @@ public class LC200_TestSuite {
 		}				
 	}
 	
-	@Test
+	//@Test
 	public void test066(){
 		int [][] input = new int[][] {
 				{1,2,3,4,5,6,7,8,9},
