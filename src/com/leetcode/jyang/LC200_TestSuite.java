@@ -403,15 +403,15 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test067(){
 		
 		String[][] input = new String[][]{
-				{"111111", "111"},
-//				{"100000", "100"},
-//				{"", "111"},
-//				{"111", "0"},
-//				{"1111", "1"}
+				{"11", "1111"},
+				{"100000", "100"},
+				{"", "111"},
+				{"111", "0"},
+				{"1111", "1"}
 			};
 			
 		LC067_AddBinary lc067 = new LC067_AddBinary();
@@ -420,6 +420,26 @@ public class LC200_TestSuite {
 			System.out.println("Number 1:" + input[i][0] + " + Number 2: " + input[i][1] +
 					" = " + lc067.addBinary(input[i][0],  input[i][1]));
 		}				
+	}
+	
+	@Test
+	public void test066(){
+		int [][] input = new int[][] {
+				{1,2,3,4,5,6,7,8,9},
+				{9,9,9},
+				{0},
+				{1},
+				{}
+		};
+		
+		LC066_PlusOne lc066 = new LC066_PlusOne();
+		
+		for (int[] in : input){
+			System.out.println("Input array:");
+			LeetCodeUtils.printIntArray(in);
+			System.out.println("Output array:");
+			LeetCodeUtils.printIntArray(lc066.plusOne(in));
+		}
 	}
 }
 

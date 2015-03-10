@@ -18,7 +18,7 @@ public class LC067_AddBinary {
 
 	public String addBinary(String a, String b) {
 		
-		StringBuilder sb = new StringBuilder();
+		String r = "";
 		
 		if (a==null || a.isEmpty()){
 			return b;
@@ -30,10 +30,11 @@ public class LC067_AddBinary {
 		int p1 = a.length() - 1;
 		int p2 = b.length() - 1;
 		
+		int carry = 0;
+		
 		while (p1>=0 || p2>=0) {
 
 			char ca, cb;
-			int carry = 0;
 			
 			if (p1 >= 0){
 				ca = a.charAt(p1);
@@ -54,14 +55,18 @@ public class LC067_AddBinary {
 			
 			int sum = ia + ib + carry;
 			
-			carry = sum/2;
-			sb.append(sum%2);
-			
+			carry = sum/2;		
+			r = sum%2 + r;
+	
 			p1--;
 			p2--;
 		}
+		
+		if (carry>0){
+			r = carry + r;
+		}
 
-		return sb.toString();
+		return r;
 	}
 	
 }
