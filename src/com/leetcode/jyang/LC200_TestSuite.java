@@ -321,7 +321,7 @@ public class LC200_TestSuite {
 	    System.out.println("};");
 	}
 	
-	@Test
+	//@Test
 	public void testLC037(){
 		char[][] sudoko = new char[][]{
 				{'5','3','0','0','7','0','0','0','0',},
@@ -343,6 +343,41 @@ public class LC200_TestSuite {
 		
 	}
 	
+	//@Test
+	public void testLC025(){
+		int[][] input = new int[][] {
+				{1,2,3,4,5,6,7,8},
+//				{1,2,3,4,5,6,7,8,9},
+//				{1,2},
+//				{1}
+		};
+		
+		LC025_ReverseKGroup lc025 = new LC025_ReverseKGroup();
+		
+		for (int i=0; i<input.length; i++) {
+			ListNode head = LeetCodeUtils.buildList(input[i]);
+			LeetCodeUtils.printlist(head);
+			
+			head = lc025.reverseList(head);
+			LeetCodeUtils.printlist(head);
+		}
+	}
+	
+	@Test
+	public void testLC032(){
+		String[] input = new String[]{
+				"(()",
+				")()())",
+				"()(()"
+			};
+			
+		LC032_LongestValidParentheses lc032 = new LC032_LongestValidParentheses();
+			
+		for (int i=0; i<input.length; i++){
+			System.out.println("Longest valid parentheses in " + input[i] + ": " + 
+					lc032.longestValidParentheses(input[i]));
+		}
+	}
 	
 }
 

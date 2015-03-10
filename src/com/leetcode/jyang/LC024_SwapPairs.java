@@ -19,11 +19,7 @@ public class LC024_SwapPairs {
 	
     public ListNode swapPairs(ListNode head) {
     	
-    	if (head==null){
-    		return head;
-    	}
-    	
-    	if (head.next==null){
+    	if (head==null || head.next==null){
     		return head;
     	}
         
@@ -32,8 +28,7 @@ public class LC024_SwapPairs {
     	ListNode newHead = head.next;
     	newHead.next = head;
     	head.next = tmp;
-    	
-    	
+    	  	
        	ListNode p0 = newHead.next;
        			
     	// 3rd and 4th
@@ -61,15 +56,5 @@ public class LC024_SwapPairs {
     	}
  
     	return newHead;
-    }
-	
-    // pre: n1.next == n2
-    // post: n2.next== n1, n1.next==(old)n2.next
-    public void swap(ListNode n1, ListNode n2){
-    	
-    	ListNode tmp = n2.next;
-    	
-    	n2.next = n1;
-    	n1.next = tmp;
     }
 }
