@@ -363,7 +363,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC032(){
 		String[] input = new String[]{
 				"(()",
@@ -379,6 +379,48 @@ public class LC200_TestSuite {
 		}
 	}
 	
+	//@Test
+	public void test058(){
+		
+		String[] s = new String[]{
+				"",
+				" ",
+				"  ",
+				"a",
+				"abcdefg",
+				"  abcdefg",
+				"abcdefg  ",
+				"abcd efg",
+				"  abcd efg",
+				"abcd efg ",
+				"  abcd efg  ",
+			};
+			
+		LC058_LengthOfLastWord lc058 = new LC058_LengthOfLastWord();
+			
+		for (String str : s) {
+			System.out.println("Input: " + str + " length of last word is " + lc058.lengthOfLastWord(str));
+		}
+	}
+	
+	@Test
+	public void test067(){
+		
+		String[][] input = new String[][]{
+				{"111111", "111"},
+//				{"100000", "100"},
+//				{"", "111"},
+//				{"111", "0"},
+//				{"1111", "1"}
+			};
+			
+		LC067_AddBinary lc067 = new LC067_AddBinary();
+		
+		for (int i=0; i<input.length; i++){
+			System.out.println("Number 1:" + input[i][0] + " + Number 2: " + input[i][1] +
+					" = " + lc067.addBinary(input[i][0],  input[i][1]));
+		}				
+	}
 }
 
 
