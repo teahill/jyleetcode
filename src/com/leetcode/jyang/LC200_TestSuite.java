@@ -403,7 +403,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test067(){
 		
 		String[][] input = new String[][]{
@@ -440,6 +440,55 @@ public class LC200_TestSuite {
 			System.out.println("Output array:");
 			LeetCodeUtils.printIntArray(lc066.plusOne(in));
 		}
+	}
+	
+	//@Test
+	public void test083(){
+		
+		int [][] input = new int[][] {
+				{1,2,3,4,5,6,7,8,9},
+				{1,2,2,2,3,5,6,6,7,9,9}		
+		};
+		
+		LC083_RemoveDuplicates lc083 = new LC083_RemoveDuplicates();
+		
+		for (int[] in : input){
+			System.out.println("Input list:");
+			ListNode l1 = LeetCodeUtils.buildList(in);
+			LeetCodeUtils.printlist(l1);
+			System.out.println("Output list:");
+			ListNode l2 = lc083.deleteDuplicates(l1);
+			LeetCodeUtils.printlist(l2);
+		}
+		
+	}
+	
+	@Test
+	public void test084(){
+		
+		int [][] input = new int[][] {
+				{1,2,3,3,3,4,4,5},
+				{1,1,1,2,3},
+				{1,1,2,2,3,3},
+				{1,1,1,1,1,1},
+				{1,1,1},
+				{1,2,2},
+//				{1,1},
+//				{1,2},
+//				{1},
+		};
+		
+		LC084_RemoveDuplicates2 lc084 = new LC084_RemoveDuplicates2();
+		
+		for (int[] in : input){
+			System.out.println("Input list:");
+			ListNode l1 = LeetCodeUtils.buildList(in);
+			LeetCodeUtils.printlist(l1);
+			System.out.println("Output list:");
+			ListNode l2 = lc084.deleteDuplicates(l1);
+			LeetCodeUtils.printlist(l2);
+		}
+		
 	}
 }
 
