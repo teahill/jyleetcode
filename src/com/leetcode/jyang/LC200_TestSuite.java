@@ -191,6 +191,36 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
+	public void testLC021(){
+		ListNode l1 = LeetCodeUtils.buildList(new int[]{1,3,4,6,9,23,28});	
+		ListNode l2 = LeetCodeUtils.buildList(new int[]{1,2,4,7,10,25,28});
+		
+		LC021_MergeTwoLists lc021 = new LC021_MergeTwoLists();
+		
+		LeetCodeUtils.printlist(lc021.mergeTwoLists(l1, l2));	
+	}	
+	
+	@Test
+	public void testLC025(){
+		int[][] input = new int[][] {
+//				{1,2,3,4,5,6,7,8},
+				{1,2,3,4,5,6,7,8,9},
+//				{1,2},
+//				{1}
+		};
+		
+		LC025_ReverseKGroup lc025 = new LC025_ReverseKGroup();
+		
+		for (int i=0; i<input.length; i++) {
+			ListNode head = LeetCodeUtils.buildList(input[i]);
+			LeetCodeUtils.printlist(head);
+			
+			head = lc025.reverseList(head, 2);
+			LeetCodeUtils.printlist(head);
+		}
+	}	
+	
+	//@Test
 	public void testLC026(){
 		int[][] input = new int[][] {
 				{1,2,3,4,4,5,6,7,7,8},
@@ -210,16 +240,6 @@ public class LC200_TestSuite {
 			LeetCodeUtils.printIntArray(input[i]);
 			System.out.println("New length is: " + len);
 		}
-	}
-	
-	//@Test
-	public void testLC021(){
-		ListNode l1 = LeetCodeUtils.buildList(new int[]{1,3,4,6,9,23,28});	
-		ListNode l2 = LeetCodeUtils.buildList(new int[]{1,2,4,7,10,25,28});
-		
-		LC021_MergeTwoLists lc021 = new LC021_MergeTwoLists();
-		
-		LeetCodeUtils.printlist(lc021.mergeTwoLists(l1, l2));	
 	}
 	
 	//@Test
@@ -280,16 +300,20 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void testLC038(){
-		
-		int[] input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30};
-		
-		LC038_CountAndSay lc038 = new LC038_CountAndSay();
-		
-		for (int i=0; i<input.length; i++) {
-			System.out.println("#" + input[i] + ": " + lc038.countAndSay(input[i]));
+	public void testLC032(){
+		String[] input = new String[]{
+				"(()",
+				")()())",
+				"()(()"
+			};
+			
+		LC032_LongestValidParentheses lc032 = new LC032_LongestValidParentheses();
+			
+		for (int i=0; i<input.length; i++){
+			System.out.println("Longest valid parentheses in " + input[i] + ": " + 
+					lc032.longestValidParentheses(input[i]));
 		}
-	}
+	}	
 	
 	//@Test
 	public void testLC037_1(){
@@ -341,43 +365,19 @@ public class LC200_TestSuite {
 		
 		System.out.println("Sudoko is valid? " + isValid);
 		
-	}
+	}	
 	
 	//@Test
-	public void testLC025(){
-		int[][] input = new int[][] {
-				{1,2,3,4,5,6,7,8},
-//				{1,2,3,4,5,6,7,8,9},
-//				{1,2},
-//				{1}
-		};
+	public void testLC038(){
 		
-		LC025_ReverseKGroup lc025 = new LC025_ReverseKGroup();
+		int[] input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30};
+		
+		LC038_CountAndSay lc038 = new LC038_CountAndSay();
 		
 		for (int i=0; i<input.length; i++) {
-			ListNode head = LeetCodeUtils.buildList(input[i]);
-			LeetCodeUtils.printlist(head);
-			
-			head = lc025.reverseList(head);
-			LeetCodeUtils.printlist(head);
+			System.out.println("#" + input[i] + ": " + lc038.countAndSay(input[i]));
 		}
-	}
-	
-	//@Test
-	public void testLC032(){
-		String[] input = new String[]{
-				"(()",
-				")()())",
-				"()(()"
-			};
-			
-		LC032_LongestValidParentheses lc032 = new LC032_LongestValidParentheses();
-			
-		for (int i=0; i<input.length; i++){
-			System.out.println("Longest valid parentheses in " + input[i] + ": " + 
-					lc032.longestValidParentheses(input[i]));
-		}
-	}
+	}	
 	
 	//@Test
 	public void test058(){
@@ -463,7 +463,7 @@ public class LC200_TestSuite {
 		
 	}
 	
-	@Test
+	//@Test
 	public void test084(){
 		
 		int [][] input = new int[][] {

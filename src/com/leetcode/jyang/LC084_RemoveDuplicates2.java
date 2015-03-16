@@ -14,6 +14,38 @@ package com.leetcode.jyang;
  */
 public class LC084_RemoveDuplicates2 {
 	
+	public ListNode deleteDuplicates(ListNode head) {
+		
+	    if(head==null || head.next==null)
+	        return head;
+		
+	    ListNode dummy = new ListNode(0);
+	    dummy.next=head;
+	        
+	    ListNode prev = dummy; 
+		ListNode ptr = head;
+		
+		while (ptr!=null){
+			
+			if (ptr.next!=null && ptr.val==ptr.next.val){
+				
+				ListNode tmp = ptr;
+				
+				while (tmp!=null && ptr.val==tmp.val){
+					tmp = tmp.next;
+				}
+				
+				ptr = tmp;
+				prev.next = ptr;
+			}
+			else {
+				prev = prev.next;
+				ptr = ptr.next;
+			}
+		}
+		
+		return dummy.next;
+	}
 	
 	public ListNode deleteDuplicates2(ListNode head) {
 		
@@ -53,38 +85,5 @@ public class LC084_RemoveDuplicates2 {
         
         return dummy.next;
     }
-	
-	public ListNode deleteDuplicates(ListNode head) {
-		
-	    if(head==null || head.next==null)
-	        return head;
-		
-	    ListNode dummy = new ListNode(0);
-	    dummy.next=head;
-	        
-	    ListNode prev = dummy; 
-		ListNode ptr = head;
-		
-		while (ptr!=null){
-			
-			if (ptr.next!=null && ptr.val==ptr.next.val){
-				
-				ListNode tmp = ptr;
-				
-				while (tmp!=null && ptr.val==tmp.val){
-					tmp = tmp.next;
-				}
-				
-				ptr = tmp;
-				prev.next = ptr;
-			}
-			else {
-				prev = prev.next;
-				ptr = ptr.next;
-			}
-		}
-		
-		return dummy.next;
-	}
 
 }

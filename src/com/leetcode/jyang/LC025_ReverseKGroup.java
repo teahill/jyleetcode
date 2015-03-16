@@ -41,33 +41,82 @@ public class LC025_ReverseKGroup {
 	
 	public ListNode reverseList(ListNode head){
 		
-		if (head==null){
+		if (head==null || head.next==null){
 			return head;
 		}
 		
-		ListNode p1 = head;
-		ListNode p2 = head.next;
-		ListNode newHead = p2;
+		// new head at the moment. It is a moving head until the entire reverse is done
+		ListNode newHead = head.next;
+		// next node to be placed before current newHead (and becomes the new newHead)
+		ListNode ptr = newHead.next;
 		
-		while (p1!=null && p2!=null){
+		newHead.next = head;
+		head.next = null; // it will eventually become the tail
+		
+		while (ptr!=null){
 			
-			ListNode tmp = p2.next;
-			p2.next = p1;
-			p1.next = tmp;
+			ListNode tmp = ptr.next;
 			
-			p2 = p1.next;
-			
-			System.out.print("->");
-			LeetCodeUtils.printlist(p1);
-			
-			System.out.print("-->");
-			LeetCodeUtils.printlist(p2);
-
-			System.out.print("--->");
-			LeetCodeUtils.printlist(newHead);
+			ptr.next = newHead;
+			newHead = ptr;
+			ptr = tmp;
 		}
 		
 		return newHead;
+	}
+	
+	public ListNode reverseList(ListNode head, int k){
 		
+		if (head==null || head.next==null){
+			return head;
+		}
+		
+		ListNode[] a = new ListNode[k];
+		
+		ListNode p1 = head;
+		
+		ListNode localHead = null;
+		ListNode localTail = null;
+		
+		ListNode finalHead = null;
+		
+		while (p1!=null){
+			
+			int i = 0;
+			
+			while (i<k && p1!=null){			
+				a[i] = p1;
+				p1 = p1.next;
+				
+				i++;
+			}
+			
+			if (i==k){
+				
+				for (int j=k-1; j>0; j--){
+					a[j].next = a[j-1];
+				}
+				
+				if (localTail!=null){
+					localTail.next = a[k-1];
+				}
+				
+				localHead = a[k-1];
+				localTail = a[0];
+				
+				if (finalHead==null){
+					finalHead = localHead;
+				}
+				
+				localTail.next = p1;
+			}
+			else {
+				if (localHead==null){
+					return head;
+				}
+			}
+		}
+		
+		return finalHead;
 	}
 }
