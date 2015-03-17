@@ -200,7 +200,7 @@ public class LC200_TestSuite {
 		LeetCodeUtils.printlist(lc021.mergeTwoLists(l1, l2));	
 	}	
 	
-	@Test
+	//@Test
 	public void testLC025(){
 		int[][] input = new int[][] {
 //				{1,2,3,4,5,6,7,8},
@@ -312,6 +312,61 @@ public class LC200_TestSuite {
 		for (int i=0; i<input.length; i++){
 			System.out.println("Longest valid parentheses in " + input[i] + ": " + 
 					lc032.longestValidParentheses(input[i]));
+		}
+	}	
+	
+	//@Test
+	public void testLC034(){
+		int[][] input = new int[][] {
+				{5, 7, 7, 8, 8, 10},
+				{1,2,3,4,5,6,7,8,9},
+				{1,2},
+				{1}
+		};
+		
+		int[] input2 = new int[] {
+				10,
+				9,
+				1,
+				1
+		};
+		
+		LC034_SearchInRange lc034 = new LC034_SearchInRange();
+		
+		for (int i=0; i<input.length; i++) {
+			LeetCodeUtils.printIntArray(input[i]);
+			
+			int[] r = lc034.searchRange(input[i], input2[i]);
+			LeetCodeUtils.printIntArray(r);
+		}
+	}
+	
+	@Test
+	public void testLC035(){
+		int[][] input = new int[][] {
+				{1,3,5,6},
+				{1,3,5,6},
+				{1,3,5,6},
+				{1,3,5,6},		
+				{1, 3},
+		};
+		
+		int[] input2 = new int[] {
+			5,
+			2,
+			7,
+			0,
+			2,
+		};
+		
+		LC035_SearchInsertPos lc035 = new LC035_SearchInsertPos();
+		
+		for (int i=0; i<input.length; i++) {
+			
+			LeetCodeUtils.printIntArray(input[i]);
+			
+			int r = lc035.searchInsert(input[i], input2[i]);
+			System.out.println("Insert position in input array" + " for " + input2[i] + " is " + r);
 		}
 	}	
 	
