@@ -39,24 +39,29 @@ public class LC061_RotateList {
     		cnt++;
     	}
     	
-    	if (cnt<k){
-    		k = k%cnt;
-    	}
-    	
-    	while (p1!=null){
-    		
-    		prev = p1;
-    		p1 = p1.next;
-    		
-    		if (cnt>k){
-    			p2 = p2.next;
-    		}
-    		
-    		cnt++;
-    	}
-    	
-    	if (cnt<=k){
+    	if (k%cnt==0){
     		return head;
+    	}
+    	
+    	if (cnt<k){	
+    		k = k%cnt;
+    		
+	    	p1 = head;
+	    	p2 = head;
+	    	prev = head;
+	    	
+	    	cnt = 0;
+	    	
+	    	while (p1!=null){    		
+	    		prev = p1;
+	    		p1 = p1.next;
+	    		
+	    		if (cnt>k){
+	    			p2 = p2.next;
+	    		}
+	    		
+	    		cnt++;
+	    	}
     	}
     	
     	prev.next = head;

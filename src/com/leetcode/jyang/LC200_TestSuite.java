@@ -469,7 +469,7 @@ public class LC200_TestSuite {
 		};
 		
 		int[] input2 = new int[] {
-			7,
+			5,
 //			2,
 //			7,
 //			0,
