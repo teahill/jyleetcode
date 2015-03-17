@@ -341,7 +341,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC035(){
 		int[][] input = new int[][] {
 				{1,3,5,6},
@@ -455,6 +455,32 @@ public class LC200_TestSuite {
 			
 		for (String str : s) {
 			System.out.println("Input: " + str + " length of last word is " + lc058.lengthOfLastWord(str));
+		}
+	}
+	
+	@Test
+	public void testLC061(){
+		int[][] input = new int[][] {
+				{1,2,3,4,5},
+//				{1,3,5,6},
+//				{1,3,5,6},
+//				{1,3,5,6},		
+//				{1, 3},
+		};
+		
+		int[] input2 = new int[] {
+			7,
+//			2,
+//			7,
+//			0,
+//			2,
+		};
+		
+		LC061_RotateList lc061 = new LC061_RotateList();
+		
+		for (int i=0; i<input.length; i++) {		
+			ListNode head = lc061.rotateRight(LeetCodeUtils.buildList(input[i]), input2[i]);
+			LeetCodeUtils.printlist(head);
 		}
 	}
 	

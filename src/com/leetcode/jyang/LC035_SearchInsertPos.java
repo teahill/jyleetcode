@@ -53,8 +53,6 @@ public class LC035_SearchInsertPos {
     		}
     	}    	
     	
-    	System.out.println("A[" + mid + "] is " + A[mid]);
-    	
     	return target > A[mid] ? mid+1 : mid;    	   	
     }
 	
