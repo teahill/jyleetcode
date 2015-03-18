@@ -1,7 +1,11 @@
 package com.leetcode.jyang;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.Set;
+import java.util.Stack;
 import java.util.StringTokenizer;
 
 /**
@@ -11,79 +15,61 @@ import java.util.StringTokenizer;
  * path = "/home/", => "/home"
  * path = "/a/./b/../../c/", => "/c"
  * 
+ * "/a/./b///../c/../././../d/..//../e/./f/./g/././//.//h///././/..///"
+ * 
  * @author jyang
  *
  */
 
 public class LC071_SimplifyPath {
-
-    public String simplifyPath(String path) {
-        
-   	if (path.equals("/") || path.equals("//")){
-    		return path;
-    	}
-    	
-   		
-    	if (path.equals("/...") || path.equals("/.../")){
-    		return "/...";
-    	}
-    	
-    	boolean hasOnlyDotSlash = true;
-    	for (int i = 0; i<path.length(); i++){
-    		char c = path.charAt(i);
-    		if (!(c=='.' || c=='/')){
-    			hasOnlyDotSlash = false;
-    		}
-    	}
-    	
-    	if (hasOnlyDotSlash){
-    		return "/";
-    	}
-    	
-    	/* 
-    	 * if a path starts with /, followed by any number of /'s, .'s or ..'s, we should all
-    	 * return /, e.g.
-    	 *   
-    	 *   /..////.///..//..
-         */
-    	
-    	StringTokenizer st = new StringTokenizer(path, "/");
-    	
-    	List<String> simplified = new ArrayList<String>();
+	
+	
+	public String simplifyPath(String path) {
+		
+	   	StringTokenizer st = new StringTokenizer(path, "/");
+    	Stack<String> stack = new Stack<String>();   	
     	
     	while (st.hasMoreTokens()){
     		
     		String t = st.nextToken();
     		
-    		//System.out.println("->" + t + "<-");
-    		
-    		if (t.equals(".")){
+       		if (t.equals(".")){
     			continue;
     		}
-    		else if (t.equals("..")){
-    			if (simplified.isEmpty()){
-    				simplified.add(t);
-    			}
-    			else {
-    				simplified.remove(simplified.size()-1);
-    			}
+    		else if (t.equals("..") && !stack.isEmpty()){    	
+    			stack.pop();
     		}
-    		else {
-    			simplified.add(t);
+    		else if (!t.equals("..")){
+    			stack.push(t);
     		}
     	}
+		
+    	String ret = "";    
     	
-    	if (simplified.isEmpty()){
-    		return "/";
+    	while (!stack.isEmpty()){
+    		String e = stack.pop();
+    		ret = "/" + e + ret;
     	}
     	
-    	String ret = "";
-        
-    	for (String s : simplified){
-    		ret = ret + "/" + s;
-    	}
-    	
-    	return ret;
-    }
+    	return ret.isEmpty() ? "/" : ret;
+	}
 	
+	public String simplifyPath_alt(String path){
+		
+	    Deque<String> stack = new LinkedList<>();
+	    
+	    Set<String> skip = new HashSet<>(Arrays.asList("..",".",""));
+	    
+	    for (String dir : path.split("/")) {
+	        if (dir.equals("..") && !stack.isEmpty()) stack.pop();
+	        else if (!skip.contains(dir)) stack.push(dir);
+	    }
+	    
+	    String res = "";
+	    
+	    for (String dir : stack) res = "/" + dir + res;
+	    
+	    return res.isEmpty() ? "/" : res;
+		
+	}
 }

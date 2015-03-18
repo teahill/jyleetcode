@@ -1,5 +1,8 @@
 package com.leetcode.jyang;
 
+import java.util.Iterator;
+import java.util.Stack;
+
 public class LeetCodeUtils {
 	
 	public static ListNode buildList(int[] input){
@@ -43,4 +46,13 @@ public class LeetCodeUtils {
 		System.out.println();
 	}
 
+	public static void printStack(Stack<?> s){
+		
+		Iterator<?> itr = s.iterator();
+		
+		while (itr.hasNext()){
+			System.out.print(itr.next() + "->");
+		}
+		System.out.println();
+	}
 }
