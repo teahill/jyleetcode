@@ -458,7 +458,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC061(){
 		int[][] input = new int[][] {
 				{1,2,3,4,5},
@@ -521,6 +521,24 @@ public class LC200_TestSuite {
 			System.out.println("Output array:");
 			LeetCodeUtils.printIntArray(lc066.plusOne(in));
 		}
+	}
+	
+	@Test
+	public void test071(){
+
+		String[] s = new String[]{
+//				"//a/./b/../../c/",
+//				"///home////",
+//				"///",
+				"/home/../../.."
+				
+			};
+			
+		LC071_SimplifyPath lc071 = new LC071_SimplifyPath();
+			
+		for (String str : s) {
+			System.out.println("Input: " + str + " simplified path is " + lc071.simplifyPath(str));
+		}	
 	}
 	
 	//@Test
