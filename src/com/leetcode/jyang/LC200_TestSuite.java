@@ -524,6 +524,18 @@ public class LC200_TestSuite {
 	}
 	
 	@Test
+	public void test070(){
+		
+		int[] input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30};
+		
+		LC070_ClimbingStairs lc070 = new LC070_ClimbingStairs();
+		
+		for (int i=0; i<input.length; i++) {
+			System.out.println("#" + input[i] + ": " + lc070.climbStairs(input[i]));
+		}
+	}
+	
+	//@Test
 	public void test071(){
 
 		String[] s = new String[]{
@@ -591,6 +603,8 @@ public class LC200_TestSuite {
 		}
 		
 	}
+	
+	
 }
 
 
