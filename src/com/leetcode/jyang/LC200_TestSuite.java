@@ -486,7 +486,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC062(){
 		int[][] input = new int[][] {
 				{3, 7},
@@ -503,6 +503,28 @@ public class LC200_TestSuite {
 			LeetCodeUtils.printIntArray(input[i]);
 			System.out.println("# of unique paths is " + c);
 		}
+	}
+	
+	@Test
+	public void testLC063(){
+		int[][] input = new int[][] {
+//				{0, 0},
+//				{0, 1},				
+//				{0},
+//				{0, 0, 0},
+//				{0, 1, 0},
+//				{0, 0, 0},
+				{0, 0, 0, 0, 0, 0, 0},
+				{0, 0, 0, 1, 0, 0, 0},
+				{0, 0, 0, 0, 0, 0, 0},
+
+		};
+		
+		LC063_UniquePaths2 lc063 = new LC063_UniquePaths2();
+		
+		int c = lc063.uniquePathsWithObstacles(input);
+		
+		System.out.println("# of unique paths is " + c);
 	}
 	
 	//@Test
