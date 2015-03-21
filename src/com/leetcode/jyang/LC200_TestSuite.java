@@ -1,5 +1,6 @@
 package com.leetcode.jyang;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
@@ -505,7 +506,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC063(){
 		int[][] input = new int[][] {
 //				{0, 0},
@@ -645,6 +646,38 @@ public class LC200_TestSuite {
 			LeetCodeUtils.printlist(l2);
 		}
 		
+	}
+	
+	@Test
+	public void test120(){
+		
+		int [][] input = new int[][] {
+//				{-1,0,0},
+//				{2,3,0},
+//				{1,-1,-3}
+				{2,0,0,0},
+				{3,4,0,0},
+				{6,5,7,0},
+				{4,1,8,3}
+		};
+		
+		LC120_Triangle lc120 = new LC120_Triangle();
+		
+		List<List<Integer>> triangle = new ArrayList<List<Integer>>();
+		
+		for (int i=0; i<input.length; i++){
+			List<Integer> row = new ArrayList<Integer>();
+			
+			for (int j=0; j<input[i].length; j++){
+				if (input[i][j]!=0){
+					row.add(input[i][j]);
+				}
+			}
+			
+			triangle.add(row);
+		}
+		
+		System.out.println("Minimum sum of input triangle is: " + lc120.minimumTotal(triangle));
 	}
 	
 	//@Test

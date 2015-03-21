@@ -76,29 +76,6 @@ public class LC063_UniquePaths2 {
        			else if (j-1>=0){
     				grid[i][j] = grid[i][j-1];
     			}
-    			
-//    			if (i-1>=0 && j-1>=0){ 				
-//    				if (obstacleGrid[i-1][j]!=1){
-//    					grid[i][j] += grid[i-1][j];
-//    				}
-//    				
-//       				if (obstacleGrid[i][j-1]!=1){
-//    					grid[i][j] += grid[i][j-1];
-//    				}
-//    			}
-//    			else if (i-1>=0){
-//       				if (obstacleGrid[i-1][j]!=1){
-//    					grid[i][j] += grid[i-1][j];
-//    				}
-//    			}
-//       			else if (j-1>=0){
-//      				if (obstacleGrid[i][j-1]!=1){
-//    					grid[i][j] += grid[i][j-1];
-//    				}
-//    			}
-//       			else {
-//       				grid[i][j] = 0;
-//       			}
     		}
     	}
     	
