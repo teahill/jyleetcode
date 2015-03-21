@@ -1,7 +1,9 @@
 package com.leetcode.jyang;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.junit.*;
 
@@ -523,7 +525,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test070(){
 		
 		int[] input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30};
@@ -604,7 +606,29 @@ public class LC200_TestSuite {
 		
 	}
 	
-	
+	@Test
+	public void test140(){
+		
+		String[][] dict = new String[][]{
+				{"good", "leet", "code"},
+				{"cbc","bcda","adb","ddca","bad","bbb","dad","dac","ba","aa","bd","abab","bb","dbda","cb","caccc","d","dd","aadb","cc","b","bcc","bcd","cd","cbca","bbd","ddd","dabb","ab","acd","a","bbcc","cdcbd","cada","dbca","ac","abacd","cba","cdb","dbac","aada","cdcda","cdc","dbc","dbcb","bdb","ddbdd","cadaa","ddbc","babb"},
+		};
+		
+		String[] words = new String[] {
+			"codeleetgood",
+			"bccdbacdbdacddabbaaaadababadad"
+		};
+		
+		LC140_WordBreak lc140 = new LC140_WordBreak();
+		
+		for (int i=0; i<words.length; i++){			
+			Set<String> dictSet = new HashSet<String>(Arrays.asList(dict[i]));  			
+			boolean breakable = lc140.wordBreak(words[i], dictSet);
+			
+			LeetCodeUtils.printStrArray(dict[i]);
+			System.out.println("word: " + words[i] + ", breakable? " + breakable);			
+		}
+	}
 }
 
 

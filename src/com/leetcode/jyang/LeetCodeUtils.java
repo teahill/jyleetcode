@@ -55,4 +55,11 @@ public class LeetCodeUtils {
 		}
 		System.out.println();
 	}
+	
+	public static void printStrArray(String[] a){
+		for (int i = 0; i<a.length; i++) {
+			System.out.print(a[i] + " ");
+		}
+		System.out.println();
+	}
 }
