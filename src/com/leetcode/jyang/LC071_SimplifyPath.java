@@ -56,9 +56,9 @@ public class LC071_SimplifyPath {
 	
 	public String simplifyPath_alt(String path){
 		
-	    Deque<String> stack = new LinkedList<>();
+	    Deque<String> stack = new LinkedList<String>();
 	    
-	    Set<String> skip = new HashSet<>(Arrays.asList("..",".",""));
+	    Set<String> skip = new HashSet<String>(Arrays.asList("..",".",""));
 	    
 	    for (String dir : path.split("/")) {
 	        if (dir.equals("..") && !stack.isEmpty()) stack.pop();

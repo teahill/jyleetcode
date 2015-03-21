@@ -1,5 +1,7 @@
 package com.leetcode.jyang;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 /**
@@ -17,7 +19,9 @@ import java.util.Set;
  *
  */
 
-public class LC140_WordBreak {
+public class LC139_WordBreak {
+	
+	Map<String, Boolean> map = new HashMap<String, Boolean>();
 	
     public boolean wordBreak(String s, Set<String> dict) {
         
@@ -29,7 +33,12 @@ public class LC140_WordBreak {
     		return true;
     	}
     	
+    	if (map.containsKey(s)){
+    		return map.get(s);
+    	}
+    	
     	if (dict.contains(s)){
+    		map.put(s, Boolean.valueOf(true));
     		return true;
     	}
     	    	
@@ -38,9 +47,13 @@ public class LC140_WordBreak {
     		int start = s.indexOf(a[i]);
     		
     		if (start>=0){    			
-    			boolean breakable = wordBreak(s.substring(0, start), dict) &&  wordBreak(s.substring(start + a[i].length(), s.length()), dict);
+    			boolean breakable = wordBreak(s.substring(0, start), dict) && wordBreak(s.substring(start + a[i].length(), s.length()), dict);
     			if (breakable){
+    				map.put(s, Boolean.valueOf(true));
     				return true;
+    			}
+    			else {
+    				map.put(s, Boolean.valueOf(false));
     			}
     		}
     	}
