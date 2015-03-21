@@ -528,6 +528,30 @@ public class LC200_TestSuite {
 		System.out.println("# of unique paths is " + c);
 	}
 	
+	@Test
+	public void testLC064(){
+		int[][] input = new int[][] {
+//				{0, 0},
+//				{0, 1},				
+//				{0},
+//				{1, 1},
+//				{2, 1},
+//				{1, 1, 1},
+//				{2, 2, 1},
+//				{2, 2, 1},
+				{1, 1, 1, 1, 1, 1, 1},
+				{0, 0, 3, 1, 7, 0, 1},
+				{2, 5, 0, 2, 0, 4, 1},
+
+		};
+		
+		LC064_MinimumPathSum lc064 = new LC064_MinimumPathSum();
+		
+		int s = lc064.minPathSum(input);
+		
+		System.out.println("Minimum path sum is " + s);
+	}
+	
 	//@Test
 	public void test067(){
 		
@@ -648,7 +672,7 @@ public class LC200_TestSuite {
 		
 	}
 	
-	@Test
+	//@Test
 	public void test120(){
 		
 		int [][] input = new int[][] {
