@@ -762,6 +762,22 @@ public class LC200_TestSuite {
 	}
 	
 	@Test
+	public void test151(){
+		
+		String[] input = new String[]{
+				"the sky is blue",
+				" ",
+				"sky"
+		};
+		
+		LC151_ReverseWordsInString lc151 = new LC151_ReverseWordsInString();
+		
+		for (int i=0; i<input.length; i++){
+			System.out.println("input: " + input[i] + "->output: " + lc151.reverseWords(input[i]));
+		}
+	}		
+	
+	//@Test
 	public void test171(){
 		
 		String[] input = new String[]{
