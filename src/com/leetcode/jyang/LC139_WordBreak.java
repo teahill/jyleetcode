@@ -23,9 +23,52 @@ public class LC139_WordBreak {
 	
 	Map<String, Boolean> map = new HashMap<String, Boolean>();
 	
-    public boolean wordBreak(String s, Set<String> dict) {
+	public boolean wordBreak(String s, Set<String> dict){
+		
+		String[] a = new String[dict.size()];
+    	dict.toArray(a);
+    	
+    	return wordBreakInternal(s, a, dict);
+	}
+	
+    public boolean wordBreakInternal(String s, String[] a, Set<String> dict) {
+    	
+	   	if (s==null || s.isEmpty()){
+    		return true;
+    	}
+    	
+    	if (map.containsKey(s)){
+    		return map.get(s);
+    	}
+    	
+    	if (dict.contains(s)){
+    		map.put(s, Boolean.valueOf(true));
+    		return true;
+    	}
+    	    	
+    	for (int i=0; i<a.length; i++){
+    		
+    		int start = s.indexOf(a[i]);
+    		
+    		if (start>=0){    			
+    			boolean breakable = wordBreakInternal(s.substring(0, start), a, dict) && 
+    					            wordBreakInternal(s.substring(start + a[i].length(), s.length()), a, dict);
+    			if (breakable){
+    				map.put(s, Boolean.valueOf(true));
+    				return true;
+    			}
+    			else {
+    				map.put(s, Boolean.valueOf(false));
+    			}
+    		}
+    	}
+    	
+    	return false;
+    }
+    
+    public boolean wordBreak2(String s, Set<String> dict) {
         
-    	String[] a = new String[dict.size()];
+   	    String[] a = new String[dict.size()];
     	
     	dict.toArray(a);
     	
@@ -58,7 +101,6 @@ public class LC139_WordBreak {
     		}
     	}
     	
-    	return false;
+    	return false;     
     }
-    
 }

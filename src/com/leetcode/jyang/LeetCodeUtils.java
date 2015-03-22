@@ -1,6 +1,7 @@
 package com.leetcode.jyang;
 
 import java.util.Iterator;
+import java.util.List;
 import java.util.Stack;
 
 public class LeetCodeUtils {
@@ -61,5 +62,13 @@ public class LeetCodeUtils {
 			System.out.print(a[i] + " ");
 		}
 		System.out.println();
+	}
+	
+	public static void printList(List<?> list){
+		System.out.print("[");
+		for (Object s : list){
+			System.out.print(s + " ");
+		}	
+		System.out.println("]");
 	}
 }
