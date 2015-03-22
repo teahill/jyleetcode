@@ -528,7 +528,7 @@ public class LC200_TestSuite {
 		System.out.println("# of unique paths is " + c);
 	}
 	
-	@Test
+	//@Test
 	public void testLC064(){
 		int[][] input = new int[][] {
 //				{0, 0},
@@ -729,6 +729,67 @@ public class LC200_TestSuite {
 			System.out.println("word: " + words[i] + ", breakable? " + breakable);			
 		}
 	}
+	
+	//@Test
+	public void test168(){
+		
+		int[] input = new int[]{
+			1,
+			2,
+			3,
+			26,
+			27,
+			28,
+			52,
+			53,
+			78,
+			79,
+			675,
+			676,
+			677,
+			17575,
+			17576,
+			17577,
+			
+		};
+		
+		LC168_ExcelSheetColumnTitle lc168 = new LC168_ExcelSheetColumnTitle();
+		
+		for (int i=0; i<input.length; i++){
+			//System.out.println("input: " + input[i] + "->title: " + lc168.convertToTitle(input[i]));
+			System.out.println("\"" + lc168.convertToTitle(input[i]) + "\",");
+		}
+	}
+	
+	@Test
+	public void test171(){
+		
+		String[] input = new String[]{
+				"A",
+				"B",
+				"C",
+				"Z",
+				"AA",
+				"AB",
+				"AZ",
+				"BA",
+				"BZ",
+				"CA",
+				"YY",
+				"YZ",
+				"ZA",
+				"YYY",
+				"YYZ",
+				"YZA",
+
+		};
+		
+		LC171_ExcelSheetColumnNumber lc171 = new LC171_ExcelSheetColumnNumber();
+		
+		for (int i=0; i<input.length; i++){
+			System.out.println("input: " + input[i] + "->title: " + lc171.titleToNumber(input[i]));
+		}
+	}	
 }
 
 
