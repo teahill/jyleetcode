@@ -623,6 +623,26 @@ public class LC200_TestSuite {
 		}	
 	}
 	
+	@Test
+	public void test080(){
+		
+		int [][] input = new int[][] {
+				{1,1,1,2,2,2,3,3,3,5,5,5,6,6},
+				{1,1,1,2,2,3},
+				{1,1,2,2,3}		
+		};
+		
+		LC080_RemoveDupArray2 lc080 = new LC080_RemoveDupArray2();
+		
+		for (int[] in : input){
+			System.out.println("Input array:");
+			LeetCodeUtils.printIntArray(in);
+			System.out.println("Output list:");
+			lc080.removeDuplicates2(in);
+		}
+		
+	}
+	
 	//@Test
 	public void test083(){
 		
@@ -673,6 +693,26 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
+	public void test118(){
+		
+//		int [][] input = new int[][] {
+//				{1},
+//				{1,2,1},
+//				{1,3,3,1},
+//				{1,4,6,4,1}
+//		};
+		
+		LC118_PascalsTriangle lc118 = new LC118_PascalsTriangle();
+		
+		List<List<Integer>> res = lc118.generate(5);
+		
+		for (List<Integer> list : res) {
+			LeetCodeUtils.printList(list);
+		}
+		
+	}
+	
+	//@Test
 	public void test120(){
 		
 		int [][] input = new int[][] {
@@ -705,6 +745,21 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
+	public void test125(){
+
+		String[] s = new String[]{
+		    "1a2",
+			"A man, a plan, a canal: Panama",
+		};
+			
+		LC125_ValidPalindrome lc125 = new LC125_ValidPalindrome();
+			
+		for (String str : s) {
+			System.out.println("Input: " + str + " is a " + lc125.isPalindrome(str));
+		}	
+	}
+	
+	//@Test
 	public void test139(){
 		
 		String[][] dict = new String[][]{
@@ -732,7 +787,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test140(){
 		
 		String[][] dict = new String[][]{
