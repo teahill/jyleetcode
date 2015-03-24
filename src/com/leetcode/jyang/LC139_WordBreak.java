@@ -24,7 +24,7 @@ public class LC139_WordBreak {
 	
 	Map<String, Boolean> map = new HashMap<String, Boolean>();
 	
-	public static int cnt = 0;
+	public int cnt = 0;
 	
 	public boolean wordBreak(String s, Set<String> dict){
 		

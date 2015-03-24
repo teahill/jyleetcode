@@ -25,13 +25,41 @@ import java.util.Set;
 public class LC140_WordBreak2 {
 
 	Map<String, List<String>> map = new HashMap<String, List<String>>();
+
+    public List<String> wordBreak(String s, Set<String> dict) {
+    	
+        List<String> res = new ArrayList<String>();
+        
+		if (map.containsKey(s)){
+			return map.get(s);
+		}
+
+        for (int i = 1; i <= s.length(); i++) {
+        	
+            String left = s.substring(0, i);
+            
+            if (dict.contains(left)) {
+            	
+                if (i == s.length()) {
+                    res.add(left);
+                } 
+                else {
+                    String right = s.substring(i);               
+                    List<String> rightRes = wordBreak(right, dict);
+                            
+                    if (rightRes != null) {
+                        for (String item : rightRes) {
+                            res.add(left + " " + item);
+                        }
+                        map.put(right, rightRes);
+                    }  
+                }
+            }
+        }
+        return res;
+    }
 	
-	public static int cnt = 0;
-	
-	public List<String> wordBreak(String s, Set<String> dict) {
-		
-		cnt++;
-		System.out.println("Recursion cnt=" + cnt);
+	public List<String> wordBreak2(String s, Set<String> dict) {
 		
 		List<String> res = new ArrayList<String>();
 		
@@ -43,30 +71,35 @@ public class LC140_WordBreak2 {
 			return map.get(s);
 		}
 		
-		if (dict.contains(s)){
-			res.add(s);
-			map.put(s, res);
-			return res;
-		}
+//		if (dict.contains(s)){
+//			res.add(s);
+//			map.put(s, res);
+//			return res;
+//		}
 		
-		for (int i=1; i<s.length(); i++){
+		for (int i=1; i<=s.length(); i++){
 			
 			String left = s.substring(0, i);
 			
-			if (dict.contains(left)){				
+			if (dict.contains(left)){	
 				
-				List<String> rRes = wordBreak(s.substring(i), dict);				
-				
-				if (!rRes.isEmpty()){
+				if (left.length()==s.length()){
+					res.add(left);
+				}
+				else {
+					List<String> rRes = wordBreak(s.substring(i), dict);				
 					
-					for (String word : rRes){						
-						StringBuilder sb = new StringBuilder();						
-						sb.append(left).append(" ");
-						sb.append(word).append(" ");						
-						res.add(sb.toString().trim());
+					if (rRes!=null){
+						
+						for (String word : rRes){						
+							StringBuilder sb = new StringBuilder();						
+							sb.append(left).append(" ");
+							sb.append(word).append(" ");						
+							res.add(sb.toString().trim());
+						}
+						
+						map.put(s.substring(i), res);
 					}
-					
-					map.put(s, res);
 				}
 			}			
 		}		
