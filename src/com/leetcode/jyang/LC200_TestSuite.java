@@ -623,6 +623,27 @@ public class LC200_TestSuite {
 		}	
 	}
 	
+	@Test
+	public void test079(){
+		
+		char[][] board = new char[][] {
+				{'A','B','C','E'},
+				{'S','F','C','S'},
+				{'A','D','E','E'},
+		};
+		
+		String[] words = {
+				"ABCCE",
+				"SEE",
+				"ABCB"
+		};
+		
+		for (String word : words) {
+			LC079_WordSearch lc079 = new LC079_WordSearch();
+			System.out.println("Word: " + word + " exists in baord? " + lc079.exist(board, word));
+		}
+	}
+	
 	//@Test
 	public void test080(){
 		
@@ -950,7 +971,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void test142_3(){
 		
 		ListNode head = new ListNode(1);
