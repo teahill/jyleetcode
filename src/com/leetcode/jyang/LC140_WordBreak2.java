@@ -25,7 +25,7 @@ import java.util.Set;
 public class LC140_WordBreak2 {
 
 	Map<String, List<String>> map = new HashMap<String, List<String>>();
-
+	
     public List<String> wordBreak(String s, Set<String> dict) {
     	
         List<String> res = new ArrayList<String>();

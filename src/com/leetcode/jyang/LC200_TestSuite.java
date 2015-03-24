@@ -795,7 +795,7 @@ public class LC200_TestSuite {
 		
 	}
 	
-	@Test
+	//@Test
 	public void test140(){
 		
 		String[][] dict = new String[][]{
@@ -831,7 +831,141 @@ public class LC200_TestSuite {
 			for (String s : list){
 				System.out.println(s + " ");
 			}		
-			//System.out.println("# if recursions: " + lc140.cnt);
+//			System.out.println("# if recursions: " + lc140.count);
+//			System.out.println("# if cache hits: " + lc140.count2);
+		}
+	}
+	
+	/**
+	 * 
+	 * 1->2->3->4->5->6->7->8->9->10->11->12
+	 *                            |        |
+	 *                            15<-14<-13
+	 * 
+	 * 
+	 */
+	//@Test
+	public void test141(){
+		
+		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
+		
+		ListNode head = LeetCodeUtils.buildList(list);
+		
+		ListNode p1 = head;
+		while (p1.val!=15){
+			p1 = p1.next;
+		}
+		
+		ListNode p2 = head;
+		while (p2.val!=10){
+			p2 = p2.next;
+		}
+		
+		//p1.next = p2;
+		
+//		ListNode p3 = head;
+//		int count = 0;
+//		while (true){				
+//			if (count>=26) break;			
+//			System.out.print(p3.val + " ");			
+//			p3 = p3.next;			
+//			count++;
+//		}
+//		System.out.println();
+		
+		LC141_LinkedListCycle lc141 = new LC141_LinkedListCycle();
+		System.out.print("Linked list has cycle? " + lc141.hasCycle(head));	
+	}
+	
+	/**
+	 * 
+	 * 1->2->3->4->5->6->7->8->9->10->11->12
+	 *                            |        |
+	 *                            15<-14<-13
+	 * 
+	 * 
+	 */
+	//@Test
+	public void test142(){
+		
+		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
+		
+		ListNode head = LeetCodeUtils.buildList(list);
+		
+		ListNode p1 = head;
+		while (p1.val!=15){
+			p1 = p1.next;
+		}
+		
+		ListNode p2 = head;
+		while (p2.val!=10){
+			p2 = p2.next;
+		}
+		
+		p1.next = p2;
+		
+		ListNode p3 = head;
+		int count = 0;
+		while (true){				
+			if (count>=26) break;			
+			System.out.print(p3.val + " ");			
+			p3 = p3.next;			
+			count++;
+		}
+		System.out.println();
+		
+		LC142_LinkedListCycle2 lc142 = new LC142_LinkedListCycle2();
+		ListNode loopStart = lc142.detectCycle(head);
+		
+		if (loopStart!=null){
+			System.out.print("Loop starting node is " + loopStart.val);
+		}
+		else {
+			System.out.print("Not a cycling list");
+		}
+	}
+	
+	//@Test
+	public void test142_2(){
+		
+		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
+		
+		ListNode head = LeetCodeUtils.buildList(list);
+		
+		ListNode tail = head;
+		while (tail.val!=15){
+			tail = tail.next;
+		}
+		
+		tail.next = tail;
+		
+		LC142_LinkedListCycle2 lc142 = new LC142_LinkedListCycle2();
+		ListNode loopStart = lc142.detectCycle(head);
+		
+		if (loopStart!=null){
+			System.out.print("Loop starting node is " + loopStart.val);
+		}
+		else {
+			System.out.print("Not a cycling list");
+		}
+	}
+	
+	@Test
+	public void test142_3(){
+		
+		ListNode head = new ListNode(1);
+		ListNode tail = new ListNode(2);
+		head.next = tail;
+		tail.next = head;
+		
+		LC142_LinkedListCycle2 lc142 = new LC142_LinkedListCycle2();
+		ListNode loopStart = lc142.detectCycle(head);
+		
+		if (loopStart!=null){
+			System.out.print("Loop starting node is " + loopStart.val);
+		}
+		else {
+			System.out.print("Not a cycling list");
 		}
 	}
 	

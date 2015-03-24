@@ -19,12 +19,16 @@ public class LC141_LinkedListCycle {
     		return false;
     	}
     	
+       	if (head.next==head || head.next.next == head){
+    		return true;
+    	}   	
+    	
     	ListNode p1 = head;
-    	ListNode p2 = head.next;
+    	ListNode p2 = head;
     	
     	while (p1!=null && p2!=null){
     		
-    		if (p2==p1 || p2.next==p1){
+    		if (p2==p1 && p1!=head){
     			return true;
     		}
     		

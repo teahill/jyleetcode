@@ -18,12 +18,49 @@ public class LC142_LinkedListCycle2 {
 
     public ListNode detectCycle(ListNode head) {
     	
-    	Set<ListNode> set = new HashSet<ListNode>();
+    	if (head==null || head.next==null){
+    		return null;
+    	}
     	
-    	ListNode ptr = head;
-    	
-    	
+       	if (head.next==head){ 
+    		return null;
+    	}   
+       	
+       	if (head.next.next == head){
+       		return head;
+       	}
+       	
+    	ListNode pSlow = head;
+    	ListNode pFast = head;
+ 
+        while (pFast !=null && pSlow!=null){
+        	
+        	if (pFast==pSlow && pFast!=head){
+        		break;
+        	}
+        	
+        	pFast = pFast.next;
+        	if (pFast!=null){
+        		pFast = pFast.next;
+        	}
         
-    }
-	
+        	pSlow = pSlow.next;
+        }
+        
+        if (pFast==null){
+        	return null;
+        }
+        
+        pSlow = head;
+        
+        while (true){
+        	
+        	if (pSlow==pFast){
+        		return pSlow;
+        	}
+        	
+        	pSlow = pSlow.next;
+        	pFast = pFast.next;        	
+        }
+    }	
 }
