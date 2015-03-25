@@ -1,9 +1,13 @@
 package com.leetcode.jyang;
 
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * Given a 2D board and a word, find if the word exists in the grid.
  *
- * The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are those horizontally or vertically neighboring. The same letter cell may not be used more than once.
+ * The word can be constructed from letters of sequentially adjacent cell, where "adjacent" cells are
+ * those horizontally or vertically neighboring. The same letter cell may not be used more than once.
  *
  * For example,
  * 
@@ -41,7 +45,8 @@ public class LC079_WordSearch {
     			char c = board[i][j];
     			// found a seed
     			if (c==word.charAt(0)){
-    				if (existInt(board, word, i, j)){
+    				Set<String> visited = new HashSet<String>();
+    				if (existInt(board, word, i, j, visited)){
     					return true;
     				}
     			}
@@ -51,7 +56,9 @@ public class LC079_WordSearch {
     	return false;
     }  
 
-    public boolean existInt(char[][] board, String word, int i, int j) {
+    public boolean existInt(char[][] board, String word, int i, int j, Set<String> visited) {
+    	
+      	visited.add(i + "-" + j);
     	
     	if (word.isEmpty()){
     		return true;
@@ -60,25 +67,50 @@ public class LC079_WordSearch {
     	if (word.charAt(0)!=board[i][j]){
     		return false;
     	}
-    	   	
-    	if (i+1<board.length){
-    		if (existInt(board, word.substring(1), i+1, j))
+    	else {
+    		if (word.length()==1){
     			return true;
+    		}
+    	}
+    	 
+    	// go down
+    	if (i+1<board.length && !visited.contains((i+1) + "-" + j)){
+    		if (existInt(board, word.substring(1), i+1, j, visited)){
+    			return true;
+    		}
+       		else {
+    	      	visited.remove((i+1) + "-" + j);
+    		}
     	}
     	
-    	if (i-1>=0){
-    		if (existInt(board, word.substring(1), i-1, j))
+    	// go up
+    	if (i-1>=0 && !visited.contains((i-1) + "-" + j)){
+    		if (existInt(board, word.substring(1), i-1, j, visited)){
     			return true;
+    		}
+    		else {
+    	      	visited.remove((i-1) + "-" + j);
+    		}
     	}
     	
-    	if (j+1<board[0].length){
-    		if (existInt(board, word.substring(1), i, j+1))
+    	// go right
+    	if (j+1<board[0].length && !visited.contains(i + "-" + (j+1))){
+    		if (existInt(board, word.substring(1), i, j+1, visited)){
     			return true;
+    		}
+       		else {
+    	      	visited.remove(i + "-" + (j+1));
+    		}
     	}
  
-    	if (j-1>=0){
-    		if (existInt(board, word.substring(1), i, j-1))
+    	// go left
+    	if (j-1>=0 && !visited.contains(i + "-" + (j-1))){
+    		if (existInt(board, word.substring(1), i, j-1, visited)){
     			return true;
+    		}
+       		else {
+    	      	visited.remove(i + "-" + (j-1));
+    		}
     	}
     	
     	return false;

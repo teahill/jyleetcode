@@ -159,6 +159,20 @@ public class LC200_TestSuite {
 		}
 	}
 	
+	@Test
+	public void test017(){
+		String[] input = new String[]{
+			"23346"
+		};
+		
+		LC017_PhoneNumberCombo lc017 = new LC017_PhoneNumberCombo();
+		
+		for (String s : input){
+			List<String> res = lc017.letterCombinations(s);
+			LeetCodeUtils.printList(res);
+		}
+	}
+	
 	//@Test
 	public void testLC019(){
 		
@@ -623,19 +637,34 @@ public class LC200_TestSuite {
 		}	
 	}
 	
-	@Test
+	//@Test
 	public void test079(){
 		
 		char[][] board = new char[][] {
-				{'A','B','C','E'},
-				{'S','F','C','S'},
-				{'A','D','E','E'},
+//				{'A','B','C','E'},
+//				{'S','F','C','S'},
+//				{'A','D','E','E'},
+//				{'a'},
+//				{'a'},
+//				{'a','a'},
+				{'a','a','a','a'},
+				{'a','a','a','a'},
+				{'a','a','a','a'},
+//				{'a','a'},
+//				{'a','a'},
+//				{'a','b'},
+//				{'c','d'},
 		};
 		
 		String[] words = {
-				"ABCCE",
-				"SEE",
-				"ABCB"
+//				"ABCCE",
+//				"SEE",
+//				"ABCB",
+//				"aa",
+//				"a",
+				"aaaaaaaaaaaa",
+//				"aaaaa",
+//				"cdba",
 		};
 		
 		for (String word : words) {
