@@ -159,8 +159,8 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
-	public void test017(){
+	//@Test
+	public void testLC017(){
 		String[] input = new String[]{
 			"23346"
 		};
@@ -567,7 +567,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test067(){
+	public void testLC067(){
 		
 		String[][] input = new String[][]{
 				{"11", "1111"},
@@ -586,7 +586,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test066(){
+	public void testLC066(){
 		int [][] input = new int[][] {
 				{1,2,3,4,5,6,7,8,9},
 				{9,9,9},
@@ -606,7 +606,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test070(){
+	public void testLC070(){
 		
 		int[] input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30};
 		
@@ -618,7 +618,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test071(){
+	public void testLC071(){
 
 		String[] s = new String[]{
 //				"//a/./b/../../c/",
@@ -638,7 +638,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test079(){
+	public void testLC079(){
 		
 		char[][] board = new char[][] {
 //				{'A','B','C','E'},
@@ -674,7 +674,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test080(){
+	public void testLC080(){
 		
 		int [][] input = new int[][] {
 				{1,1,1,2,2,2,3,3,3,5,5,5,6,6},
@@ -694,7 +694,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test083(){
+	public void testLC083(){
 		
 		int [][] input = new int[][] {
 				{1,2,3,4,5,6,7,8,9},
@@ -715,7 +715,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test084(){
+	public void testLC084(){
 		
 		int [][] input = new int[][] {
 				{1,2,3,3,3,4,4,5},
@@ -742,8 +742,30 @@ public class LC200_TestSuite {
 		
 	}
 	
+	@Test
+	public void testLC093(){
+		
+		String[] input = new String[]{
+			    "25525511135",
+			    "172162541",
+			    "123",
+			    "1111",
+			    "12345",
+			    "12345678",
+			    "010010",
+			};
+		
+		LC093_RestoreIPAddress lc093 = new LC093_RestoreIPAddress();
+		
+		for (String s : input){
+			System.out.println("Input: " + s);
+			List<String> res = lc093.restoreIpAddresses(s);		
+			LeetCodeUtils.printList(res);
+		}		
+	}
+	
 	//@Test
-	public void test118(){
+	public void testLC118(){
 		
 //		int [][] input = new int[][] {
 //				{1},
@@ -763,7 +785,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test120(){
+	public void testLC120(){
 		
 		int [][] input = new int[][] {
 //				{-1,0,0},
@@ -795,7 +817,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test125(){
+	public void testLC125(){
 
 		String[] s = new String[]{
 		    "1a2",
@@ -810,7 +832,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test139(){
+	public void testLC139(){
 		
 		String[][] dict = new String[][]{
 				{"a", "b"},
@@ -846,7 +868,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test140(){
+	public void testLC140(){
 		
 		String[][] dict = new String[][]{
 				{"a", "b"},
@@ -895,7 +917,7 @@ public class LC200_TestSuite {
 	 * 
 	 */
 	//@Test
-	public void test141(){
+	public void testLC141(){
 		
 		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
 		
@@ -936,7 +958,7 @@ public class LC200_TestSuite {
 	 * 
 	 */
 	//@Test
-	public void test142(){
+	public void testLC142(){
 		
 		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
 		
@@ -976,7 +998,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test142_2(){
+	public void testLC142_2(){
 		
 		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
 		
@@ -1001,7 +1023,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test142_3(){
+	public void testLC142_3(){
 		
 		ListNode head = new ListNode(1);
 		ListNode tail = new ListNode(2);
@@ -1020,7 +1042,7 @@ public class LC200_TestSuite {
 	}
 	
 	//@Test
-	public void test151(){
+	public void testLC151(){
 		
 		String[] input = new String[]{
 				"the sky is blue",
@@ -1036,7 +1058,7 @@ public class LC200_TestSuite {
 	}		
 	
 	//@Test
-	public void test168(){
+	public void testLC168(){
 		
 		int[] input = new int[]{
 			1,
@@ -1067,7 +1089,7 @@ public class LC200_TestSuite {
 	}	
 	
 	//@Test
-	public void test171(){
+	public void testLC171(){
 		
 		String[] input = new String[]{
 				"A",
