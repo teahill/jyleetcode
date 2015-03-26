@@ -452,7 +452,56 @@ public class LC200_TestSuite {
 	}	
 	
 	//@Test
-	public void test058(){
+	public void testLC046(){
+		int[][] input = new int[][] {
+				{1},
+//				{1,3,5,6},
+//				{1,3,5,6},
+//				{1,3,5,6},		
+//				{1, 3},
+		};
+		
+		LC046_Permutations lc046 = new LC046_Permutations();
+		
+		for (int i=0; i<input.length; i++) {		
+			System.out.print("Input: ");
+			LeetCodeUtils.printIntArray(input[i]);
+			
+			List<List<Integer>> res = lc046.permute(input[i]);
+			
+			for (List<Integer> tmp : res){
+				LeetCodeUtils.printList(tmp);
+			}
+		}
+	}
+	
+	@Test
+	public void testLC047(){
+		int[][] input = new int[][] {
+//				{1,1,2},
+				{3,3,0,0,2,3,2},
+//				{1,3,5,6},
+//				{1,3,5,6},
+//				{1,3,5,6},		
+//				{1, 3},
+		};
+		
+		LC047_Permutations2 lc047 = new LC047_Permutations2();
+		
+		for (int i=0; i<input.length; i++) {		
+			System.out.print("Input: ");
+			LeetCodeUtils.printIntArray(input[i]);
+			
+			List<List<Integer>> res = lc047.permuteUnique(input[i]);
+			
+			for (List<Integer> tmp : res){
+				LeetCodeUtils.printList(tmp);
+			}
+		}
+	}
+	
+	//@Test
+	public void testLC058(){
 		
 		String[] s = new String[]{
 				"",
@@ -742,7 +791,7 @@ public class LC200_TestSuite {
 		
 	}
 	
-	@Test
+	//@Test
 	public void testLC093(){
 		
 		String[] input = new String[]{

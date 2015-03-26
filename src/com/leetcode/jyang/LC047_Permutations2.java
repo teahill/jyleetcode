@@ -6,20 +6,20 @@ import java.util.List;
 
 /**
  * 
- * Given a collection of numbers, return all possible permutations.
+ * Given a collection of numbers that might contain duplicates, return all possible unique 
+ * permutations.
  *
  * For example,
- * 
- * [1,2,3] have the following permutations:
- * [1,2,3], [1,3,2], [2,1,3], [2,3,1], [3,1,2], and [3,2,1].
+ * [1,1,2] have the following unique permutations:
+ * [1,1,2], [1,2,1], and [2,1,1].
  * 
  * @author jyang
  *
  */
 
-public class LC046_Permutations {
+public class LC047_Permutations2 {
 
-	public List<List<Integer>> permute(int[] num) {
+	public List<List<Integer>> permuteUnique(int[] num) {
 		
 		List<List<Integer>> res = new ArrayList<List<Integer>>();
 		
@@ -61,7 +61,9 @@ public class LC046_Permutations {
 					List<Integer> tmp = new ArrayList<Integer>();
 					tmp.add(0, anchor);	
 					tmp.addAll(r);
-					res.add(tmp);
+					if (!res.contains(tmp)){
+						res.add(tmp);
+					}
 				}
 			}
 		}
