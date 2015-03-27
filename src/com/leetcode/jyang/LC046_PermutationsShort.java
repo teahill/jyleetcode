@@ -33,6 +33,16 @@ import java.util.List;
  *        permute(i+1) 
  *        swap(A[i], A[j]) 
  * 
+ *                                           a b c d
+ *                                       /
+ *        a b c d               b a c d                  c b a d              d b c a      
+ *                         /       |      \
+ *                 b a c d      b c a d     b d a c
+ *                            /         \
+ *                        b c a d     b c d a
+ *                                       |
+ *                                    b c d a
+ *
  */
 
 public class LC046_PermutationsShort {
@@ -47,12 +57,8 @@ public class LC046_PermutationsShort {
 	
 	private void permuteBT(int[] num, int start, List<List<Integer>> res){
 		
-		if (start==num.length-1){			
-			List<Integer> tmp = new ArrayList<Integer>(num.length);
-			for (int i=0; i<num.length; i++){
-				tmp.add(num[i]);				
-			}
-			res.add(tmp);
+		if (start==num.length-1){
+			res.add(makeList(num));
 		}
 		else {
 			for (int j=start; j<num.length; j++){
@@ -61,6 +67,14 @@ public class LC046_PermutationsShort {
 				swap(num, start, j);
 			}
 		}
+	}
+	
+	private List<Integer> makeList(int[] num){
+		List<Integer> tmp = new ArrayList<Integer>(num.length);
+		for (int i=0; i<num.length; i++){
+			tmp.add(num[i]);				
+		}
+		return tmp;
 	}
 	
 	private void swap(int[] num, int i, int j){

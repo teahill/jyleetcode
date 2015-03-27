@@ -503,13 +503,13 @@ public class LC200_TestSuite {
 		}
 	}	
 	
-	@Test
+	//@Test
 	public void testLC046(){
 		
 		trace();
 		
 		int[][] input = new int[][] {
-				{1,2,3},
+				{1,2,3, 4},
 //				{1,3,5,6},
 //				{1,3,5,6},
 //				{1,3,5,6},		
@@ -531,11 +531,11 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void testLC047(){
 		int[][] input = new int[][] {
-//				{1,1,2},
-				{3,3,0,0,2,3,2},
+				{1,1,2},
+//				{3,3,0,0,2,3,2},
 //				{1,3,5,6},
 //				{1,3,5,6},
 //				{1,3,5,6},		
@@ -544,7 +544,8 @@ public class LC200_TestSuite {
 		
 		trace();
 		
-		LC047_Permutations2 lc047 = new LC047_Permutations2();
+		//LC047_Permutations2 lc047 = new LC047_Permutations2();
+		LC047_Permutations2Short lc047 = new LC047_Permutations2Short();
 		
 		for (int i=0; i<input.length; i++) {		
 			System.out.print("Input: ");
