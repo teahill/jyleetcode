@@ -26,8 +26,16 @@ public class LC200_TestSuite {
     public void tearDown() {
     }
 	
+    private void trace(){    	
+		//System.out.println("Executing test case: " + new Object(){}.getClass().getEnclosingMethod().getName());
+    	StackTraceElement[] trace = Thread.currentThread().getStackTrace();    	
+    	System.out.println("Executing test case: " + trace[2].getMethodName());
+    }
+    
 	//@Test
 	public void testLC006() {
+		
+		trace();
 		
 	   	char[][] matrix = new char[3][5];
 	   	
@@ -50,6 +58,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC011(){
 		
+		trace();
+		
 		int[][] input = new int[][] {
 				{1,2,1,4,2},
 				{2,5,4,3,7},
@@ -66,30 +76,33 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC012() {
-	int[] input = new int[] {
-			1,
-			4,
-			5,
-			8,
-			9,
-			10,
-			11,
-			14,
-			15,
-			20,
-			28,
-			40,
-			45,
-			90,
-			97,
-			100,
-			143,
-			493,
-			500,
-			876,
-			2071,
-			3999			
-		};
+		
+		trace();
+		
+		int[] input = new int[] {
+				1,
+				4,
+				5,
+				8,
+				9,
+				10,
+				11,
+				14,
+				15,
+				20,
+				28,
+				40,
+				45,
+				90,
+				97,
+				100,
+				143,
+				493,
+				500,
+				876,
+				2071,
+				3999			
+			};
 		
 		LC012_Integer2Roman lc012 = new LC012_Integer2Roman();
 		LC013_Roman2Integer lc013 = new LC013_Roman2Integer();
@@ -103,6 +116,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC014(){
+		
+		trace();
 		
 		String[] inputs = new String[] {
 				"abcdef",
@@ -121,6 +136,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testBinarySearch(){
 		
+		trace();
+		
 		int[] num = new int[]{-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6};
 		
 		LC015_3Sum lc015 = new LC015_3Sum();
@@ -134,6 +151,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC015(){
+		
+		trace();
 		
 		int[][] input = new int[][] {
 //			{-1, 0, 1, 2, -1, -4},
@@ -161,6 +180,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC017(){
+		
+		trace();
+		
 		String[] input = new String[]{
 			"23346"
 		};
@@ -176,6 +198,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC019(){
 		
+		trace();
+		
 		int[] input = new int[]{1,2,3,4,5};
 		int n = 7;
 		
@@ -190,6 +214,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC020(){
+		
+		trace();
 		
 		String[] s = new String[]{
 			"(){}[]()",
@@ -209,6 +235,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC021(){
+		
+		trace();
+		
 		ListNode l1 = LeetCodeUtils.buildList(new int[]{1,3,4,6,9,23,28});	
 		ListNode l2 = LeetCodeUtils.buildList(new int[]{1,2,4,7,10,25,28});
 		
@@ -219,6 +248,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC025(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 //				{1,2,3,4,5,6,7,8},
 				{1,2,3,4,5,6,7,8,9},
@@ -239,6 +271,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC026(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 				{1,2,3,4,4,5,6,7,7,8},
 				{1,1,2,3,4,4,5,6,7,7,8,8},
@@ -262,6 +297,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC027(){
 		
+		trace();
+		
 		LC027_RemoveElement lc027 = new LC027_RemoveElement();
 		
 		int[] A = new int[]{1,1,2,3,4,4,5,6,7,7,8,8,9};
@@ -274,11 +311,7 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC028(){
 		
-		//String haystack = "The quick brown fox jumps over the lazy dog";
-		//String needle = "dog?";
-		
-		//String haystack = "mississippi";
-		//String needle = "issipi";
+		trace();
 		
 		String[][] input = new String[][]{
 			{"The quick brown fox jumps over the lazy dog", "dog"},
@@ -298,6 +331,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC024(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 				{1,2,3,4,5,6,7,8},
 				{1,2,3,4,5,6,7,8,9},
@@ -318,6 +354,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC032(){
+		
+		trace();
+		
 		String[] input = new String[]{
 				"(()",
 				")()())",
@@ -334,6 +373,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC034(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 				{5, 7, 7, 8, 8, 10},
 				{1,2,3,4,5,6,7,8,9},
@@ -360,6 +402,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC035(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 				{1,3,5,6},
 				{1,3,5,6},
@@ -390,6 +435,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC037_1(){
 		
+		trace();
+		
 	    int[][] sudoko = new int[][] {
 	    	           {5,3,0,0,7,0,0,0,0},
 	    	           {6,0,0,1,9,5,0,0,0},
@@ -419,6 +466,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC037(){
+		
+		trace();
+		
 		char[][] sudoko = new char[][]{
 				{'5','3','0','0','7','0','0','0','0',},
 				{'6','0','0','1','9','5','0','0','0',},
@@ -442,6 +492,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC038(){
 		
+		trace();
+		
 		int[] input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30};
 		
 		LC038_CountAndSay lc038 = new LC038_CountAndSay();
@@ -451,17 +503,21 @@ public class LC200_TestSuite {
 		}
 	}	
 	
-	//@Test
+	@Test
 	public void testLC046(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
-				{1},
+				{1,2,3},
 //				{1,3,5,6},
 //				{1,3,5,6},
 //				{1,3,5,6},		
 //				{1, 3},
 		};
 		
-		LC046_Permutations lc046 = new LC046_Permutations();
+		//LC046_Permutations lc046 = new LC046_Permutations();
+		LC046_PermutationsShort lc046 = new LC046_PermutationsShort();
 		
 		for (int i=0; i<input.length; i++) {		
 			System.out.print("Input: ");
@@ -475,7 +531,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC047(){
 		int[][] input = new int[][] {
 //				{1,1,2},
@@ -485,6 +541,8 @@ public class LC200_TestSuite {
 //				{1,3,5,6},		
 //				{1, 3},
 		};
+		
+		trace();
 		
 		LC047_Permutations2 lc047 = new LC047_Permutations2();
 		
@@ -502,6 +560,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC058(){
+		
+		trace();
 		
 		String[] s = new String[]{
 				"",
@@ -526,6 +586,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC061(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 				{1,2,3,4,5},
 //				{1,3,5,6},
@@ -552,6 +615,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC062(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 				{3, 7},
 //				{1,3,5,6},
@@ -571,6 +637,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC063(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 //				{0, 0},
 //				{0, 1},				
@@ -593,6 +662,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC064(){
+		
+		trace();
+		
 		int[][] input = new int[][] {
 //				{0, 0},
 //				{0, 1},				
@@ -618,6 +690,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC067(){
 		
+		trace();
+		
 		String[][] input = new String[][]{
 				{"11", "1111"},
 				{"100000", "100"},
@@ -636,6 +710,9 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC066(){
+		
+		trace();
+		
 		int [][] input = new int[][] {
 				{1,2,3,4,5,6,7,8,9},
 				{9,9,9},
@@ -657,6 +734,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC070(){
 		
+		trace();
+		
 		int[] input = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20, 30};
 		
 		LC070_ClimbingStairs lc070 = new LC070_ClimbingStairs();
@@ -668,6 +747,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC071(){
+		
+		trace();
 
 		String[] s = new String[]{
 //				"//a/./b/../../c/",
@@ -688,6 +769,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC079(){
+		
+		trace();
 		
 		char[][] board = new char[][] {
 //				{'A','B','C','E'},
@@ -725,6 +808,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC080(){
 		
+		trace();
+		
 		int [][] input = new int[][] {
 				{1,1,1,2,2,2,3,3,3,5,5,5,6,6},
 				{1,1,1,2,2,3},
@@ -744,6 +829,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC083(){
+		
+		trace();
 		
 		int [][] input = new int[][] {
 				{1,2,3,4,5,6,7,8,9},
@@ -765,6 +852,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC084(){
+		
+		trace();
 		
 		int [][] input = new int[][] {
 				{1,2,3,3,3,4,4,5},
@@ -794,6 +883,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC093(){
 		
+		trace();
+		
 		String[] input = new String[]{
 			    "25525511135",
 			    "172162541",
@@ -816,12 +907,7 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC118(){
 		
-//		int [][] input = new int[][] {
-//				{1},
-//				{1,2,1},
-//				{1,3,3,1},
-//				{1,4,6,4,1}
-//		};
+		trace();
 		
 		LC118_PascalsTriangle lc118 = new LC118_PascalsTriangle();
 		
@@ -835,6 +921,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC120(){
+		
+		trace();
 		
 		int [][] input = new int[][] {
 //				{-1,0,0},
@@ -867,6 +955,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC125(){
+		
+		trace();
 
 		String[] s = new String[]{
 		    "1a2",
@@ -882,6 +972,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC139(){
+		
+		trace();
 		
 		String[][] dict = new String[][]{
 				{"a", "b"},
@@ -918,6 +1010,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC140(){
+		
+		trace();
 		
 		String[][] dict = new String[][]{
 				{"a", "b"},
@@ -968,6 +1062,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC141(){
 		
+		trace();
+		
 		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
 		
 		ListNode head = LeetCodeUtils.buildList(list);
@@ -1009,6 +1105,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC142(){
 		
+		trace();
+		
 		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
 		
 		ListNode head = LeetCodeUtils.buildList(list);
@@ -1049,6 +1147,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC142_2(){
 		
+		trace();
+		
 		int[] list = {1,2,3,4,5,6,7,8,9,10,11,12,13,14,15};		
 		
 		ListNode head = LeetCodeUtils.buildList(list);
@@ -1074,6 +1174,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC142_3(){
 		
+		trace();
+		
 		ListNode head = new ListNode(1);
 		ListNode tail = new ListNode(2);
 		head.next = tail;
@@ -1093,6 +1195,8 @@ public class LC200_TestSuite {
 	//@Test
 	public void testLC151(){
 		
+		trace();
+		
 		String[] input = new String[]{
 				"the sky is blue",
 				" ",
@@ -1108,6 +1212,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC168(){
+		
+		trace();
 		
 		int[] input = new int[]{
 			1,
@@ -1139,6 +1245,8 @@ public class LC200_TestSuite {
 	
 	//@Test
 	public void testLC171(){
+		
+		trace();
 		
 		String[] input = new String[]{
 				"A",
