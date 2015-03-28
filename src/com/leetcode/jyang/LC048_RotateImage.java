@@ -23,11 +23,9 @@ package com.leetcode.jyang;
  *  i = j;
  *  j = (size-1) - i;
  * 
- * 
- * Input:		[[1,2,3],[4,5,6],[7,8,9]]
- * Output	:	[[7,2,1],[4,5,6],[9,8,3]]
- * Expected:	[[7,4,1],[8,5,2],[9,6,3]]
-
+ * The real tricky part is to figure out the bounds for iterations (i, j). Going over bound will undo
+ * previous rotations thus yielding incorrect results. 
+ *
  *
  */
 
@@ -40,7 +38,7 @@ public class LC048_RotateImage {
     	if (matrix.length==0 || matrix[0].length==0)	return;
     	  	
     	for (int i=0; i<n/2; i++){
-    		for (int j=0; j<=n/2; j++){
+    		for (int j=i; j<n-i-1; j++){
     			
     			int nexti = i;
     			int nextj = j;
