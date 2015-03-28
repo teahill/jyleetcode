@@ -531,7 +531,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC047(){
 		int[][] input = new int[][] {
 				{1,1,2},
@@ -557,6 +557,38 @@ public class LC200_TestSuite {
 				LeetCodeUtils.printList(tmp);
 			}
 		}
+	}
+	
+	@Test
+	public void testLC048(){
+		int[][] input = new int[][] {
+//				{11,12,13,14,15},
+//				{16,17,18,19,20},
+//				{21,22,23,24,25},
+//				{26,27,28,29,30},
+//				{31,32,33,34,35},
+				
+				{ 1, 2, 3, 4},
+				{ 5, 6, 7, 8},
+				{ 9,10,11,12},				
+				{13,14,15,16},
+				
+//				{1,2,3},
+//				{4,5,6},
+//				{7,8,9},
+				
+//				{1,2},
+//				{3,4},				
+		};
+		
+		trace();
+		
+		LC048_RotateImage lc048 = new LC048_RotateImage();
+		
+		LeetCodeUtils.printIntArray2D(input);		
+		lc048.rotate(input);
+		System.out.println();
+		LeetCodeUtils.printIntArray2D(input);		
 	}
 	
 	//@Test
