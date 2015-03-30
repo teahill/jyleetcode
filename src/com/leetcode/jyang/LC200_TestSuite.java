@@ -503,21 +503,21 @@ public class LC200_TestSuite {
 		}
 	}	
 	
-	@Test
+	//@Test
 	public void testLC046(){
 		
 		trace();
 		
 		int[][] input = new int[][] {
-				{1,2,3},
+				{1,2,3,4},
 //				{1,3,5,6},
 //				{1,3,5,6},
 //				{1,3,5,6},		
 //				{1, 3},
 		};
 		
-		LC046_Permutations lc046 = new LC046_Permutations();
-		//LC046_PermutationsShort lc046 = new LC046_PermutationsShort();
+		//LC046_Permutations lc046 = new LC046_Permutations();
+		LC046_PermutationsShort lc046 = new LC046_PermutationsShort();
 		
 		for (int i=0; i<input.length; i++) {		
 			System.out.print("Input: ");
@@ -617,22 +617,31 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void testLC060(){
 		
 		trace();
 		
-		int[] input = new int[] {1,2,3,4,5,6,7,8,9};
+		int[] input = new int[] {1,2,3,4,5};
 		
-		LC060_PermutationSequence lc061 = new LC060_PermutationSequence();
+		LC046_Permutations lc046 = new LC046_Permutations();
+		List<List<Integer>> res = lc046.permute(input);
 		
-		for (int i : input){
-			int k = LeetCodeUtils.factorial(i);
-			System.out.print("n=" + i + " k = " + k + " kth permutation is ");
-			System.out.println(lc061.getPermutation(i, k));
+		for (int i=0; i<res.size(); i++){
+			System.out.print(i+1 + ": ");
+			LeetCodeUtils.printList(res.get(i));
 		}
 		
-		System.out.println(lc061.getPermutation(9, 54494));
+		//LC060_PermutationSequence lc060 = new LC060_PermutationSequence();
+		LC060_PermutationSeqMath lc060 = new LC060_PermutationSeqMath();
+		
+		System.out.println(lc060.getPermutation(5, 11));
+		
+//		for (int k=1; k<=24; k++){
+//			System.out.println("k=" + k + " " + lc060.getDigit(4, k));
+//		}
+//		
+
 	}
 		
 	//@Test
@@ -1325,6 +1334,7 @@ public class LC200_TestSuite {
 			System.out.println("input: " + input[i] + "->title: " + lc171.titleToNumber(input[i]));
 		}
 	}	
+
 }
 
 
