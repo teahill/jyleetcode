@@ -622,25 +622,29 @@ public class LC200_TestSuite {
 		
 		trace();
 		
-		int[] input = new int[] {1,2,3,4,5};
+		int[] input = new int[] {1,2,3,4};
+		int k = 6;
 		
 		LC046_Permutations lc046 = new LC046_Permutations();
 		List<List<Integer>> res = lc046.permute(input);
 		
-		for (int i=0; i<res.size(); i++){
-			System.out.print(i+1 + ": ");
-			LeetCodeUtils.printList(res.get(i));
-		}
-		
-		//LC060_PermutationSequence lc060 = new LC060_PermutationSequence();
 		LC060_PermutationSeqMath lc060 = new LC060_PermutationSeqMath();
-		
 		System.out.println(lc060.getPermutation(5, 11));
+		
+//		for (int i=0; i<res.size(); i++){
+//			System.out.print(i+1 + ": ");
+//			System.out.print(lc060.getPermutation(input.length, i+1));
+//			LeetCodeUtils.printList(res.get(i));
+//		}
+			
+//		System.out.println("k=" + k + ": " + res.get(k-1));
+//		System.out.println(lc060.getPermutation(input.length, k));
 		
 //		for (int k=1; k<=24; k++){
 //			System.out.println("k=" + k + " " + lc060.getDigit(4, k));
 //		}
-//		
+		
+//		54494
 
 	}
 		
