@@ -831,7 +831,7 @@ public class LC200_TestSuite {
 		}	
 	}
 	
-	@Test
+	//@Test
 	public void testLC077(){
 		
 		trace();
@@ -850,7 +850,7 @@ public class LC200_TestSuite {
 		};
 		
 		int[] input2 = new int[] {
-			3,
+			5,
 //			10,
 //			10,
 //			10,
@@ -870,6 +870,25 @@ public class LC200_TestSuite {
 				LeetCodeUtils.printList(list);
 			}
 		}
+	}
+	
+	@Test
+	public void testLC078(){
+		
+		trace();
+		
+		int [][] input = new int[][] {
+				{4,1,0},
+				{1,2,3,4,5},
+		};
+		
+		LC078_Subsets lc078 = new LC078_Subsets();
+		
+		for (int i=0; i<input.length; i++){
+			List<List<Integer>> res = lc078.subsets(input[i]);
+			LeetCodeUtils.printList(res);
+		}
+		
 	}
 	
 	//@Test
