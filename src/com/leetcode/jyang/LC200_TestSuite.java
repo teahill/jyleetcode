@@ -516,8 +516,8 @@ public class LC200_TestSuite {
 //				{1, 3},
 		};
 		
-		//LC046_Permutations lc046 = new LC046_Permutations();
-		LC046_PermutationsShort lc046 = new LC046_PermutationsShort();
+		LC046_Permutations lc046 = new LC046_Permutations();
+		//LC046_PermutationsShort lc046 = new LC046_PermutationsShort();
 		
 		for (int i=0; i<input.length; i++) {		
 			System.out.print("Input: ");
@@ -617,7 +617,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC060(){
 		
 		trace();
@@ -829,6 +829,47 @@ public class LC200_TestSuite {
 		for (String str : s) {
 			System.out.println("Input: " + str + " simplified path is " + lc071.simplifyPath(str));
 		}	
+	}
+	
+	@Test
+	public void testLC077(){
+		
+		trace();
+		
+		int[] input = new int[] {
+				5,
+//				20,
+//				20,
+//				20,
+//				20,
+//				10,
+//				{1,3,5,6},
+//				{1,3,5,6},
+//				{1,3,5,6},		
+//				{1, 3},
+		};
+		
+		int[] input2 = new int[] {
+			3,
+//			10,
+//			10,
+//			10,
+//			10,
+//			7,
+//			2,
+//			7,
+//			0,
+//			2,
+		};
+		
+		LC077_Combinations lc077 = new LC077_Combinations();
+		
+		for (int i=0; i<input.length; i++) {		
+			List<List<Integer>> res = lc077.combine(input[i], input2[i]);
+			for (List<Integer> list : res){
+				LeetCodeUtils.printList(list);
+			}
+		}
 	}
 	
 	//@Test
@@ -1336,6 +1377,41 @@ public class LC200_TestSuite {
 		
 		for (int i=0; i<input.length; i++){
 			System.out.println("input: " + input[i] + "->title: " + lc171.titleToNumber(input[i]));
+		}
+	}	
+	
+	//@Test
+	public void testLC190(){
+		
+		trace();
+		
+		long[] input = new long[]{
+			0,
+			1,
+			43261596,
+			2147483648l,
+			2,
+			3,
+			26,
+			27,
+			28,
+			52,
+			53,
+			78,
+			79,
+			675,
+			676,
+			677,
+			17575,
+			17576,
+			17577,
+			
+		};
+		
+		LC190_ReverseBits lc190 = new LC190_ReverseBits();
+		
+		for (int i=0; i<input.length; i++){
+			System.out.println("Input=" + input[i] + " , output=" + lc190.reverseBits(input[i]));
 		}
 	}	
 
