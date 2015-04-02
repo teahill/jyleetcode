@@ -872,7 +872,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC078(){
 		
 		trace();
@@ -1400,6 +1400,37 @@ public class LC200_TestSuite {
 	}	
 	
 	//@Test
+	public void testLC172(){
+		
+		trace();
+		
+		int[] input = new int[]{
+			0,
+			1,
+			4,
+			5,
+			9,
+			10,
+			15,
+			20,
+			21,
+			25,
+			50,
+			75,
+			76,
+			100,
+			500,
+			2147483647,			
+		};
+		
+		LC172_FactorialTrailingZeros lc172 = new LC172_FactorialTrailingZeros();
+		
+		for (int i=0; i<input.length; i++){
+			System.out.println("Input=" + input[i] + " , output=" + lc172.trailingZeroes(input[i]));
+		}
+	}	
+	
+	//@Test
 	public void testLC190(){
 		
 		trace();
@@ -1434,6 +1465,45 @@ public class LC200_TestSuite {
 		}
 	}	
 
+	@Test
+	public void testLC191(){
+		
+		trace();
+		
+		int[] input = new int[]{
+			0,
+			1,
+			2,
+			3,
+			4,
+			5,
+			43261596,
+			2147483647,
+			2,
+			3,
+			26,
+			27,
+			28,
+			52,
+			53,
+			78,
+			79,
+			675,
+			676,
+			677,
+			17575,
+			17576,
+			17577,
+			
+		};
+		
+		LC191_NumberOfOneBits lc191 = new LC191_NumberOfOneBits();
+		
+		for (int i=0; i<input.length; i++){
+			System.out.println("Input=" + input[i] + " , output=" + lc191.hammingWeight(input[i]));
+		}
+	}		
+	
 }
 
 

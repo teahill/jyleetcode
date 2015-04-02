@@ -72,7 +72,7 @@ public class LC077_Combinations {
     	 * 
     	 * Start Loop
     	 * 1. do something
-    	 * 2. recursive call;
+    	 * 2. recursive call - this is DFS
     	 * 3. undo step 1 
     	 * End Loop
     	 * 
