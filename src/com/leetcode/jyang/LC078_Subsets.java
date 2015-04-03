@@ -25,14 +25,72 @@ import java.util.List;
  *  []
  * ]
  * 
- * 
- * 
  * @author jyang
+ * 
+ * NOTES:
+ * 
+ * Though it seems that this problem is a natural extension from Problem 77 (Combinations), a more efficient way of solving this problem is
+ * actually an iterative way.
  *
  */
 
 public class LC078_Subsets {
 
+    public List<List<Integer>> subsetsIterative(int[] S) {
+		
+		/* the idea is to add one more digit to each of the results already in the result set.. When we loop through all the digits in S,
+		 * we get our complete set of results. 
+		 * 
+		 * The sequence of result generation is as in the following (input size 4): 
+		 * 
+		 * [
+		 * 	[]
+		 * ------------
+		 *  [1]
+		 * ------------ 
+		 *  [2]
+		 *  [1, 2]
+		 * ------------ 
+		 *  [3]
+		 *  [1, 3]
+		 *  [2, 3]
+		 *  [1, 2, 3]
+		 * ------------ 
+		 *  [4]
+		 *  [1, 4]
+		 *  [2, 4]
+		 *  [1, 2, 4]
+		 *  [3, 4]
+		 *  [1, 3, 4]
+		 *  [2, 3, 4]
+		 *  [1, 2, 3, 4]
+		 * ------------ 
+		 * ]
+		 * 
+		 *  
+		 */
+		
+	    List<List<Integer>> res = new ArrayList<List<Integer>>();
+	    
+	    if (S.length==0) return res;
+	    
+	    Arrays.sort(S);
+		
+	    res.add(new ArrayList<Integer>()); 
+
+	    for (int i = 0; i < S.length ; ++i){
+	        int size = res.size();
+
+	        for (int j = 0; j < size; ++j){
+	            List<Integer> l = new ArrayList<Integer>(res.get(j));
+	            l.add(S[i]);
+	            res.add(l);
+	        }
+	    }
+	    
+	    return res;		
+    }
+	
     public List<List<Integer>> subsets(int[] S) {
     	
 		List<List<Integer>> res = new ArrayList<List<Integer>>();

@@ -878,10 +878,11 @@ public class LC200_TestSuite {
 		trace();
 		
 		int [][] input = new int[][] {
-				{4,1,0},
-				{1,2,3,4,5},
+//				{4,1,0},
+				{1,2,3,4},
+//				{1,2,3,4,5},
 		};
-		
+
 		LC078_Subsets lc078 = new LC078_Subsets();
 		
 		for (int i=0; i<input.length; i++){
@@ -1002,6 +1003,25 @@ public class LC200_TestSuite {
 			LeetCodeUtils.printlist(l2);
 		}
 		
+	}
+	
+	@Test
+	public void testLC090(){
+		
+		trace();
+		
+		int [][] input = new int[][] {
+//				{1,2,3,4},
+				{1,2,2,3},
+//				{1,2,3,4,5},
+		};
+		
+		LC090_SubsetsII lc090 = new LC090_SubsetsII();
+		
+		for (int i=0; i<input.length; i++){
+			List<List<Integer>> res = lc090.subsetsWithDup2(input[i]);
+			LeetCodeUtils.printList(res);
+		}		
 	}
 	
 	//@Test
@@ -1334,7 +1354,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC165(){
 		
 		trace();
