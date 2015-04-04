@@ -41,33 +41,33 @@ public class LC090_SubsetsII {
 	
 	public List<List<Integer>> subsetsWithDup2(int[] num) {
 		
-	    List<List<Integer>> ans = new ArrayList<List<Integer>>();
+	    List<List<Integer>> res = new ArrayList<List<Integer>>();
 	    
 	    int len = num.length;
-	    if (len == 0) return ans;
+	    if (len == 0) return res;
 	    
 	    Arrays.sort(num);
 
-	    ans.add(new ArrayList<Integer>()); // first, need to add the subset of num[0]
-	    ans.add(new ArrayList<Integer>());
-	    ans.get(1).add(num[0]);
+	    res.add(new ArrayList<Integer>()); // first, need to add the subset of num[0]
+	    res.add(new ArrayList<Integer>());
+	    res.get(1).add(num[0]);
 
-	    int nprev = 1; // this is the number of lists that the previous number was added in.
+	    int prev = 1; // this is the number of lists that the previous number was added in.
 	                   // if the current number is same as the prev one, it'll be only added in the 
 	                   // lists that has the prev number.
 
 	    for (int i = 1; i < len ; ++i){
-	        int size = ans.size();
+	        int size = res.size();
 	        if (num[i]!=num[i-1])   // if different
-	            nprev = size;       // this means add num[i] to all lists in ans;
-	        for (int j = size-nprev; j < size; ++j){
-	            List<Integer> l = new ArrayList<Integer>(ans.get(j));
+	            prev = size;       // this means add num[i] to all lists in res;
+	        for (int j = size-prev; j < size; ++j){
+	            List<Integer> l = new ArrayList<Integer>(res.get(j));
 	            l.add(num[i]);
-	            ans.add(l);
+	            res.add(l);
 	        }
 	    }
 	    
-	    return ans;
+	    return res;
 	}
 	
 	// The following BT solution gives the correct list of subsets but the order is wrong
