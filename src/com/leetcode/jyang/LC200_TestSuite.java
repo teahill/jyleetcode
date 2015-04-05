@@ -246,6 +246,27 @@ public class LC200_TestSuite {
 		LeetCodeUtils.printlist(lc021.mergeTwoLists(l1, l2));	
 	}	
 	
+	@Test
+	public void testLC022(){
+		
+		trace();
+		
+		int[] input = new int[] {
+				1,
+				2,
+				3,
+				4,
+				5,
+			};
+			
+		LC022_GenerateParnenthese lc022 = new LC022_GenerateParnenthese();
+			
+		for (int i=0; i<input.length; i++) {
+			List<String> r = lc022.generateParenthesis(input[i]);
+			LeetCodeUtils.printList(r);
+		}
+	}
+	
 	//@Test
 	public void testLC025(){
 		
@@ -503,12 +524,38 @@ public class LC200_TestSuite {
 		}
 	}	
 	
-	@Test
+	//@Test
+	public void testLC039(){
+		
+		trace();
+		
+		int [][] input = new int[][] {
+//				{1},
+//				{2,3,6,7},
+				{14,6,25,9,30,20,33,34,28,30,16,12,31,9,9,12,34,16,25,32,8,7,30,12,33,20,21,29,24,17,27,34,11,17,30,6,32,21,27,17,16,8,24,12,12,28,11,33,10,32,22,13,34,18,12},
+		};
+		
+		int [] target = new int[] {
+//				2,
+//				7,
+				27,
+		};
+		
+		LC039_CombinationSum lc039 = new LC039_CombinationSum();
+		
+		for (int i=0; i<input.length; i++){
+			List<List<Integer>> res = lc039.combinationSum(input[i], target[i]);
+			LeetCodeUtils.printList(res);
+		}		
+	}
+	
+	//@Test
 	public void testLC040(){
 		
 		trace();
 		
 		int [][] input = new int[][] {
+//				{1,2,3},
 //				{10,1,2,7,6,1,5},
 				{14,6,25,9,30,20,33,34,28,30,16,12,31,9,9,12,34,16,25,32,8,7,30,12,33,20,21,29,24,17,27,34,11,17,30,6,32,21,27,17,16,8,24,12,12,28,11,33,10,32,22,13,34,18,12},
 		};
@@ -860,7 +907,7 @@ public class LC200_TestSuite {
 		trace();
 		
 		int[] input = new int[] {
-				5,
+				3,
 //				20,
 //				20,
 //				20,
@@ -873,7 +920,7 @@ public class LC200_TestSuite {
 		};
 		
 		int[] input2 = new int[] {
-			5,
+			3,
 //			10,
 //			10,
 //			10,
