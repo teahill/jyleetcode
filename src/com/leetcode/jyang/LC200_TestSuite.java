@@ -246,7 +246,7 @@ public class LC200_TestSuite {
 		LeetCodeUtils.printlist(lc021.mergeTwoLists(l1, l2));	
 	}	
 	
-	@Test
+	//@Test
 	public void testLC022(){
 		
 		trace();
@@ -1006,7 +1006,7 @@ public class LC200_TestSuite {
 		trace();
 		
 		int [][] input = new int[][] {
-				{1,1,1,2,2,2,3,3,3,5,5,5,6,6},
+				{1,1,1,1,1,2,2,2,3,3,3,5,5,5,6,6},
 				{1,1,1,2,2,3},
 				{1,1,2,2,3}		
 		};
@@ -1017,7 +1017,8 @@ public class LC200_TestSuite {
 			System.out.println("Input array:");
 			LeetCodeUtils.printIntArray(in);
 			System.out.println("Output list:");
-			lc080.removeDuplicates2(in);
+			lc080.removeDuplicates(in);
+			LeetCodeUtils.printIntArray(in);
 		}
 		
 	}
@@ -1181,6 +1182,25 @@ public class LC200_TestSuite {
 			
 		for (String str : s) {
 			System.out.println("Input: " + str + " is a " + lc125.isPalindrome(str));
+		}	
+	}
+	
+	@Test
+	public void testLC131(){
+		
+		trace();
+
+		String[] s = new String[]{
+			"bb",
+		    "aab",
+		};
+			
+		LC131_PalindromePartition lc131 = new LC131_PalindromePartition();
+			
+		for (String str : s) {
+			System.out.println("Input: " + str);
+			List<List<String>> res = lc131.partition(str);
+			LeetCodeUtils.printList(res);
 		}	
 	}
 	

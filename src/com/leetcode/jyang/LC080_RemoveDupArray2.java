@@ -9,80 +9,43 @@ package com.leetcode.jyang;
  *
  * Your function should return length = 5, and A is now [1,1,2,2,3].
  * 
- * 1 1 2 2 3
  * 
  * @author jyang
+ * 
+ * Notes:
+ * 
+ * The whole process can be thought as copying elements pointed by read index to slots pointed by
+ * write index. This should always happen except for one case: the element to be copied already has
+ * 2 instances in the copied elements, in which case we simply move the read index and hold on the 
+ * write index.
+ * 
+ * See also Problem 26.
  *
  */
 
 public class LC080_RemoveDupArray2 {
-
+	
 	public int removeDuplicates(int[] A) {
 		
-		if (A==null || A.length<3){
-			return A.length;
-		}
-		
-		int count = 0;
-		int tmp = 0;
-		
-		for (int i=2; i<A.length; i++){		
-			if (A[i]==A[i-1] && A[i-1]==A[i-2]){
-				count++;
-				System.out.println("->" + A[i-2] + " " + A[i-1] + " " + A[i]);
-				System.out.println("count=" + count);
-			}
-			else {
-				A[i-count] = A[i];
-				tmp = i-count;
-			}
-			
-			LeetCodeUtils.printIntArray(A);
-		}
-		
-		return A.length - count;
-	}
-	
-	public int removeDuplicates2(int[] A){
-		
-		int p1=1;
-		int p2=1;
-		
-		int count1 = 0;
-		int count2 = 0;
+	    int p1 = 0;	// read index
+	    int p2 = 0; // write index, p1>= p2
 
-		while (p2<A.length && p1<A.length){
-			
-			count2 = 0;
+	    while(p1 < A.length) {
+	    	
+	        if (p1 < A.length && p2 < 2) {
+	        	p2++;
+	        }
+	        // make sure the value we about to write, does not already have 2 values in a row already
+	        //else if (A[p1] != A[p2 - 2] || A[p1] != A[p2-1])
+	        else if (!(A[p1] == A[p2 - 2] && A[p1] == A[p2-1]))
+	        {
+	            A[p2] = A[p1];
+	            p2++;
+	        }
+	        
+	        p1++;
+	    }
 
-			while (p2<A.length && A[p2]==A[p2-1]){
-				p2++;
-				count1++;
-			}
-			
-			while (p1<A.length && A[p1]==A[p1-1]){
-				p1++;
-				count2++;
-				if (count2==1){
-					break;
-				}
-			}
-			
-			LeetCodeUtils.printIntArray(A);
-			
-			if (p2<A.length && p1<A.length){
-				A[p1]=A[p2];
-			}
-			
-			LeetCodeUtils.printIntArray(A);
-			
-			p1++;
-			p2++;
-		}
-		
-		LeetCodeUtils.printIntArray(A);
-		
-		return A.length;
+	    return p2;
 	}
-	
 }
