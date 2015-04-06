@@ -61,12 +61,10 @@ public class LC131_PalindromePartition {
     		
     		List<List<String>> rRes = partitionBT(right);
     		
-    		if (!rRes.isEmpty()){
-    			for (List<String> l : rRes){
-    				l.add(0, left);
-    				res.add(l);
-    			}
-    		}
+			for (List<String> l : rRes){
+				l.add(0, left);
+				res.add(l);
+			}
     	}
     	
     	return res;

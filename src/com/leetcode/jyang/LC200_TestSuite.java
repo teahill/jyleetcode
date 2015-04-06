@@ -29,7 +29,7 @@ public class LC200_TestSuite {
     private void trace(){    	
 		//System.out.println("Executing test case: " + new Object(){}.getClass().getEnclosingMethod().getName());
     	StackTraceElement[] trace = Thread.currentThread().getStackTrace();    	
-    	System.out.println("Executing test case: " + trace[2].getMethodName());
+    	System.out.println("---> Executing test case: " + trace[2].getMethodName());
     }
     
 	//@Test
@@ -1185,7 +1185,7 @@ public class LC200_TestSuite {
 		}	
 	}
 	
-	@Test
+	//@Test
 	public void testLC131(){
 		
 		trace();
@@ -1563,6 +1563,32 @@ public class LC200_TestSuite {
 			System.out.println("Input=" + input[i] + " , output=" + lc172.trailingZeroes(input[i]));
 		}
 	}	
+	
+	//@Test
+	public void testLC179(){
+		
+		trace();
+		
+		int [][] input = new int[][] {
+				{0},
+				{0,0},
+				{0,0,0},
+				{3, 30, 34, 5, 9},
+				{128,12},
+				{121,12},
+				{123,12},
+				{3, 30, 300, 34, 5, 9},
+//				{1,2,2,3},
+//				{1,2,3,4,5},
+		};
+		
+		LC179_LargestNumber lc179 = new LC179_LargestNumber();
+		
+		for (int i=0; i<input.length; i++){
+			LeetCodeUtils.printIntArray(input[i]);
+			System.out.println("largest number " + lc179.largestNumber(input[i]));
+		}		
+	}
 	
 	//@Test
 	public void testLC190(){
