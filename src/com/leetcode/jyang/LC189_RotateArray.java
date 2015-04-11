@@ -20,22 +20,35 @@ public class LC189_RotateArray {
 
     public void rotate(int[] nums, int k) {
     	
-    	if (nums.length<=1 || k==nums.length){
+    	if (nums.length<=1){
     		return;
     	}
     	
-    	k = k%nums.length;
-    	
-    	for (int i = 0; i < nums.length; i++){
-    		
-    		int j = i + k;
-    		
-    		if (j > nums.length -1){
-    			
-    		}	
+    	k %= nums.length;
+    	if (k==nums.length){
+    		return;
     	}
     	
-        
+    	reverseArray(nums, 0, nums.length-k-1);
+    	reverseArray(nums, nums.length-k, nums.length-1);
+    	reverseArray(nums, 0, nums.length-1);
     }
 	
+    private void reverseArray(int num[], int start, int end){
+    	
+    	int i = start;
+    	int j = end;
+    	
+    	while (i<j){
+    		swap(num, i, j);
+    		i++;
+    		j--;
+    	}    	
+    }
+    
+    private void swap(int[] num, int a, int b){
+    	int tmp = num[a];
+    	num[a] = num[b];
+    	num[b] = tmp;
+    }
 }
