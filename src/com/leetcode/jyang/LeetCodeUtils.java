@@ -40,6 +40,21 @@ public class LeetCodeUtils {
 		System.out.println();
 	}
 	
+	public static ListNode findTail(ListNode head){
+		
+		if (head==null){
+			return null;
+		}
+		
+		ListNode ptr = head;
+		
+		while (ptr.next!=null){
+			ptr = ptr.next;
+		}
+		
+		return ptr;
+	}
+	
 	public static void printIntArray(int[] a){
 		for (int i = 0; i<a.length; i++) {
 			System.out.print(a[i] + " ");

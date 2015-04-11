@@ -1444,6 +1444,64 @@ public class LC200_TestSuite {
 		}
 	}
 	
+	@Test
+	public void testLC155(){
+		
+		trace();
+		
+		LC155_MinStack lc155 = new LC155_MinStack();
+		
+//		lc155.push(10);		// main: [10], min: [10]
+//		lc155.push(9);		// main: [9, 10], min: [9, 10]
+//		lc155.push(12); 	// main: [12, 9, 10], min: [9, 10]
+//		lc155.pop();		// main: [9, 10], min: [9, 10]
+//		lc155.push(5);		// main: [5, 9, 10], min: [5, 9, 10]
+//		lc155.push(7);		// main: [7, 5, 9, 10], min: [5, 9, 10]
+//		System.out.println("top of stack is " + lc155.top() + " min is " + lc155.getMin());
+		
+		lc155.push(395);
+		System.out.println(lc155.getMin());
+		System.out.println(lc155.top());
+		System.out.println(lc155.getMin());
+		lc155.push(276);
+		lc155.push(29);
+		System.out.println(lc155.getMin());
+		lc155.push(-482);
+		System.out.println(lc155.getMin());
+		lc155.pop();
+		lc155.push(-108);
+		lc155.push(-251);
+		System.out.println(lc155.getMin());
+	}
+	
+	//@Test
+	public void testLC160(){
+		
+		trace();
+		
+		LC160_IntersectionLinkedLists lc160 = new LC160_IntersectionLinkedLists();
+		
+		int[] a1 = new int[]{1,2,3,4,5};
+		int[] a2 = new int[]{6,7,8};
+		int[] a3 = new int[]{9,10,11,12,13};
+		
+		ListNode head1 = LeetCodeUtils.buildList(a1);
+		ListNode head2 = LeetCodeUtils.buildList(a2);
+		ListNode head3 = LeetCodeUtils.buildList(a3);
+		
+		ListNode r1 = lc160.getIntersectionNode(head2, head3);
+		LeetCodeUtils.printlist(r1);
+		
+		ListNode tail2 = LeetCodeUtils.findTail(head2);
+		ListNode tail3 = LeetCodeUtils.findTail(head3);
+		
+		tail2.next = head1;
+		tail3.next = head1;
+		
+		ListNode r2 = lc160.getIntersectionNode(head2, head3);
+		LeetCodeUtils.printlist(r2);
+	}
+	
 	//@Test
 	public void testLC165(){
 		
@@ -1589,6 +1647,32 @@ public class LC200_TestSuite {
 			System.out.println("largest number " + lc179.largestNumber(input[i]));
 		}		
 	}
+	
+	//@Test
+	public void testLC189(){
+		
+		trace();
+		
+		int [][] input = new int[][] {
+				{1,2,3,4,5,6,7},
+				{1,2,3,4,5,6},
+//				{0,0},
+//				{0,0,0},
+		};
+		
+		int [] input2 = new int[] {
+				3,
+				3
+		};
+		
+		LC189_RotateArray lc189 = new LC189_RotateArray();
+		
+		for (int i=0; i<input.length; i++){
+			LeetCodeUtils.printIntArray(input[i]);
+			lc189.rotate(input[i], input2[i]);
+			LeetCodeUtils.printIntArray(input[i]);
+		}		
+	}	
 	
 	//@Test
 	public void testLC190(){
