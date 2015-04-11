@@ -246,7 +246,7 @@ public class LC200_TestSuite {
 		LeetCodeUtils.printlist(lc021.mergeTwoLists(l1, l2));	
 	}	
 	
-	//@Test
+	@Test
 	public void testLC022(){
 		
 		trace();
@@ -263,7 +263,8 @@ public class LC200_TestSuite {
 			
 		for (int i=0; i<input.length; i++) {
 			List<String> r = lc022.generateParenthesis(input[i]);
-			LeetCodeUtils.printList(r);
+			System.out.println("Input: " + input[i] + " result size = " + r.size());
+ 			LeetCodeUtils.printList(r);
 		}
 	}
 	
@@ -1444,7 +1445,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC155(){
 		
 		trace();

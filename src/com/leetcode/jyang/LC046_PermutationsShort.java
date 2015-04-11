@@ -63,7 +63,7 @@ public class LC046_PermutationsShort {
 		else {
 			for (int j=start; j<num.length; j++){
 				swap(num, start, j);
-				permuteBT(num, start+1, res);
+				permuteBT(num, start+1, res);  // why it is start+1 instead of i+1?
 				swap(num, start, j);
 			}
 		}

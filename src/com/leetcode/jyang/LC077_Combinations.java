@@ -81,7 +81,7 @@ public class LC077_Combinations {
     	 */
         for(int i=start; i<=n; i++) {
             list.add(i);
-            combineBT(list, i+1, n, k-1, res);
+            combineBT(list, i+1, n, k-1, res); // why it is i+1 instead of start+1?
             list.remove(list.size()-1);	// this is the backtracking part
         }
         
