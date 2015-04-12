@@ -23,9 +23,7 @@ package com.leetcode.jyang;
  */
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
-import java.util.Stack;
 
 public class LC022_GenerateParnenthese {
 

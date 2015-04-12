@@ -246,17 +246,17 @@ public class LC200_TestSuite {
 		LeetCodeUtils.printlist(lc021.mergeTwoLists(l1, l2));	
 	}	
 	
-	@Test
+	//@Test
 	public void testLC022(){
 		
 		trace();
 		
 		int[] input = new int[] {
-				1,
-				2,
+//				1,
+//				2,
 				3,
-				4,
-				5,
+//				4,
+//				5,
 			};
 			
 		LC022_GenerateParnenthese lc022 = new LC022_GenerateParnenthese();
@@ -1075,6 +1075,19 @@ public class LC200_TestSuite {
 			LeetCodeUtils.printlist(l2);
 		}
 		
+	}
+	
+	@Test
+	public void testLC089(){
+		
+		trace();
+		
+		int n = 0;
+		
+		LC089_GrayCode lc089 = new LC089_GrayCode();
+		List<Integer> res = lc089.grayCode2(n);
+		
+		LeetCodeUtils.printList(res);	
 	}
 	
 	//@Test
