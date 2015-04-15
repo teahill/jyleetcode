@@ -159,22 +159,43 @@ public class LC200_TestSuite {
 //			{-1, 0, 1},
 //			{0, 0, 0},
 //			{1, 1, 1},
-//			{-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6},
-			{7,-1,14,-12,-8,7,2,-15,8,8,-8,-14,-4,-5,7,9,11,-4,-15,-6,1,-14,4,3,10,-5,2,1,6,11,2,-2,-5,-7,-6,2,-15,11,-6,8,-4,2,1,-1,4,-6,-15,1,5,-15,10,14,9,-8,-6,4,-6,11,12,-15,7,-1,-9,9,-1,0,-4,-1,-12,-2,14,-9,7,0,-3,-4,1,-2,12,14,-10,0,5,14,-1,14,3,8,10,-8,8,-5,-2,6,-11,12,13,-7,-12,8,6,-13,14,-2,-5,-11,1,3,-6},				
+			{-4,-2,-2,-2,0,1,2,2,2,3,3,4,4,6,6},
+//			{7,-1,14,-12,-8,7,2,-15,8,8,-8,-14,-4,-5,7,9,11,-4,-15,-6,1,-14,4,3,10,-5,2,1,6,11,2,-2,-5,-7,-6,2,-15,11,-6,8,-4,2,1,-1,4,-6,-15,1,5,-15,10,14,9,-8,-6,4,-6,11,12,-15,7,-1,-9,9,-1,0,-4,-1,-12,-2,14,-9,7,0,-3,-4,1,-2,12,14,-10,0,5,14,-1,14,3,8,10,-8,8,-5,-2,6,-11,12,13,-7,-12,8,6,-13,14,-2,-5,-11,1,3,-6},				
 		};
 			
 		LC015_3Sum lc015 = new LC015_3Sum();
 		
 		for (int i=0; i<input.length; i++){
+			LeetCodeUtils.printIntArray(input[i]);
 			List<List<Integer>> result = lc015.threeSum(input[i]);
-			System.out.println("Results for input set: " + i + "->" + result.size());
+			System.out.println("Results for input set");
 			for (List<Integer> r : result){
-				for (Integer in : r){
-					System.out.print( in + ", ");
-				}
-				System.out.println();
+				LeetCodeUtils.printList(r);
 			}
 
+		}
+	}
+	
+	@Test
+	public void testLC016(){
+		
+		trace();
+		
+		int[][] input = new int[][] {
+			{-1, 2, 1, -4},
+			{0,0,0}
+		};
+		
+		int[] input2 = new int[] {
+			1,
+			1
+		};
+			
+		LC016_3SumClosest lc016 = new LC016_3SumClosest();
+		
+		for (int i=0; i<input.length; i++){
+			LeetCodeUtils.printIntArray(input[i]);
+			System.out.println("Results for input set: " + lc016.threeSumClosest(input[i], input2[i]));
 		}
 	}
 	
@@ -1077,12 +1098,12 @@ public class LC200_TestSuite {
 		
 	}
 	
-	@Test
+	//@Test
 	public void testLC089(){
 		
 		trace();
 		
-		int n = 0;
+		int n = 3;
 		
 		LC089_GrayCode lc089 = new LC089_GrayCode();
 		List<Integer> res = lc089.grayCode2(n);

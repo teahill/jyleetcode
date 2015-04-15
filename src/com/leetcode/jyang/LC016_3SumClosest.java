@@ -15,7 +15,28 @@ package com.leetcode.jyang;
 public class LC016_3SumClosest {
 
     public int threeSumClosest(int[] num, int target) {
+    	
+    	int min = Integer.MAX_VALUE;
+    	int res = num[0] + num[1] + num[2];
         
+    	for (int i=0; i<num.length; i++){
+    		for (int j=i+1; j<num.length; j++){
+    			for (int k=j+1; k<num.length; k++){  
+    				
+    				int sum = num[i]+num[j]+num[k];
+    				int diff = Math.abs(target - sum);
+    				
+    				if (diff==0)	return sum;
+    				
+    				if (diff < min){
+    					min = diff;
+    					res = sum;
+    				}
+    			}
+    		}
+    	}
+    	
+    	return res;
     }
 	
 }

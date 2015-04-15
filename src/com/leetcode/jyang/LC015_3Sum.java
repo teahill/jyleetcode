@@ -2,7 +2,10 @@ package com.leetcode.jyang;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Level: Medium
@@ -32,7 +35,45 @@ public class LC015_3Sum {
 	Expected:	[[-4,-2,6],[-4,0,4],[-4,1,3],[-4,2,2],[-2,-2,4],[-2,0,2]]
 	*/	
 	
+	HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
+	
 	public List<List<Integer>> threeSum(int[] num) {
+			
+	    Arrays.sort(num);
+	    
+	    List<List<Integer>> res = new LinkedList<List<Integer>>(); 
+	    
+	    for (int i = 0; i< num.length; i++) {
+	    	map.put(num[i], i);
+	    }
+	    
+	    for (int i = 0; i<num.length; i++){
+	        
+	    	if (i > 0 && num[i] == num[i-1]) continue;
+	        
+	    	for (int j = i+1; j<num.length; j++){
+	    		
+	            if (j > i+1 && num[j] == num[j-1]) continue;
+	            
+	            if (map.containsKey(0-num[i] - num[j])){
+	                if (map.get(0-num[i]-num[j]) > j){
+	                    // we found a match
+	                    LinkedList<Integer> r = new LinkedList<Integer>();
+	                    r.add(num[i]);
+	                    r.add(num[j]);
+	                    r.add(0-num[i] - num[j]);
+	                    
+	                    res.add(r);
+	                }
+
+	            }
+	        }
+	    }
+	    return res;
+
+	}
+	
+	public List<List<Integer>> threeSum2(int[] num) {
 		
 		int target = 0;
 		
@@ -70,9 +111,9 @@ public class LC015_3Sum {
 		}
 	
 		return results;
-	}
+	}	
 
-	public List<List<Integer>> threeSum2(int[] num) {
+	public List<List<Integer>> threeSum3(int[] num) {
 		
 		int target = 0;
 		
