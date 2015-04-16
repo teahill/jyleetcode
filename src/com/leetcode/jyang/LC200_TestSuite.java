@@ -176,7 +176,7 @@ public class LC200_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC016(){
 		
 		trace();
@@ -213,6 +213,35 @@ public class LC200_TestSuite {
 		for (String s : input){
 			List<String> res = lc017.letterCombinations(s);
 			LeetCodeUtils.printList(res);
+		}
+	}
+	
+	@Test
+	public void testLC018(){
+		
+		trace();
+		
+		int[][] input = new int[][] {
+//			{1, 0, -1, 0, -2, 2},
+			{-3,-2,-1,0,0,1,2,3}
+//			{-4,-3,-2,-1,0,0,1,2,3,4},
+		};
+		
+		int[] input2 = new int[] {
+//			0,
+			0,
+		};
+			
+		LC018_4Sum lc018 = new LC018_4Sum();
+		
+		for (int i=0; i<input.length; i++){
+			LeetCodeUtils.printIntArray(input[i]);
+			List<List<Integer>> result = lc018.fourSum(input[i], input2[i]);
+			System.out.println("Results for input set");
+			for (List<Integer> r : result){
+				LeetCodeUtils.printList(r);
+			}
+
 		}
 	}
 	

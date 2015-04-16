@@ -25,6 +25,8 @@ import java.util.Map;
  * 
  * @author jyang
  *
+ * It has been theoretically proven that the fastest solution for this problem is O(n^2).
+ *
  */
 public class LC015_3Sum {
 	
@@ -73,6 +75,7 @@ public class LC015_3Sum {
 
 	}
 	
+	// this gets the correct results but TLE ...
 	public List<List<Integer>> threeSum2(int[] num) {
 		
 		int target = 0;
@@ -113,6 +116,7 @@ public class LC015_3Sum {
 		return results;
 	}	
 
+	// this won't work
 	public List<List<Integer>> threeSum3(int[] num) {
 		
 		int target = 0;
