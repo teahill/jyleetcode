@@ -149,7 +149,7 @@ public class LC200_TestSuite {
 		System.out.println(i);
 	}
 	
-	@Test
+	//@Test
 	public void testLC015(){
 		
 		trace();
@@ -1122,6 +1122,49 @@ public class LC200_TestSuite {
 		}
 		
 	}
+	
+	@Test
+	public void testLC088(){
+		
+		trace();
+		
+		int m = 12;
+		int n = 8;
+		
+		int[] A = new int[m+n];
+		int[] B = new int[n];
+		
+		for (int i=0; i < m; i++){
+			A[i] = 2 * i + 100;
+		}		
+		LeetCodeUtils.printIntArray(A);
+		
+		for (int i=0; i < n; i++){
+			B[i] = 2 * i + 1;
+		}
+		LeetCodeUtils.printIntArray(B);		
+		
+		LC088_MergeSortedArray lc088 = new LC088_MergeSortedArray();
+		
+		lc088.merge(A, m, B, n);
+		
+		LeetCodeUtils.printIntArray(A);		
+	}
+	
+	@Test
+	public void testLC088_2(){
+		
+		trace();
+			
+		int[] A = new int[]{1,0};
+		int[] B = new int[]{1};
+				
+		LC088_MergeSortedArray lc088 = new LC088_MergeSortedArray();
+		
+		lc088.merge(A, 1, B, 1);
+		
+		LeetCodeUtils.printIntArray(A);		
+	}	
 	
 	//@Test
 	public void testLC089(){
