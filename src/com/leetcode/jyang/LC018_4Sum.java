@@ -72,7 +72,7 @@ public class LC018_4Sum {
 		    			r.add(num[start]);
 		    			r.add(num[end]);
 		    			
-		    			res.add(r);
+		    			if (!res.contains(r)) res.add(r);
 		    			
 	    				start++;
 		    			while (start < end && num[start]==num[start-1]){

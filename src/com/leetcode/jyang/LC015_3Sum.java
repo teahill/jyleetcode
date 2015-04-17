@@ -40,6 +40,60 @@ public class LC015_3Sum {
 	HashMap<Integer, Integer> map = new HashMap<Integer, Integer>();
 	
 	public List<List<Integer>> threeSum(int[] num) {
+		
+	    Arrays.sort(num);
+	    
+	    List<List<Integer>> res = new LinkedList<List<Integer>>(); 
+	    
+	    for (int i = 0; i<num.length; i++){
+	    	
+	    	if (i > 0 && num[i] == num[i-1]) continue;
+	    	
+	    	int start = i+1;
+	    	int end = num.length - 1;
+	    	
+	    	while (start < end){
+	    		
+	    		int sum = num[i] + num[start] + num[end];
+	    		
+	    		if (sum < 0){
+	    			start++;
+	    			while (start < end && num[start]==num[start-1]){
+	    				start++;
+	    			}
+	    		}
+	    		else if (sum > 0){
+	    			end--;
+	    			while (start < end && num[end]==num[end+1]){
+	    				end--;
+	    			}
+	    		}
+	    		else {
+	    			List<Integer> r = new ArrayList<Integer>();
+	    			
+	    			r.add(num[i]);
+	    			r.add(num[start]);
+	    			r.add(num[end]);
+	    			
+	    			res.add(r);
+	    			
+	    			start++;
+	    			while (start < end && num[start]==num[start-1]){
+	    				start++;
+	    			}
+	    			
+	    			end--;
+	    			while (start < end && num[end]==num[end+1]){
+	    				end--;
+	    			}	    				    			
+	    		}	    		
+	    	}
+	    }
+	    
+	    return res;
+	}
+	
+	public List<List<Integer>> threeSum4(int[] num) {
 			
 	    Arrays.sort(num);
 	    
