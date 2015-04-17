@@ -8,7 +8,7 @@ import java.util.Set;
 
 import org.junit.*;
 
-public class LC200_TestSuite {
+public class LC999_TestSuite {
 	
     @BeforeClass
     public static void oneTimeSetUp() {
