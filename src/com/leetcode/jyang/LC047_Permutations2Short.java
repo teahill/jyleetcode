@@ -1,7 +1,6 @@
 package com.leetcode.jyang;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -34,7 +33,7 @@ public class LC047_Permutations2Short {
 		Set<Integer> set = new HashSet<Integer>();
 		
 		if (start==num.length-1){
-			List<Integer> tmp = makeList(num);
+//			List<Integer> tmp = makeList(num);
 //			if (!res.contains(tmp)){
 				res.add(makeList(num));
 //			}

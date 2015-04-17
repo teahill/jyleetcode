@@ -124,16 +124,16 @@ public class LC060_PermutationSeqMath {
 		getPermutationDP(n, k, picked, remain);
 	}
 	
-	private int factorial(int n){
-		
-		if (n<=0)	return 0;
-		if (n==1)	return 1;
-		
-		int f = 1;
-		for (int i=1; i<=n; i++){
-			f = f*i;
-		}
-		
-		return f;
-	}
+//	private int factorial(int n){
+//		
+//		if (n<=0)	return 0;
+//		if (n==1)	return 1;
+//		
+//		int f = 1;
+//		for (int i=1; i<=n; i++){
+//			f = f*i;
+//		}
+//		
+//		return f;
+//	}
 }

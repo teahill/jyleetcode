@@ -36,9 +36,7 @@ public class LC037_ValidSudoku {
 	public boolean isValidSudoku(char[][] board) {
 	    
 		int size = board.length;
-		
-		String[] sts = new String[3];
-		
+			
 		Set[] rowSets = new HashSet[size];
 		for (int i=0; i<size; i++){
 			rowSets[i] = new HashSet();

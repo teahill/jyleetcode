@@ -746,7 +746,7 @@ public class LC200_TestSuite {
 		List<List<Integer>> res = lc046.permute(input);
 		
 		LC060_PermutationSeqMath lc060 = new LC060_PermutationSeqMath();
-		System.out.println(lc060.getPermutation(5, 11));
+		System.out.println(lc060.getPermutation(k, 11));
 		
 //		for (int i=0; i<res.size(); i++){
 //			System.out.print(i+1 + ": ");
