@@ -533,7 +533,7 @@ public class LC999_TestSuite {
 	}
 	
 	//@Test
-	public void testLC037(){
+	public void testLC036(){
 		
 		trace();
 		
@@ -549,12 +549,40 @@ public class LC999_TestSuite {
 				{'0','0','0','0','8','0','0','7','9',},
 			};
 		
-		LC037_ValidSudoku lc037 = new LC037_ValidSudoku();
+		LC036_ValidSudoku lc036 = new LC036_ValidSudoku();
 		
-		boolean isValid = lc037.isValidSudoku(sudoko);
+		boolean isValid = lc036.isValidSudoku(sudoko);
 		
 		System.out.println("Sudoko is valid? " + isValid);
+	}	
+	
+	//@Test
+	public void testLC037(){
 		
+		trace();
+		
+	    int[][] sudoku = new int[][] {
+ 	           {5,3,0,0,7,0,0,0,0},
+ 	           {6,0,0,1,9,5,0,0,0},
+ 	           {0,9,8,0,0,0,0,6,0},
+ 	           {8,0,0,0,6,0,0,0,3},
+ 	           {4,0,0,8,0,3,0,0,1},
+ 	           {7,0,0,0,2,0,0,0,6},
+ 	           {0,6,0,0,0,0,2,8,0},
+ 	           {0,0,0,4,1,9,0,0,5},
+ 	           {0,0,0,0,8,0,0,7,9}
+ 	    };
+		
+		LC037_SudokuSolver lc037 = new LC037_SudokuSolver();
+		
+//		int row = 7;
+//		int col = 7;
+//		int value = 6;
+//		
+//		boolean isValid = lc041.isValid(sudoku, row, col, value);
+//		System.out.println("Sudoko is valid? " + isValid);
+		
+		lc037.solveSudoku(sudoku);
 	}	
 	
 	//@Test
@@ -706,6 +734,38 @@ public class LC999_TestSuite {
 		lc048.rotate(input);
 		System.out.println();
 		LeetCodeUtils.printIntArray2D(input);		
+	}
+	
+	//@Test
+	public void testLC051(){
+		
+		trace();
+		
+		int n = 8;
+		
+		LC051_NQueens lc051 = new LC051_NQueens();	
+		List<String[]> res = lc051.solveNQueens(n);
+		
+		for (int i = 0; i< res.size(); i++){
+			System.out.println("Solution #" + (i+1));
+			String[] s = res.get(i);
+			for (int j=0; j<s.length; j++){
+				System.out.println(s[j]);
+			}
+		}
+	}
+	
+	//@Test
+	public void testLC052(){
+		
+		trace();
+		
+		int n = 12;
+		
+		LC052_NQueensII lc052 = new LC052_NQueensII();	
+		int c = lc052.totalNQueens(n);
+		
+		System.out.println("Total distinct solutions for input: " + n + " is " + c);
 	}
 	
 	//@Test
@@ -1123,7 +1183,7 @@ public class LC999_TestSuite {
 		
 	}
 	
-	@Test
+	//@Test
 	public void testLC088(){
 		
 		trace();
@@ -1151,7 +1211,7 @@ public class LC999_TestSuite {
 		LeetCodeUtils.printIntArray(A);		
 	}
 	
-	@Test
+	//@Test
 	public void testLC088_2(){
 		
 		trace();
@@ -1286,6 +1346,43 @@ public class LC999_TestSuite {
 		for (String str : s) {
 			System.out.println("Input: " + str + " is a " + lc125.isPalindrome(str));
 		}	
+	}
+	
+	@Test
+	public void testLC126(){
+		
+		trace();
+
+		String[] start = new String[]{
+			//"hit",
+			"qa",
+		};
+		
+		String[] end = new String[]{
+			//"cog",
+			"sq",
+		};
+		
+		String[][] d = new String[][] {
+			//{"hot", "dot", "dog", "lot", "log", "cog"},
+			{"si","go","se","cm","so","ph","mt","db","mb","sb","kr","ln","tm","le","av","sm","ar","ci","ca","br","ti","ba","to","ra","fa","yo","ow","sn","ya","cr","po","fe","ho","ma","re","or","rn","au","ur","rh","sr","tc","lt","lo","as","fr","nb","yb","if","pb","ge","th","pm","rb","sh","co","ga","li","ha","hz","no","bi","di","hi","qa","pi","os","uh","wm","an","me","mo","na","la","st","er","sc","ne","mn","mi","am","ex","pt","io","be","fm","ta","tb","ni","mr","pa","he","lr","sq","ye"},
+		};
+
+		LC126_WordLadderII lc126 = new LC126_WordLadderII();
+			
+		for (int i=0; i< start.length; i++){
+			
+			Set<String> dict = new HashSet<String>();
+			String[] dStr = d[i];
+			for (int j=0; j<dStr.length; j++){
+				dict.add(dStr[j]);
+			}
+			
+			List<List<String>> res = lc126.findLadders(start[i], end[i], dict);
+			for (List<String> l : res){
+				LeetCodeUtils.printList(l);
+			}
+		}
 	}
 	
 	//@Test

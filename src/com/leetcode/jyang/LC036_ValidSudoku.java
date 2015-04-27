@@ -31,7 +31,7 @@ import java.util.Set;
  *
  */
 
-public class LC037_ValidSudoku {
+public class LC036_ValidSudoku {
 	
 	public boolean isValidSudoku(char[][] board) {
 	    
