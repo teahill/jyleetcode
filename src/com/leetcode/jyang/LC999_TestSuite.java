@@ -736,12 +736,12 @@ public class LC999_TestSuite {
 		LeetCodeUtils.printIntArray2D(input);		
 	}
 	
-	//@Test
+	@Test
 	public void testLC051(){
 		
 		trace();
 		
-		int n = 8;
+		int n = 7;
 		
 		LC051_NQueens lc051 = new LC051_NQueens();	
 		List<String[]> res = lc051.solveNQueens(n);
@@ -755,14 +755,15 @@ public class LC999_TestSuite {
 		}
 	}
 	
-	//@Test
+	@Test
 	public void testLC052(){
 		
 		trace();
 		
-		int n = 12;
+		int n = 7;
 		
-		LC052_NQueensII lc052 = new LC052_NQueensII();	
+		//LC052_NQueensII lc052 = new LC052_NQueensII();
+		LC052_NQueensIII lc052 = new LC052_NQueensIII();
 		int c = lc052.totalNQueens(n);
 		
 		System.out.println("Total distinct solutions for input: " + n + " is " + c);
@@ -1348,7 +1349,7 @@ public class LC999_TestSuite {
 		}	
 	}
 	
-	@Test
+	//@Test
 	public void testLC126(){
 		
 		trace();

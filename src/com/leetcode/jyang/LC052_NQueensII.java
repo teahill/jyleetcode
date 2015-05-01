@@ -37,6 +37,9 @@ public class LC052_NQueensII {
 	
     public int totalNQueens(int n) {
     	
+    	if (n<=0 || n==2 || n==3)	return 0;
+    	if (n==1)	return 1;
+    	
     	List<int[]> queens = new ArrayList<int[]>();
     	int[][] grid = new int[n][n];
     	
@@ -84,9 +87,9 @@ public class LC052_NQueensII {
     		grid[i][n] = 1;
     	}
     	
-       	for (m = 0; m < grid.length; m++){
-    		grid[m][j] = 1;
-    	}
+//       	for (m = 0; m < grid.length; m++){
+//    		grid[m][j] = 1;
+//    	}
        	
        	for (m = i, n = j; m < grid.length && n < grid[i].length; m++, n++){
        		grid[m][n] = 1;

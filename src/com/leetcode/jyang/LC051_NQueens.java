@@ -118,6 +118,7 @@ public class LC051_NQueens {
     	}
     }
     
+    // A slight improvement is do not check column, as we place queens in different columns anyway
     private void markAttackPos(int i, int j, int[][] grid){
     	
     	int m, n;
@@ -126,9 +127,9 @@ public class LC051_NQueens {
     		grid[i][n] = 1;
     	}
     	
-       	for (m = 0; m < grid.length; m++){
-    		grid[m][j] = 1;
-    	}
+//      for (m = 0; m < grid.length; m++){
+//    		grid[m][j] = 1;
+//    	}
        	
        	for (m = i, n = j; m < grid.length && n < grid[i].length; m++, n++){
        		grid[m][n] = 1;
