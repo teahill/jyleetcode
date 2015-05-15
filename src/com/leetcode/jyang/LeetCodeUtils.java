@@ -1,10 +1,151 @@
 package com.leetcode.jyang;
 
+import java.util.ArrayDeque;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Queue;
 import java.util.Stack;
 
 public class LeetCodeUtils {
+	
+	public static TreeNode buildBalancedBST(int[] num){
+		
+		if (num.length==0)	return null;
+		
+		TreeNode root = new TreeNode(num[0]);
+		
+		for (int i=1; i<num.length; i++){
+			insertBST(root, num[i]);
+		}
+		
+		return root;
+	}
+	
+	public static void insertBST(TreeNode root, int n){
+		
+		if (n < root.val) {
+			if (root.left==null){
+				TreeNode node = new TreeNode(n);
+				root.left = node;
+			}
+			else {
+				insertBST(root.left, n);
+			}
+		}
+		else if (n > root.val){
+			if (root.right==null){
+				TreeNode node = new TreeNode(n);
+				root.right = node;
+			}
+			else {
+				insertBST(root.right, n);
+			}
+		}
+		else {
+			;
+		}	
+	}
+	
+	public static void printTreePreOrder(TreeNode root){
+		if (root==null){
+			return;
+		}
+		
+		System.out.print(root.val + " ");
+		printTreePreOrder(root.left);
+		printTreePreOrder(root.right);
+	}
+	
+	public static void printTreeLevelOrder(TreeNode root){
+		if (root==null){
+			return;
+		}
+		
+		Queue<TreeNode> queue = new ArrayDeque<TreeNode>();
+		
+		queue.add(root);
+		
+		while (!queue.isEmpty()){
+			
+			TreeNode node = queue.poll();
+			
+			System.out.print(node.val + " ");
+			
+			if (node.left!=null){
+				queue.add(node.left);
+			}
+			
+			if (node.right!=null){
+				queue.add(node.right);
+			}
+		}
+		
+		System.out.println();
+	}
+	
+	public static String serilizeBinaryTree(TreeNode root){
+		
+		if (root==null){
+			return "";
+		}
+		
+		StringBuilder sb = new StringBuilder();
+		
+		Queue<TreeNode> queue = new ArrayDeque<TreeNode>();
+		
+		queue.add(root);
+		
+		while (!queue.isEmpty()){
+			
+			TreeNode node = queue.poll();
+			
+			sb.append(node.val + ",");
+			
+			if (node.left!=null){
+				queue.add(node.left);
+			}
+			else {
+				sb.append("#,");
+			}
+			
+			if (node.right!=null){
+				queue.add(node.right);
+			}
+			else {
+				sb.append("#,");
+			}
+		}
+		
+		return sb.toString();
+	}
+	
+	public static TreeNode deserilizeBinaryTree(String tree){
+		
+		String[] nodes = tree.split(",");
+		
+		if (nodes.length==0){
+			return null;
+		}
+		
+		TreeNode root = new TreeNode(Integer.valueOf(nodes[0]));
+		
+		int level = 1;
+		
+		
+		for (int i=1; i<nodes.length; i++){
+			
+			//TreeNode parent = new TreeNode(nodes[i]);
+			
+			
+			
+		}
+		
+		
+		
+		
+		return root;
+	}
 	
 	public static ListNode buildList(int[] input){
 		

@@ -1,0 +1,122 @@
+package com.leetcode.jyang;
+
+import java.util.ArrayDeque;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Queue;
+import java.util.Set;
+
+/**
+ * Solution copied from:
+ * 
+ * https://leetcode.com/discuss/9523/share-two-similar-java-solution-that-accpted-by-oj
+ * 
+ * The solution contains two steps 
+ * 1 Use BFS to construct a graph. 
+ * 2. Use DFS to construct the paths from end to start. Both solutions got AC within 1s.
+ *
+ * The first step BFS is quite important. I summarized three tricks
+ *
+ * 1) Using a MAP to store the min ladder of each word, or use a SET to store the words visited in current ladder, when the current ladder was completed, delete the visited words from unvisited. That's why I have two similar solutions.
+ *
+ * 2) Use Character iteration to find all possible paths. Do not compare one word to all the other words and check if they only differ by one character.
+ *
+ * 3) One word is allowed to be inserted into the queue only ONCE. See my comments.
+ * 
+ * @author jyang
+ *
+ */
+
+public class LC126_WordLadderII_LC {
+	
+    List<List<String>> results;
+    List<String> list;
+    Map<String,List<String>> map;
+        
+    public List<List<String>> findLadders(String start, String end, Set<String> dict) {
+    	
+        results= new ArrayList<List<String>>();
+        if (dict.size() == 0)
+            return results;
+
+        int curr=1, next=0;          
+        boolean found=false;            
+        list = new LinkedList<String>();           
+        map = new HashMap<String,List<String>>();
+
+        Queue<String> queue= new ArrayDeque<String>();
+        Set<String> unvisited = new HashSet<String>(dict);
+        Set<String> visited = new HashSet<String>();
+
+        queue.add(start);           
+        unvisited.add(end);
+        unvisited.remove(start);
+        
+        //BFS
+        while (!queue.isEmpty()) {
+            String word = queue.poll();
+            curr--;             
+            for (int i = 0; i < word.length(); i++){
+                StringBuilder builder = new StringBuilder(word); 
+                for (char ch='a';  ch <= 'z'; ch++){
+                    builder.setCharAt(i,ch);
+                    String new_word = builder.toString(); 
+                    
+                    if (unvisited.contains(new_word)){
+                        //Handle queue
+                        if (visited.add(new_word)){//Key statement,Avoid Duplicate queue insertion
+                            next++;
+                            queue.add(new_word);
+                        }
+
+                        if (map.containsKey(new_word))//Build Adjacent Graph
+                            map.get(new_word).add(word);
+                        else{
+                            List<String> l= new LinkedList<String>();
+                            l.add(word);
+                            map.put(new_word, l);
+                        }
+
+                        if (new_word.equals(end)&&!found)
+                        	found=true;
+                    }
+                }//End:Iteration from 'a' to 'z'
+            }//End:Iteration from the first to the last
+            
+            if (curr==0){
+                if (found) break;
+                curr=next;
+                next=0;
+                unvisited.removeAll(visited);
+                visited.clear();
+            }            
+        }//End While
+
+        backTrace(end,start);
+
+        return results;        
+    }
+    
+    private void backTrace(String word,String start){
+    	
+        if (word.equals(start)){
+            list.add(0,start);
+            results.add(new ArrayList<String>(list));
+            list.remove(0);
+            return;
+        }
+        
+        list.add(0,word);
+        
+        if (map.get(word)!=null)
+            for (String s:map.get(word))
+                backTrace(s,start);
+        
+        list.remove(0);
+    }
+}
+

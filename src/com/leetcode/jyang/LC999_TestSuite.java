@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Random;
 import java.util.Set;
 
 import org.junit.*;
@@ -736,7 +737,7 @@ public class LC999_TestSuite {
 		LeetCodeUtils.printIntArray2D(input);		
 	}
 	
-	@Test
+	//@Test
 	public void testLC051(){
 		
 		trace();
@@ -755,7 +756,7 @@ public class LC999_TestSuite {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC052(){
 		
 		trace();
@@ -1349,27 +1350,28 @@ public class LC999_TestSuite {
 		}	
 	}
 	
-	//@Test
+	@Test
 	public void testLC126(){
 		
 		trace();
 
 		String[] start = new String[]{
-			//"hit",
-			"qa",
+			"hit",
+			//"qa",
 		};
 		
 		String[] end = new String[]{
-			//"cog",
-			"sq",
+			"cog",
+			//"sq",
 		};
 		
 		String[][] d = new String[][] {
-			//{"hot", "dot", "dog", "lot", "log", "cog"},
-			{"si","go","se","cm","so","ph","mt","db","mb","sb","kr","ln","tm","le","av","sm","ar","ci","ca","br","ti","ba","to","ra","fa","yo","ow","sn","ya","cr","po","fe","ho","ma","re","or","rn","au","ur","rh","sr","tc","lt","lo","as","fr","nb","yb","if","pb","ge","th","pm","rb","sh","co","ga","li","ha","hz","no","bi","di","hi","qa","pi","os","uh","wm","an","me","mo","na","la","st","er","sc","ne","mn","mi","am","ex","pt","io","be","fm","ta","tb","ni","mr","pa","he","lr","sq","ye"},
+			{"hot", "dot", "dog", "lot", "log", "cog"},
+			//{"si","go","se","cm","so","ph","mt","db","mb","sb","kr","ln","tm","le","av","sm","ar","ci","ca","br","ti","ba","to","ra","fa","yo","ow","sn","ya","cr","po","fe","ho","ma","re","or","rn","au","ur","rh","sr","tc","lt","lo","as","fr","nb","yb","if","pb","ge","th","pm","rb","sh","co","ga","li","ha","hz","no","bi","di","hi","qa","pi","os","uh","wm","an","me","mo","na","la","st","er","sc","ne","mn","mi","am","ex","pt","io","be","fm","ta","tb","ni","mr","pa","he","lr","sq","ye"},
 		};
 
-		LC126_WordLadderII lc126 = new LC126_WordLadderII();
+		//LC126_WordLadderII lc126 = new LC126_WordLadderII();
+		LC126_WordLadderII_LC lc126 = new LC126_WordLadderII_LC();
 			
 		for (int i=0; i< start.length; i++){
 			
@@ -1949,6 +1951,32 @@ public class LC999_TestSuite {
 		}
 	}		
 	
+	@Test
+	public void testTreeUtils(){
+		
+		trace();
+		
+		Random ran = new Random();
+		
+		int size = 20;
+		int[] num = new int[size];
+		
+		for (int i=0; i<size; i++){
+			num[i] = ran.nextInt(100);
+		}
+		
+		System.out.println("Input array:");
+		LeetCodeUtils.printIntArray(num);
+		
+		TreeNode root = LeetCodeUtils.buildBalancedBST(num);	
+		//LeetCodeUtils.printTreePreOrder(root);
+		
+		System.out.println("Level Order");
+		LeetCodeUtils.printTreeLevelOrder(root);
+		
+		System.out.println("Serilize: ");
+		System.out.println(LeetCodeUtils.serilizeBinaryTree(root));
+	}
 }
 
 
