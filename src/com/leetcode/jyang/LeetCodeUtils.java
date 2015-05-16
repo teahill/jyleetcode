@@ -1,6 +1,7 @@
 package com.leetcode.jyang;
 
 import java.util.ArrayDeque;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -8,9 +9,35 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Queue;
+import java.util.Random;
 import java.util.Stack;
 
 public class LeetCodeUtils {
+	
+	public static TreeNode generateBST(int size, int maxVal) {
+		
+		if (maxVal < size){
+			maxVal = size*2;
+		}
+		
+		Random ran = new Random();
+			
+		List<Integer> list = new ArrayList<Integer>();
+		
+		while (list.size() <= size){
+			int i = ran.nextInt(maxVal);
+			if (!list.contains(i)){
+				list.add(i);
+			}
+		}
+				
+		int[] num = new int[size];
+		for (int i=0; i<size; i++){
+			num[i] = list.get(i);
+		}
+		
+		return buildBalancedBST(num);
+	}
 	
 	public static TreeNode buildBalancedBST(int[] num){
 		
@@ -210,58 +237,67 @@ public class LeetCodeUtils {
 		return sb.toString();
 	}
 	
-	/**
-	 * This implementation is based on assumption that all nodes in the tree has unique values.
-	 * 
-	 * @param tree
-	 * @return
-	 */
 	public static TreeNode deserilizeBinaryTree(String tree){
-		
+			
 		String[] nodes = tree.split(",");
 		
 		if (nodes.length==0){
 			return null;
 		}
+			
+		Map<Integer, TreeNode> map = new HashMap<Integer, TreeNode>(); 
 		
-		Map<Integer, TreeNode> map = new HashMap<>(); 
+		TreeNode root = null;
 		
-		//TreeNode root = new TreeNode(Integer.valueOf(nodes[0]));
-		TreeNode parent = null;
-					
-		for (int i=nodes.length-1; i>=0; i--){
+		for (int i=0; i<nodes.length; i++){
 			
 			//TreeNode parent = new TreeNode(nodes[i]);
 			if (nodes[i].equals("#")){
 				continue;
 			}
 			
-			int val = Integer.valueOf(nodes[i]);
-			
-			TreeNode tn = map.get(val);
-			
-			if (tn==null){
-				tn = new TreeNode(val);
-				map.put(val, tn);
+			int val = Integer.valueOf(nodes[i]);		
+			TreeNode parent = map.get(val);
+			if (parent == null){
+				parent = new TreeNode(val);
+				map.put(val, parent);
 			}
-
-			int parentVal = Integer.valueOf(nodes[i/2]);
+						
+			if (i==0)	root = parent;
 			
-			parent = map.get(val);
-			if (parent==null){
-				parent = new TreeNode(parentVal);
-				map.put(parentVal, parent);
+			int leftIdx = (i+1)*2-1;
+			if (leftIdx > nodes.length -1)	break;
+			
+			int rightIdx = (i+1)*2;
+			if (rightIdx > nodes.length -1)	break;
+			
+			TreeNode left = null;
+			String leftStr = nodes[leftIdx];
+			if (!leftStr.equals("#")){
+				left = map.get(leftStr);
+				if (left==null){
+					int leftVal = Integer.valueOf(leftStr);
+					left = new TreeNode(leftVal);
+					map.put(leftVal, left);
+				}
 			}
 			
-			if (val > parentVal){
-				parent.right = tn;
+			TreeNode right = null;
+			String rightStr = nodes[rightIdx];
+			if (!rightStr.equals("#")){
+				right = map.get(rightStr);
+				if (right==null){
+					int rightVal = Integer.valueOf(rightStr);
+					right = new TreeNode(rightVal);
+					map.put(rightVal, right);
+				}
 			}
-			else {
-				parent.left = tn;
-			}
+						
+			parent.left = left;
+			parent.right = right;
 		}
 		
-		return parent;
+		return root;
 	}
 	
 	public static ListNode buildList(int[] input){
