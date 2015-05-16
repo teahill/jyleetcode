@@ -144,6 +144,16 @@ public class LeetCodeTreeUtils {
 		}	
 	}
 	
+	public static void printTreeInOrder(TreeNode root){
+		if (root==null){
+			return;
+		}
+		
+		printTreePreOrder(root.left);
+		System.out.print(root.val + " ");
+		printTreePreOrder(root.right);
+	}
+	
 	public static void printTreePreOrder(TreeNode root){
 		if (root==null){
 			return;
