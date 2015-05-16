@@ -1959,20 +1959,29 @@ public class LC999_TestSuite {
 		Random ran = new Random();
 		
 		int size = 20;
-		int[] num = new int[size];
 		
-		for (int i=0; i<size; i++){
-			num[i] = ran.nextInt(100);
+		List<Integer> list = new ArrayList<Integer>();
+		
+		while (list.size() <= size){
+			int i = ran.nextInt(100);
+			if (!list.contains(i)){
+				list.add(i);
+			}
 		}
-		
-		System.out.println("Input array:");
-		LeetCodeUtils.printIntArray(num);
+				
+		int[] num = new int[size];
+		for (int i=0; i<size; i++){
+			num[i] = list.get(i);
+		}
+			
+//		System.out.println("Input array:");
+//		LeetCodeUtils.printIntArray(num);
 		
 		TreeNode root = LeetCodeUtils.buildBalancedBST(num);	
-		//LeetCodeUtils.printTreePreOrder(root);
+		LeetCodeUtils.printTreeByLevel(root);
 		
-		System.out.println("Level Order");
-		LeetCodeUtils.printTreeLevelOrder(root);
+//		System.out.println("Level Order");
+//		LeetCodeUtils.printTreeLevelOrder(root);
 		
 		System.out.println("Serilize: ");
 		System.out.println(LeetCodeUtils.serilizeBinaryTree(root));

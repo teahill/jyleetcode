@@ -2,8 +2,11 @@ package com.leetcode.jyang;
 
 import java.util.ArrayDeque;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Stack;
 
@@ -13,14 +16,82 @@ public class LeetCodeUtils {
 		
 		if (num.length==0)	return null;
 		
-		TreeNode root = new TreeNode(num[0]);
+		Arrays.sort(num);
 		
-		for (int i=1; i<num.length; i++){
-			insertBST(root, num[i]);
-		}
+		TreeNode root = buildBalancedBST(num, 0, num.length-1);
+		
+//		TreeNode root = new TreeNode(num[0]);
+//		
+//		for (int i=1; i<num.length; i++){
+//			insertBST(root, num[i]);
+//		}
 		
 		return root;
 	}
+	
+	public static TreeNode buildBalancedBST(int[] num, int start, int end){
+		
+		if (start > end){
+			return null;
+		}
+		
+		int mid = start + (end - start)/2;
+		
+		TreeNode parent = new TreeNode(num[mid]);
+		
+		parent.left = buildBalancedBST(num, start, mid-1);;
+		parent.right = buildBalancedBST(num, mid+1, end);;
+		
+		return parent;
+	}
+	
+	public static void printTreeByLevel(TreeNode root) {
+
+        Queue<TreeNode> currentLevel = new LinkedList<TreeNode>();
+        Queue<TreeNode> nextLevel = new LinkedList<TreeNode>();
+
+        currentLevel.add(root);
+        
+        boolean nullLevel = true;
+
+        while (!currentLevel.isEmpty()) {
+            Iterator<TreeNode> iter = currentLevel.iterator();
+            while (iter.hasNext()) {
+                TreeNode currentNode = iter.next();
+                
+                if (currentNode==null){
+                	System.out.print("# ");
+                	continue;
+                }                
+                
+                if (currentNode.left != null) {
+                    nextLevel.add(currentNode.left);
+                    nullLevel = false;
+                }
+                else {
+                	nextLevel.add(null);
+                }
+                
+                if (currentNode.right != null) {
+                    nextLevel.add(currentNode.right);
+                    nullLevel = false;
+                }
+                else {
+                	nextLevel.add(null);
+                }
+                
+                System.out.print(currentNode.val + " ");
+            }
+            System.out.println();
+            
+            if (nullLevel)
+            	break;
+            
+            currentLevel = nextLevel;
+            nextLevel = new LinkedList<TreeNode>();
+            nullLevel = true;
+        }
+    }
 	
 	public static void insertBST(TreeNode root, int n){
 		
@@ -92,34 +163,59 @@ public class LeetCodeUtils {
 		
 		StringBuilder sb = new StringBuilder();
 		
-		Queue<TreeNode> queue = new ArrayDeque<TreeNode>();
-		
-		queue.add(root);
-		
-		while (!queue.isEmpty()){
-			
-			TreeNode node = queue.poll();
-			
-			sb.append(node.val + ",");
-			
-			if (node.left!=null){
-				queue.add(node.left);
-			}
-			else {
-				sb.append("#,");
-			}
-			
-			if (node.right!=null){
-				queue.add(node.right);
-			}
-			else {
-				sb.append("#,");
-			}
-		}
+        Queue<TreeNode> currentLevel = new LinkedList<TreeNode>();
+        Queue<TreeNode> nextLevel = new LinkedList<TreeNode>();
+
+        currentLevel.add(root);
+        
+        boolean nullLevel = true;
+
+        while (!currentLevel.isEmpty()) {
+            Iterator<TreeNode> iter = currentLevel.iterator();
+            while (iter.hasNext()) {
+                TreeNode currentNode = iter.next();
+                
+                if (currentNode==null){
+                	sb.append("#,");
+                	continue;
+                }                
+                
+                if (currentNode.left != null) {
+                    nextLevel.add(currentNode.left);
+                    nullLevel = false;
+                }
+                else {
+                	nextLevel.add(null);
+                }
+                
+                if (currentNode.right != null) {
+                    nextLevel.add(currentNode.right);
+                    nullLevel = false;
+                }
+                else {
+                	nextLevel.add(null);
+                }
+                
+                sb.append(currentNode.val + ",");
+            }
+            
+            if (nullLevel)
+            	break;
+            
+            currentLevel = nextLevel;
+            nextLevel = new LinkedList<TreeNode>();
+            nullLevel = true;
+        }
 		
 		return sb.toString();
 	}
 	
+	/**
+	 * This implementation is based on assumption that all nodes in the tree has unique values.
+	 * 
+	 * @param tree
+	 * @return
+	 */
 	public static TreeNode deserilizeBinaryTree(String tree){
 		
 		String[] nodes = tree.split(",");
@@ -128,23 +224,44 @@ public class LeetCodeUtils {
 			return null;
 		}
 		
-		TreeNode root = new TreeNode(Integer.valueOf(nodes[0]));
+		Map<Integer, TreeNode> map = new HashMap<>(); 
 		
-		int level = 1;
-		
-		
-		for (int i=1; i<nodes.length; i++){
+		//TreeNode root = new TreeNode(Integer.valueOf(nodes[0]));
+		TreeNode parent = null;
+					
+		for (int i=nodes.length-1; i>=0; i--){
 			
 			//TreeNode parent = new TreeNode(nodes[i]);
+			if (nodes[i].equals("#")){
+				continue;
+			}
 			
+			int val = Integer.valueOf(nodes[i]);
 			
+			TreeNode tn = map.get(val);
 			
+			if (tn==null){
+				tn = new TreeNode(val);
+				map.put(val, tn);
+			}
+
+			int parentVal = Integer.valueOf(nodes[i/2]);
+			
+			parent = map.get(val);
+			if (parent==null){
+				parent = new TreeNode(parentVal);
+				map.put(parentVal, parent);
+			}
+			
+			if (val > parentVal){
+				parent.right = tn;
+			}
+			else {
+				parent.left = tn;
+			}
 		}
 		
-		
-		
-		
-		return root;
+		return parent;
 	}
 	
 	public static ListNode buildList(int[] input){
