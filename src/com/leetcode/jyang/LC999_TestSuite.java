@@ -1284,7 +1284,7 @@ public class LC999_TestSuite {
 		}		
 	}
 	
-	@Test
+	//@Test
 	public void testLC098(){
 		
 		trace();
@@ -1295,15 +1295,15 @@ public class LC999_TestSuite {
 		LC098_ValidateBST lc098 = new LC098_ValidateBST();
 		
 		int[] num = new int[]{1,1};
-		TreeNode r = LeetCodeUtils.buildBalancedBST(num);	
-		LeetCodeUtils.printTreeByLevel(r);
+		TreeNode r = LeetCodeTreeUtils.buildBalancedBST(num);	
+		LeetCodeTreeUtils.printTreeByLevel(r);
 		System.out.println("Is this a valid BST? " + lc098.isValidBST(r));
 		
-		TreeNode root = LeetCodeUtils.generateBST(size, maxVal);	
-		LeetCodeUtils.printTreeByLevel(root);
+		TreeNode root = LeetCodeTreeUtils.generateBST(size, maxVal);	
+		LeetCodeTreeUtils.printTreeByLevel(root);
 		System.out.println("Is this a valid BST? " + lc098.isValidBST(root));
 		
-		String tStr = LeetCodeUtils.serilizeBinaryTree(root);
+		String tStr = LeetCodeTreeUtils.serilizeBinaryTree(root);
 		
 		int i;		
 		for (i=maxVal/2; i>=0; i--){
@@ -1311,10 +1311,30 @@ public class LC999_TestSuite {
 		}
 		
 		String tStr2 = tStr.replace(String.valueOf(i), String.valueOf(100+i));
-		TreeNode root2 = LeetCodeUtils.deserilizeBinaryTree(tStr2);
+		TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(tStr2);
 		
-		LeetCodeUtils.printTreeByLevel(root2);
+		LeetCodeTreeUtils.printTreeByLevel(root2);
 		System.out.println("Is this a valid BST? " + lc098.isValidBST(root2));
+	}
+	
+	@Test
+	public void testLC101(){
+		
+		trace();
+		
+		LC101_SymmetricTree lc101 = new LC101_SymmetricTree();
+		
+		String tree1 = "1,#,2";
+		String tree2 = "1,2,2,3,#,#,3";
+		
+		TreeNode root1 = LeetCodeTreeUtils.deserilizeBinaryTree(tree1);
+		TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(tree2);
+		
+		LeetCodeTreeUtils.printTreeByLevel(root1);
+		LeetCodeTreeUtils.printTreeByLevel(root2);
+		
+		System.out.println("Tree 1 is symmetric? " + lc101.isSymmetric(root1));
+		System.out.println("Tree 2 is symmetric? " + lc101.isSymmetric(root2));
 	}
 	
 	//@Test
@@ -2010,22 +2030,22 @@ public class LC999_TestSuite {
 //		System.out.println("Input array:");
 //		LeetCodeUtils.printIntArray(num);
 		
-		TreeNode root = LeetCodeUtils.buildBalancedBST(num);	
-		LeetCodeUtils.printTreeByLevel(root);
+		TreeNode root = LeetCodeTreeUtils.buildBalancedBST(num);	
+		LeetCodeTreeUtils.printTreeByLevel(root);
 		
 //		System.out.println("Level Order");
 //		LeetCodeUtils.printTreeLevelOrder(root);
 		
 		System.out.println("Serilize: ");
-		String treeStr = LeetCodeUtils.serilizeBinaryTree(root);
+		String treeStr = LeetCodeTreeUtils.serilizeBinaryTree(root);
 		System.out.println(treeStr);
 		
 		System.out.println("Deserilize: ");
-		TreeNode root2 = LeetCodeUtils.deserilizeBinaryTree(treeStr);
+		TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(treeStr);
 		
-		LeetCodeUtils.printTreeByLevel(root2);	
+		LeetCodeTreeUtils.printTreeByLevel(root2);	
 		System.out.println("Level Order");
-		LeetCodeUtils.printTreeLevelOrder(root2);	
+		LeetCodeTreeUtils.printTreeLevelOrder(root2);	
 	}
 }
 
