@@ -1319,6 +1319,26 @@ public class LC999_TestSuite1 {
 		LeetCodeTreeUtils.printTreeByLevel(root2);
 		System.out.println("Is this a valid BST? " + lc098.isValidBST(root2));
 	}
+	
+	@Test
+	public void testLC100(){
+		
+		trace();
+		
+		int size = 20;
+		int maxVal = 100;
+		
+		LC100_SameTree lc100 = new LC100_SameTree();
+		
+		TreeNode p = LeetCodeTreeUtils.generateBST(size, maxVal);	
+		LeetCodeTreeUtils.printTreeByLevel(p);
+		TreeNode q = LeetCodeTreeUtils.generateBST(size, maxVal);	
+		LeetCodeTreeUtils.printTreeByLevel(q);
+		
+		System.out.println("Same tree? " + lc100.isSameTree(p, q));
+		System.out.println("Same tree? " + lc100.isSameTree(p, p));
+		System.out.println("Same tree? " + lc100.isSameTree(null, null));
+	}
 }
 
 

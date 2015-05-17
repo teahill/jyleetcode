@@ -149,9 +149,19 @@ public class LeetCodeTreeUtils {
 			return;
 		}
 		
-		printTreePreOrder(root.left);
+		printTreeInOrder(root.left);
 		System.out.print(root.val + " ");
-		printTreePreOrder(root.right);
+		printTreeInOrder(root.right);
+	}
+	
+	public static void printTreePostOrder(TreeNode root){
+		if (root==null){
+			return;
+		}
+		
+		printTreePostOrder(root.right);
+		System.out.print(root.val + " ");
+		printTreePostOrder(root.left);
 	}
 	
 	public static void printTreePreOrder(TreeNode root){
@@ -257,10 +267,12 @@ public class LeetCodeTreeUtils {
 		Map<Integer, TreeNode> map = new HashMap<Integer, TreeNode>(); 
 		
 		TreeNode root = null;
+		int leavesSoFar = 0;
 		
 		for (int i=0; i<nodes.length; i++){
 			
-			if (nodes[i].equals("#")){
+			if (nodes[i].equals("#") || nodes[i].equals("")){
+				leavesSoFar++;
 				continue;
 			}
 			
@@ -273,10 +285,10 @@ public class LeetCodeTreeUtils {
 						
 			if (i==0)	root = parent;
 			
-			int leftIdx = (i+1)*2-1;
+			int leftIdx = (i+1)*2-1 - leavesSoFar*2;
 			if (leftIdx > nodes.length -1)	break;
 			
-			int rightIdx = (i+1)*2;
+			int rightIdx = (i+1)*2 - leavesSoFar*2;
 			if (rightIdx > nodes.length -1)	break;
 			
 			TreeNode left = null;

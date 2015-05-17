@@ -39,7 +39,7 @@ public class LC999_TestSuite2 {
     	System.out.println("---> Executing test case: " + trace[2].getMethodName());
     }
 	
-	@Test
+	//@Test
 	public void testLC101(){
 		
 		trace();
@@ -57,6 +57,157 @@ public class LC999_TestSuite2 {
 		
 		System.out.println("Tree 1 is symmetric? " + lc101.isSymmetric(root1));
 		System.out.println("Tree 2 is symmetric? " + lc101.isSymmetric(root2));
+	}
+	
+	//@Test
+	public void testLC102(){
+		
+		trace();
+		
+		LC102_LevelOrderTraversal lc102 = new LC102_LevelOrderTraversal();
+		
+		String tree = "3,9,20,#,#,15,7";
+		
+		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+		
+		List<List<Integer>> levels = lc102.levelOrder(root);
+		
+		for (List<Integer> l : levels){
+			LeetCodeUtils.printList(l);
+		}
+	}
+	
+	//@Test
+	public void testLC104(){
+		
+		trace();
+		
+		LC104_MaxDepthBinaryTree lc104 = new LC104_MaxDepthBinaryTree();
+		
+		String[] input = new String[] {		
+				"1,2,3,#,#,4,#,#,5",
+				"5,4,8,11,#,13,4,7,2,#,#,#,1",
+				"1,#,2",
+				"",
+		};
+		
+		for (String tree : input){
+			TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+			LeetCodeTreeUtils.printTreeByLevel(root);	
+			System.out.println("Max depth of the tree is " + lc104.maxDepth(root));
+		}
+	}
+	
+	//@Test
+	public void testLC107(){
+		
+		trace();
+		
+		LC107_LevelOrderTraversal2 lc107 = new LC107_LevelOrderTraversal2();
+		
+		String tree = "3,9,20,#,#,15,7";
+		
+		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+		
+		List<List<Integer>> levels = lc107.levelOrder(root);
+		
+		for (List<Integer> l : levels){
+			LeetCodeUtils.printList(l);
+		}
+	}
+	
+	@Test
+	public void testLC110(){
+		
+		trace();
+		
+		LC110_BalancedBinaryTree lc110 = new LC110_BalancedBinaryTree();
+		
+		String[] input = new String[] {		
+				"1,2,3,#,#,4,#,#,5",
+				"1,2,3,#,#,4,#",
+				"5,4,8,11,#,13,4,7,2,#,#,#,1",
+				"1,#,2",
+				"",
+		};
+		
+		for (String tree : input){
+			TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+			LeetCodeTreeUtils.printTreeByLevel(root);	
+			System.out.println("Balanced Binary Tree? " + lc110.isBalanced(root));
+		}
+		
+		TreeNode root2 = LeetCodeTreeUtils.generateBST(20, 50);
+		LeetCodeTreeUtils.printTreeByLevel(root2);
+		System.out.println("Balanced Binary Tree? " + lc110.isBalanced(root2));
+	}
+	
+	//@Test
+	public void testLC111(){
+		
+		trace();
+		
+		LC111_MinDepthBinaryTree lc111 = new LC111_MinDepthBinaryTree();
+		
+		String[] input = new String[] {		
+				"1,2,3,#,#,4,#,#,5",
+				"5,4,8,11,#,13,4,7,2,#,#,#,1",
+				"1,#,2",
+				"",
+		};
+		
+		for (String tree : input){
+			TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+			LeetCodeTreeUtils.printTreeByLevel(root);	
+			System.out.println("Min depth of the tree is " + lc111.minDepth(root));
+		}
+	}
+	
+	/*             5
+	 *            / \
+	 *           4   8
+	 *          /   / \
+	 *         11  13  4
+	 *        /  \      \
+	 *       7    2      1
+	 */       
+	//@Test
+	public void testLC112(){
+		
+		trace();
+		
+		LC112_PathSum lc112 = new LC112_PathSum();
+		
+		TreeNode r = new TreeNode(5);
+		TreeNode n4 = new TreeNode(4);
+		TreeNode n8 = new TreeNode(8);
+		TreeNode n11 = new TreeNode(11);
+		TreeNode n13 = new TreeNode(13);
+		TreeNode n4_2 = new TreeNode(4);
+		TreeNode n7 = new TreeNode(7);
+		TreeNode n2 = new TreeNode(2);
+		TreeNode n1 = new TreeNode(1);
+
+		r.left = n4;
+		r.right = n8;	
+		n4.left = n11;
+		n8.left = n13;
+		n8.right = n4_2;
+		n11.left = n7;
+		n11.right = n2;
+		n4_2.right = n1;
+		
+		System.out.println(LeetCodeTreeUtils.serilizeBinaryTree(r));
+		
+		LeetCodeTreeUtils.printTreeLevelOrder(r);
+		LeetCodeTreeUtils.printTreeByLevel(r);
+		int sum = 22;
+		System.out.println("Tree has path sum of " + sum + "? " + lc112.hasPathSum(r, sum));
+		
+		String tree = "5,4,8,11,#,13,4,7,2,#,#,#,1";
+		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+		
+		LeetCodeTreeUtils.printTreeByLevel(root);
 	}
 	
 	//@Test
@@ -755,10 +906,16 @@ public class LC999_TestSuite2 {
 		TreeNode root = LeetCodeTreeUtils.buildBalancedBST(num);	
 		LeetCodeTreeUtils.printTreeByLevel(root);
 		
-//		System.out.println("Level Order");
-//		LeetCodeUtils.printTreeLevelOrder(root);
+		System.out.println("Level Order");
+		LeetCodeTreeUtils.printTreeLevelOrder(root);
 		
-		System.out.println("Serilize: ");
+		System.out.println("In Order");
+		LeetCodeTreeUtils.printTreeInOrder(root);
+		
+		System.out.println("\nPost Order");
+		LeetCodeTreeUtils.printTreePostOrder(root);
+		
+		System.out.println("\nSerilize: ");
 		String treeStr = LeetCodeTreeUtils.serilizeBinaryTree(root);
 		System.out.println(treeStr);
 		
@@ -766,8 +923,48 @@ public class LC999_TestSuite2 {
 		TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(treeStr);
 		
 		LeetCodeTreeUtils.printTreeByLevel(root2);	
-		System.out.println("Level Order");
+		System.out.println("Level Order after deserialize");
 		LeetCodeTreeUtils.printTreeLevelOrder(root2);	
+	}
+	
+	//@Test
+	/* OJ's Binary Tree Serialization:
+
+	The serialization of a binary tree follows a level order traversal, where '#' signifies a path terminator where no node exists below.
+
+	Here's an example:
+	   1
+	  / \
+	 2   3
+	    /
+	   4
+	    \
+	     5
+	The above binary tree is serialized as "{1,2,3,#,#,4,#,#,5}".
+	*/
+	public void testTreeUtils2(){
+		
+		trace();
+		
+		TreeNode n1 = new TreeNode(1);
+		TreeNode n2 = new TreeNode(2);
+		TreeNode n3 = new TreeNode(3);
+		TreeNode n4 = new TreeNode(4);
+		TreeNode n5 = new TreeNode(5);
+		
+		n1.left = n2;
+		n1.right = n3;
+		n3.left = n4;
+		n4.right = n5;
+		
+		LeetCodeTreeUtils.printTreeByLevel(n1);
+		String treeStr = LeetCodeTreeUtils.serilizeBinaryTree(n1);
+		System.out.println(treeStr);
+		
+		System.out.println("Deserilize: ");
+		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(treeStr);
+		
+		LeetCodeTreeUtils.printTreeByLevel(root);
 	}
 }
 
