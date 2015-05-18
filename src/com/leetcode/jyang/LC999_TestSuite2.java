@@ -116,7 +116,7 @@ public class LC999_TestSuite2 {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC110(){
 		
 		trace();
@@ -209,6 +209,44 @@ public class LC999_TestSuite2 {
 		
 		LeetCodeTreeUtils.printTreeByLevel(root);
 	}
+	
+	/*
+	 *              3
+	 *             / \
+	 *            4   8
+	 *           /   / \
+	 *          11  9  4
+	 *         /  \    / \
+	 *        7    2  5   1
+	 * return
+	 * [
+	 *   [5,4,11,2],
+	 *   [5,8,4,5]
+	 * ]
+	 */
+	//@Test
+	public void testLC113(){
+		
+		trace();
+		
+		LC113_PathSum2 lc113 = new LC113_PathSum2();
+		
+		int sum = 20;
+		String tree = "3,4,8,11,#,9,4,7,2,#,#,5,1";
+		
+//		int sum = 3;
+//		String tree = "1,#,2";
+		
+		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		
+		List<List<Integer>> res = lc113.pathSum(root, sum);
+		
+		for (List<Integer> list : res){
+			LeetCodeUtils.printList(list);
+		}
+	}
+	
 	
 	//@Test
 	public void testLC118(){
@@ -556,6 +594,23 @@ public class LC999_TestSuite2 {
 	}
 	
 	//@Test
+	public void testLC144(){
+		
+		trace();
+		
+		LC144_PreorderTraversal lc144 = new LC144_PreorderTraversal();
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(10, 20);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		
+		List<Integer> res = lc144.preorderTraversal(root);
+		
+		LeetCodeUtils.printList(res);
+		
+		LeetCodeTreeUtils.printTreePreOrder(root);
+	}
+	
+	//@Test
 	public void testLC151(){
 		
 		trace();
@@ -884,7 +939,7 @@ public class LC999_TestSuite2 {
 		
 		Random ran = new Random();
 		
-		int size = 20;
+		int size =15;
 		
 		List<Integer> list = new ArrayList<Integer>();
 		
@@ -894,7 +949,7 @@ public class LC999_TestSuite2 {
 				list.add(i);
 			}
 		}
-				
+					
 		int[] num = new int[size];
 		for (int i=0; i<size; i++){
 			num[i] = list.get(i);

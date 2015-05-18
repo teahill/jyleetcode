@@ -1287,6 +1287,21 @@ public class LC999_TestSuite1 {
 		}		
 	}
 	
+	@Test
+	public void testLC094(){
+		
+		trace();
+		
+		LC094_InorderTraversal lc094 = new LC094_InorderTraversal();
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(15, 20);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		LeetCodeTreeUtils.printTreeInOrder(root);
+		
+		List<Integer> res = lc094.inorderTraversal(root);
+		LeetCodeUtils.printList(res);
+	}
+	
 	//@Test
 	public void testLC098(){
 		
@@ -1320,7 +1335,7 @@ public class LC999_TestSuite1 {
 		System.out.println("Is this a valid BST? " + lc098.isValidBST(root2));
 	}
 	
-	@Test
+	//@Test
 	public void testLC100(){
 		
 		trace();
