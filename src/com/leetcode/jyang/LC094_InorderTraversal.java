@@ -45,11 +45,18 @@ public class LC094_InorderTraversal {
     		
     		for (TreeNode node : thisLevel){
     			
-    			if (node.left!=null)	
-    				nextLevel.add(node.left);
-    			if (!processed.contains(node)) 
+    			if (processed.contains(node)){
     				nextLevel.add(node);
-    			if (node.right!=null)	
+    				continue;
+    			}
+    			
+    			if (node.left!=null && !processed.contains(node.left))	
+    				nextLevel.add(node.left);
+    			
+    			if (node==root)
+    				nextLevel.add(node);
+    			
+    			if (node.right!=null &&  !processed.contains(node.right))	
     				nextLevel.add(node.right);
     			
        			processed.add(node);
