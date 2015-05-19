@@ -1299,6 +1299,7 @@ public class LC999_TestSuite1 {
 		LeetCodeTreeUtils.printTreeInOrder(root);
 		
 		List<Integer> res = lc094.inorderTraversal(root);
+		System.out.println("\nresuts:");
 		LeetCodeUtils.printList(res);
 	}
 	

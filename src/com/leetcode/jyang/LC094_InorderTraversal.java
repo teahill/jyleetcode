@@ -1,8 +1,10 @@
 package com.leetcode.jyang;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 import java.util.Stack;
 
 /**
@@ -32,43 +34,40 @@ public class LC094_InorderTraversal {
     	List<Integer> res = new ArrayList<Integer>(); 	
     	if (root==null)		return res;
     	
-    	Stack<TreeNode> st = new Stack<TreeNode>();
+    	Set<TreeNode> processed = new HashSet<TreeNode>();
     	
- //   	TreeNode node = root;
+    	List<TreeNode> thisLevel = new ArrayList<TreeNode>();
+    	List<TreeNode> nextLevel = new ArrayList<TreeNode>();
     	
-    	if (root.right!=null) st.push(root.right);
-    	st.push(root);
-    	if (root.left!=null) st.push(root.left);
+    	thisLevel.add(root);
     	
-//    	while (true){
-//    		
-//    		Iterator<TreeNode> itr = st.iterator();
-//    		
-//    		Stack<TreeNode> st2 = new Stack<TreeNode>();
-//    		
-//    		while (itr.hasNext()){
-//    			TreeNode node = itr.next();
-//    			
-//    			if (node.right!=null)	st2.push(node.right);
-//    			st2.push(node);
-//    			if (node.right!=null)	st2.push(node.right);
-//    		}
-//    		
-//    		
-//    		
-//    	}
-    	
-    	
-//    	do {
-//    		if (node.right!=null)	st.push(node.right);
-//    		if (node==root)	st.push(node);
-//       		if (node.left!=null)	st.push(node.left);
-// 
-//       		node = st.pop();
-//       		res.add(node.val);
-//       		
-//    	} while (!st.isEmpty());
+    	while (true){
+    		
+    		for (TreeNode node : thisLevel){
+    			
+    			if (node.left!=null)	
+    				nextLevel.add(node.left);
+    			if (!processed.contains(node)) 
+    				nextLevel.add(node);
+    			if (node.right!=null)	
+    				nextLevel.add(node.right);
+    			
+       			processed.add(node);
+    		}
+    		
+    		if (nextLevel.isEmpty()){
+    			break;
+    		}
+    		else {
+    			thisLevel = nextLevel;
+    			nextLevel = new ArrayList<TreeNode>();
+    		}
+    	}
 
+    	for (TreeNode node : thisLevel){
+    		res.add(node.val);
+    	}
+    	
         return res;
     }
 	
