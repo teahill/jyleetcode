@@ -1287,7 +1287,7 @@ public class LC999_TestSuite1 {
 		}		
 	}
 	
-	@Test
+	//@Test
 	public void testLC094(){
 		
 		trace();
@@ -1302,6 +1302,34 @@ public class LC999_TestSuite1 {
 		System.out.println("\nresuts:");
 		LeetCodeUtils.printList(res);
 	}
+	
+	/*              5
+	 *            /    \
+	 *           4      8
+	 *          / \    / \
+	 *       11   9   13   6
+	 *      / \        \
+	 *     7   2      1
+	 */       
+	@Test
+	public void testLC094_2(){
+		
+		trace();
+		
+		LC094_InorderTraversal lc094 = new LC094_InorderTraversal();
+		
+		String tree = "11,6,15,1,9,13,18,0,3,8,10,12,14,17,19,";
+		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		LeetCodeTreeUtils.printTreeInOrder(root);
+		
+		//List<Integer> res = lc094.inorderTraversal(root);
+		System.out.println("\nresuts:");
+		//LeetCodeUtils.printList(res);
+	}
+	
+	String tree = "5,4,8,11,#,13,4,7,2,#,#,#,1";
+	TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
 	
 	//@Test
 	public void testLC098(){
