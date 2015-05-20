@@ -1,13 +1,9 @@
 package com.leetcode.jyang;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
-import java.util.Stack;
 
 /**
  * 
@@ -43,21 +39,16 @@ public class LC094_InorderTraversal {
     	
     	thisLevel.add(root);
     	
-    	int c = 0;
-    	
-    	while (c<3){
+    	while (true){
     		
-    		for (int i=0; i<thisLevel.size(); i++){
-    			TreeNode tn = thisLevel.get(i);
-    			
-    			List<TreeNode> addOn = new ArrayList<TreeNode>();
-    			if (tn.left!=null)	addOn.add(tn.left);
-    			addOn.add(tn);
-    			if (tn.right!=null)	addOn.add(tn.right);
-    			
-    			expandList(thisLevel, addOn, i);
+    		nextLevel = expandList(thisLevel, processed);
+    		
+    		if (nextLevel.size()==thisLevel.size()){
+    			break;
     		}
- 
+    		else {
+    			thisLevel = nextLevel;
+    		} 
     	}
 
     	for (TreeNode node : thisLevel){
@@ -68,12 +59,28 @@ public class LC094_InorderTraversal {
     }
 	
     
-    public void expandList(List<TreeNode> original, List<TreeNode> addon, int pos){
+    public List<TreeNode> expandList(List<TreeNode> original, Set<TreeNode> processed){
     	
-    	List<TreeNode> res = new ArrayList<TreeNode>(original.size() + addon.size()-1);
+    	List<TreeNode> res = new ArrayList<TreeNode>();
     	
-    	res.addAll(original.subList(0, pos));
-    	res.addAll(addon);
-    	res.addAll(original.subList(pos+1, original.size()));
+    	for (TreeNode tn : original){
+    		
+    		List<TreeNode> triple = new ArrayList<TreeNode>();
+    		
+    		if (tn.left!=null && !processed.contains(tn)){
+    			triple.add(tn.left);
+    		}
+    		
+   			triple.add(tn);
+ 
+    		if (tn.right!=null && !processed.contains(tn)){
+    			triple.add(tn.right);
+    		}    			 
+    		
+    		res.addAll(triple);
+    		processed.add(tn);
+    	}
+    	
+    	return res;
     }
 }
