@@ -119,7 +119,7 @@ public class LC999_TestSuite2 {
 		LeetCodeTreeUtils.printTreeByLevel(root);
 	}
 	
-	@Test
+	//@Test
 	public void testLC106(){
 		
 		trace();
@@ -986,6 +986,32 @@ public class LC999_TestSuite2 {
 			System.out.println("Input=" + input[i] + " , output=" + lc191.hammingWeight(input[i]));
 		}
 	}		
+	
+	@Test
+	public void testLC199(){
+		
+		trace();
+		
+		int size = 15;
+		int maxVal = 25;
+		
+		LC199_TreeRightSideView lc199 = new LC199_TreeRightSideView();
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(size, maxVal);
+		LeetCodeTreeUtils.printTreeByLevel(root);				
+		List<Integer> res = lc199.rightSideView(root);		
+		LeetCodeUtils.printList(res);		
+		
+		String tree2 = "1,2,3,#,5,#,4";		
+		TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(tree2);
+		List<Integer> res2 = lc199.rightSideView(root2);		
+		LeetCodeUtils.printList(res2);
+		
+		TreeNode root3 = new TreeNode(1);
+		root3.left = new TreeNode(2);
+		List<Integer> res3 = lc199.rightSideView(root3);		
+		LeetCodeUtils.printList(res3);
+	}
 	
 	//@Test
 	public void testTreeUtils(){
