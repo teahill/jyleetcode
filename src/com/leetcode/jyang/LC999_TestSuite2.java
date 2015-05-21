@@ -98,6 +98,41 @@ public class LC999_TestSuite2 {
 		}
 	}
 	
+	/*
+	 *               9 
+     *         4           19 
+     *      2     6    13      21 
+     *     1 3   5 8 11  15  20  24 
+	 */
+	
+	//@Test
+	public void testLC105(){
+		
+		trace();
+		
+		LC105_BuildTreePreInOrder lc105 = new LC105_BuildTreePreInOrder();
+		
+		int[] preorder = new int[]{9, 4, 2, 1, 3, 6, 5, 8, 19, 13, 11, 15, 21, 20, 24};
+		int[] inorder  = new int[]{1, 2, 3, 4, 5, 6, 8, 9, 11, 13, 15, 19, 20, 21, 24};	
+		
+		TreeNode root = lc105.buildTree(preorder, inorder);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+	}
+	
+	@Test
+	public void testLC106(){
+		
+		trace();
+		
+		LC106_BuildTreeInPostOrder lc106 = new LC106_BuildTreeInPostOrder();
+		
+		int[] inorder   = new int[]{1, 2, 3, 4, 5, 6, 8, 9, 11, 13, 15, 19, 20, 21, 24};	
+		int[] postorder = new int[]{1, 3, 2, 5, 8, 6, 4, 11, 15, 13, 20, 24, 21, 19, 9};
+		
+		TreeNode root = lc106.buildTree(inorder, postorder);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+	}
+	
 	//@Test
 	public void testLC107(){
 		
