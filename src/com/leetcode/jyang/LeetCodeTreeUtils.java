@@ -158,10 +158,10 @@ public class LeetCodeTreeUtils {
 		if (root==null){
 			return;
 		}
-		
+
+		printTreePostOrder(root.left);
 		printTreePostOrder(root.right);
 		System.out.print(root.val + " ");
-		printTreePostOrder(root.left);
 	}
 	
 	public static void printTreePreOrder(TreeNode root){

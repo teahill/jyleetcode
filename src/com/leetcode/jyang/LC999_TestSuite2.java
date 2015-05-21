@@ -611,6 +611,26 @@ public class LC999_TestSuite2 {
 	}
 	
 	//@Test
+	public void testLC145(){
+		
+		trace();
+		
+		LC145_PostorderTraversal lc145 = new LC145_PostorderTraversal();
+		
+		String tree = "11,6,15,1,9,13,18,0,3,8,10,12,14,17,19,";
+		//String tree = "5,4,8,11,#,13,4,7,2,#,#,#,1";
+		//String tree = "1,#,2";
+					
+		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		LeetCodeTreeUtils.printTreePostOrder(root);
+		
+		List<Integer> res = lc145.postorderTraversal(root);
+		System.out.println("\nresuts:");
+		LeetCodeUtils.printList(res);
+	}
+	
+	//@Test
 	public void testLC151(){
 		
 		trace();
