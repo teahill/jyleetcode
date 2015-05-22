@@ -77,6 +77,31 @@ public class LC999_TestSuite2 {
 		}
 	}
 	
+	
+	@Test
+	public void testLC103(){
+		
+		trace();
+		
+		int size = 15;
+		int maxVal = 25;
+		
+		LC103_ZigzagLevelTraversal lc103 = new LC103_ZigzagLevelTraversal();
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(size, maxVal);
+		LeetCodeTreeUtils.printTreeByLevel(root);				
+		List<List<Integer>> res = lc103.zigzagLevelOrder(root);		
+		for (List<Integer> l : res)
+			LeetCodeUtils.printList(l);		
+		
+		String tree2 = "3,9,20,#,#,15,7";		
+		TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(tree2);
+		LeetCodeTreeUtils.printTreeByLevel(root2);	
+		List<List<Integer>> res2 = lc103.zigzagLevelOrder(root2);		
+		for (List<Integer> l : res2)
+			LeetCodeUtils.printList(l);			
+	}
+	
 	//@Test
 	public void testLC104(){
 		
@@ -987,7 +1012,7 @@ public class LC999_TestSuite2 {
 		}
 	}		
 	
-	@Test
+	//@Test
 	public void testLC199(){
 		
 		trace();
