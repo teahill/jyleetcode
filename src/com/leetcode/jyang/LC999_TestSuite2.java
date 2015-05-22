@@ -78,7 +78,7 @@ public class LC999_TestSuite2 {
 	}
 	
 	
-	@Test
+	//@Test
 	public void testLC103(){
 		
 		trace();
@@ -307,6 +307,56 @@ public class LC999_TestSuite2 {
 		}
 	}
 	
+	/*
+	 * 
+	 *          1
+	 *         / \
+	 *        2   5
+	 *       / \   \
+	 *      3   4   6
+	 *      
+	 * The flattened tree should look like:
+	 * 
+	 *  1
+	 *   \
+	 *    2
+	 *     \
+	 *      3
+	 *       \
+	 *        4
+	 *         \
+	 *          5
+	 *           \
+	 *            6
+	 */
+	@Test
+	public void testLC114(){
+		
+		trace();
+		
+		LC114_FlattenBinaryTree lc114 = new LC114_FlattenBinaryTree();
+		
+//		int size = 15;
+//		int maxVal = 25;		
+//		TreeNode root = LeetCodeTreeUtils.generateBST(size, maxVal);
+//		LeetCodeTreeUtils.printTreeByLevel(root);				
+//		lc114.flatten(root);
+//		LeetCodeTreeUtils.printTreeByLevel(root);	
+		
+		String[] trees = new String[]{
+			"1,2,5,3,4,#,6",
+			"1,#,2,#,3",
+			"1,#,2,3,#",
+			"1",
+		};
+		
+		for (String tree : trees){
+			TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+			LeetCodeTreeUtils.printTreeByLevel(root);	
+			lc114.flatten(root);
+			LeetCodeTreeUtils.printTreeByLevel(root);	
+		}
+	}
 	
 	//@Test
 	public void testLC118(){

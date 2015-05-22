@@ -35,9 +35,7 @@ package com.leetcode.jyang;
  *
  */
 
-public class LC114_BST2LinkedList {
-
-	
+public class LC114_FlattenBinaryTree {
 	
     public void flatten(TreeNode root) {
     	
@@ -52,8 +50,30 @@ public class LC114_BST2LinkedList {
     	
     	TreeNode oldRight = root.right;
     	
-    	root.right = helper(root.left);
+    	if (root.left!=null){
+    		root.right = helper(root.left);
+    		root.left = null;
+    	}
     	
+    	if (oldRight!=null && root.right!=null /* && root.right!=oldRight */){
+    		
+    		TreeNode tmp = root;
+    		TreeNode prev = root;
+    		while (tmp.right!=null && tmp.right!=oldRight){
+    			prev = tmp;
+    			tmp = tmp.right;
+    		}		
+    		
+    		if (tmp==oldRight){
+    			prev.right = helper(oldRight);
+    			prev.left = null;
+    		}
+    		else {
+       			tmp.right = helper(oldRight);
+    			tmp.left = null;
+    		}
+    	}
     	
+    	return root;
     }
 }
