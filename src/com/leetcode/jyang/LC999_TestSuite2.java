@@ -329,7 +329,7 @@ public class LC999_TestSuite2 {
 	 *           \
 	 *            6
 	 */
-	@Test
+	//@Test
 	public void testLC114(){
 		
 		trace();
@@ -357,6 +357,96 @@ public class LC999_TestSuite2 {
 			LeetCodeTreeUtils.printTreeByLevel(root);	
 		}
 	}
+	
+	/*
+	 *   1
+       /  \
+      2    3
+     / \  / \
+    4  5  6  7
+	 * 
+	 */
+	@Test
+	public void testLC116(){
+		
+		trace();
+		
+		LC116_BinaryTreeWithNextRight lc116 = new LC116_BinaryTreeWithNextRight();
+		
+		TreeLinkNode root = new TreeLinkNode(1);
+		TreeLinkNode n2 = new TreeLinkNode(2);
+		TreeLinkNode n3 = new TreeLinkNode(3);
+		TreeLinkNode n4 = new TreeLinkNode(4);
+		TreeLinkNode n5 = new TreeLinkNode(5);
+		TreeLinkNode n6 = new TreeLinkNode(6);
+		TreeLinkNode n7 = new TreeLinkNode(7);
+		
+		root.left = n2;
+		root.right = n3;
+		n2.left = n4;
+		n2.right = n5;
+		n3.left = n6;
+		n3.right = n7;
+		
+		lc116.connect(root);
+		
+		TreeLinkNode[] leads = new TreeLinkNode[]{root, n2, n4};
+		
+		for (TreeLinkNode lead : leads){
+			
+			while (lead!=null){
+				System.out.print(lead.val + " ");
+				lead = lead.next;
+			}
+			
+			System.out.println();
+		}
+	}
+	
+	/*
+	 *
+	 *       1 -> NULL
+	 *      /  \
+	 *     2 -> 3 -> NULL
+	 *    / \    \
+	 *   4-> 5 -> 7 -> NULL
+	 * 
+	 * 
+	 */
+	@Test
+	public void testLC117(){
+		
+		trace();
+		
+		LC117_BinaryTreeWithNextRight2 lc117 = new LC117_BinaryTreeWithNextRight2();
+		
+		TreeLinkNode root = new TreeLinkNode(1);
+		TreeLinkNode n2 = new TreeLinkNode(2);
+		TreeLinkNode n3 = new TreeLinkNode(3);
+		TreeLinkNode n4 = new TreeLinkNode(4);
+		TreeLinkNode n5 = new TreeLinkNode(5);
+		TreeLinkNode n7 = new TreeLinkNode(7);
+		
+		root.left = n2;
+		root.right = n3;
+		n2.left = n4;
+		n2.right = n5;
+		n3.right = n7;
+		
+		lc117.connect(root);
+		
+		TreeLinkNode[] leads = new TreeLinkNode[]{root, n2, n4};
+		
+		for (TreeLinkNode lead : leads){
+			
+			while (lead!=null){
+				System.out.print(lead.val + " ");
+				lead = lead.next;
+			}
+			
+			System.out.println();
+		}
+	}	
 	
 	//@Test
 	public void testLC118(){
