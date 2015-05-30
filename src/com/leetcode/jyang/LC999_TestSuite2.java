@@ -464,7 +464,7 @@ public class LC999_TestSuite2 {
 		lc117.connect(root);
 		
 		// don;t forget to change the lead nodes if you change the tree structure!
-		TreeLinkNode[] leads = new TreeLinkNode[]{root, n2, n4};
+		TreeLinkNode[] leads = new TreeLinkNode[]{root, n2, n4, n7};
 		
 		for (TreeLinkNode lead : leads){
 			
