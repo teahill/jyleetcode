@@ -35,6 +35,51 @@ package com.leetcode.jyang;
 public class LC117_BinaryTreeWithNextRight2 {
 	
     public void connect(TreeLinkNode root) {
-        
+    	
+       	TreeLinkNode current = root;
+    	TreeLinkNode next;
+
+    	while (current!=null){
+    		
+    		if (current.left!=null){
+    			next = current.left;
+    		}
+    		else if (current.right!=null){
+    			next = current.right;
+    		}	
+    		else {
+    			next = null;
+    		}
+    		
+    		while (current!=null){
+    			
+    			if (current.left!=null){
+        			current.left.next = current.right;    				
+    			}
+
+    			if (current.next!=null){
+    				if (current.right!=null){
+    					if (current.next.left!=null){
+    						current.right.next = current.next.left;
+    					}
+    					else {
+    						current.right.next = current.next.right;
+    					}
+    				}
+    				else if (current.left!=null){
+       					if (current.next.left!=null){
+    						current.left.next = current.next.left;
+    					}
+    					else {
+    						current.left.next = current.next.right;
+    					}
+    				}
+    			}
+    			
+    			current = current.next;
+    		}
+    		
+    		current = next;    		
+    	}        
     }
 }

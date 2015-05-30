@@ -42,20 +42,24 @@ public class LC116_BinaryTreeWithNextRight {
 
     public void connect(TreeLinkNode root) {
     	
-    	if (root==null)		return;        
-    	helper(root);
-    }
-    
-    public TreeLinkNode helper(TreeLinkNode root){
+    	TreeLinkNode current = root;
+    	TreeLinkNode next;
 
-    	if (root.left!=null && root.left!=null) {
+    	while (current!=null){
     		
-    		TreeLinkNode left = helper(root.left);
-    		TreeLinkNode right = helper(root.right);
+    		next = current.left;
     		
-    		left.next = right;
+    		while (current!=null && current.left!=null){
+    			
+    			current.left.next = current.right;
+    			if (current.next!=null){
+    				current.right.next = current.next.left;
+    			}
+    			
+    			current = current.next;
+    		}
+    		
+    		current = next;    		
     	}
-    	    	
-    	return root;
     }
 }

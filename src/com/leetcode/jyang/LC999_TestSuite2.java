@@ -366,7 +366,7 @@ public class LC999_TestSuite2 {
     4  5  6  7
 	 * 
 	 */
-	@Test
+	//@Test
 	public void testLC116(){
 		
 		trace();
@@ -425,16 +425,45 @@ public class LC999_TestSuite2 {
 		TreeLinkNode n3 = new TreeLinkNode(3);
 		TreeLinkNode n4 = new TreeLinkNode(4);
 		TreeLinkNode n5 = new TreeLinkNode(5);
+		TreeLinkNode n6 = new TreeLinkNode(6);
 		TreeLinkNode n7 = new TreeLinkNode(7);
+		TreeLinkNode n8 = new TreeLinkNode(8);
+		
+/*		
+		root.left = n2;
+		root.right = n3;
+		n2.left = n4;
+		n2.right = n5;
+		//n3.left = n6;
+		n3.right = n7;
+*/		
+		
+		
+/*      Failed test case:
+ *  
+ * 		1,2,3,4,5,#,6,7,#,#,#,#,8
+ * 
+ *    					1
+ * 
+ *             2                  3   
+ * 
+ *         4      5          #         6 
+ * 
+ *      7    #  #    #              #     8                              
+ * 
+ */
 		
 		root.left = n2;
 		root.right = n3;
 		n2.left = n4;
 		n2.right = n5;
-		n3.right = n7;
+		n3.right = n6;
+		n4.left = n7;
+		n6.right = n8;
 		
 		lc117.connect(root);
 		
+		// don;t forget to change the lead nodes if you change the tree structure!
 		TreeLinkNode[] leads = new TreeLinkNode[]{root, n2, n4};
 		
 		for (TreeLinkNode lead : leads){
