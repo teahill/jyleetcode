@@ -44,19 +44,19 @@ public class LC117_BinaryTreeWithNextRight2 {
             while(root!=null){
             	
                 if(root.left != null) { 
-                	currentChild.next = root.left; 
+                	currentChild.next = root.left; // this line could assign values to tempChild
                 	currentChild = currentChild.next;
                 }
                 
                 if(root.right != null) {
-                	currentChild.next = root.right; 
+                	currentChild.next = root.right; // this line could assign values to tempChild too
                 	currentChild = currentChild.next;
                 }
                 
                 root = root.next;
             }
             
-            root = tempChild.next;
+            root = tempChild.next; // tempChild got its value from i of the 2 places noted above
         }
     }
 }

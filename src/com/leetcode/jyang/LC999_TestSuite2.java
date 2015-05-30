@@ -413,7 +413,7 @@ public class LC999_TestSuite2 {
 	 * 
 	 * 
 	 */
-	@Test
+	//@Test
 	public void testLC117(){
 		
 		trace();
@@ -579,6 +579,24 @@ public class LC999_TestSuite2 {
 				LeetCodeUtils.printList(l);
 			}
 		}
+	}
+	
+	@Test
+	public void testLC119(){
+		
+		trace();
+		
+		LC129_SumRootToLeaf lc129 = new LC129_SumRootToLeaf();
+		
+		int size = 4;
+		int max = 9;
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(size, max);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		
+		int sum = lc129.sumNumbers(root);
+		
+		System.out.println("Sum of root to leaf numbers is " + sum);
 	}
 	
 	//@Test
