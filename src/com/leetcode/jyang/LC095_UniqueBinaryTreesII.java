@@ -1,5 +1,6 @@
 package com.leetcode.jyang;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -22,7 +23,10 @@ import java.util.List;
 public class LC095_UniqueBinaryTreesII {
 
     public List<TreeNode> generateTrees(int n) {
-        
+    	
+    	List<TreeNode> res = new ArrayList<TreeNode>();
+    	
+        return res;
     }
 	
 }

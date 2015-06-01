@@ -488,9 +488,27 @@ public class LC999_TestSuite2 {
 		
 		for (List<Integer> list : res) {
 			LeetCodeUtils.printList(list);
-		}
-		
+		}	
 	}
+	
+	//@Test
+	public void testLC119(){
+		
+		trace();
+		
+		LC129_SumRootToLeaf lc129 = new LC129_SumRootToLeaf();
+		
+		int size = 4;
+		int max = 9;
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(size, max);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		
+		int sum = lc129.sumNumbers(root);
+		
+		System.out.println("Sum of root to leaf numbers is " + sum);
+	}
+	
 	
 	//@Test
 	public void testLC120(){
@@ -579,24 +597,6 @@ public class LC999_TestSuite2 {
 				LeetCodeUtils.printList(l);
 			}
 		}
-	}
-	
-	@Test
-	public void testLC119(){
-		
-		trace();
-		
-		LC129_SumRootToLeaf lc129 = new LC129_SumRootToLeaf();
-		
-		int size = 4;
-		int max = 9;
-		
-		TreeNode root = LeetCodeTreeUtils.generateBST(size, max);
-		LeetCodeTreeUtils.printTreeByLevel(root);
-		
-		int sum = lc129.sumNumbers(root);
-		
-		System.out.println("Sum of root to leaf numbers is " + sum);
 	}
 	
 	//@Test
@@ -1072,6 +1072,33 @@ public class LC999_TestSuite2 {
 			System.out.println("Input=" + input[i] + " , output=" + lc172.trailingZeroes(input[i]));
 		}
 	}	
+	
+	/*
+                         25 
+               14                42 
+           5        22        35       44 
+         0  13   19    24   28  37  43    48 
+    */ 	
+	@Test
+	public void testLC173(){
+		
+		trace();
+		
+		int size = 15;
+		int max = 50;
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(size, max);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		
+		LC173_BinarySearchTreeIterator lc173 = new LC173_BinarySearchTreeIterator(root);
+		
+		System.out.println("Iterating through tree");
+		while (lc173.hasNext()){
+			System.out.print(lc173.next() + " ");
+		}
+		
+		System.out.println("\nDone");
+	}
 	
 	//@Test
 	public void testLC179(){

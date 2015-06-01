@@ -1311,7 +1311,7 @@ public class LC999_TestSuite1 {
 	 *      / \        \
 	 *     7   2      1
 	 */       
-	@Test
+	//@Test
 	public void testLC094_2(){
 		
 		trace();
@@ -1327,6 +1327,37 @@ public class LC999_TestSuite1 {
 		List<Integer> res = lc094.inorderTraversal(root);
 		System.out.println("\nresuts:");
 		LeetCodeUtils.printList(res);
+	}
+	
+	@Test
+	public void testLC095(){
+		
+		trace();
+		
+		LC095_UniqueBinaryTreesII lc095 = new LC095_UniqueBinaryTreesII();
+		
+		int n = 3;
+		 
+		List<TreeNode> res = lc095.generateTrees(n);
+		
+		System.out.println("Unique trees for n = " + n);
+		
+		for (TreeNode root : res) {
+			LeetCodeTreeUtils.printTreeByLevel(root);
+		}
+	}
+	
+	//@Test
+	public void testLC096(){
+		
+		trace();
+		
+		LC096_UniqueBinaryTrees lc096 = new LC096_UniqueBinaryTrees();
+		
+		int n = 2;
+		
+		System.out.println("n = " + n + " unmber of unique trees = " + lc096.numTrees(n));
+		
 	}
 	
 	//@Test

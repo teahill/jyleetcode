@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.Stack;
 
 /**
  * 
@@ -26,8 +27,39 @@ import java.util.Set;
  */
 
 public class LC094_InorderTraversal {
+	
+	public List<Integer> inorderTraversal(TreeNode root) {
+		
+    	List<Integer> res = new ArrayList<Integer>(); 	
+    	if (root==null)		return res;
+		
+		Stack<TreeNode> nodes = new Stack<TreeNode>();
+		TreeNode curr = root;
+		
+		nodes.push(root);
+		
+		while (!nodes.isEmpty()){
+			
+			while (curr!=null){
+				nodes.push(curr);
+				curr = curr.left;
+			}
+			
+			TreeNode tn = nodes.pop();
+			
+			curr = tn.right;
+			while (curr!=null){
+				nodes.push(curr);
+				curr = curr.left;
+			}
+			
+			res.add(tn.val);
+		}
+	
+		return res;
+	}
 
-    public List<Integer> inorderTraversal(TreeNode root) {
+    public List<Integer> inorderTraversal2(TreeNode root) {
     	
     	List<Integer> res = new ArrayList<Integer>(); 	
     	if (root==null)		return res;

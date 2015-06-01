@@ -1,5 +1,7 @@
 package com.leetcode.jyang;
 
+import java.util.Stack;
+
 /**
  * Implement an iterator over a binary search tree (BST). Your iterator will be initialized with
  * the root node of a BST.
@@ -16,23 +18,40 @@ package com.leetcode.jyang;
  * 
  * 
  * @author jyang
+ * 
+ * This problemis essentially the same as Problem 94, using a stack to do in-order traversal.
  *
  */
 
-public class LC173_BinaryTreeIterator {
+public class LC173_BinarySearchTreeIterator {
 	
-    public BSTIterator(TreeNode root) {
-        
+	Stack<TreeNode> nodes;
+	TreeNode current;
+	
+    public LC173_BinarySearchTreeIterator(TreeNode root) {   
+    	
+    	nodes = new Stack<TreeNode>();
+    	current = root;
     }
 
     /** @return whether we have a next smallest number */
     public boolean hasNext() {
-        
+    	
+    	return !nodes.isEmpty() || current!=null;
     }
 
     /** @return the next smallest number */
     public int next() {
+    	
+    	while (current!=null){
+    		nodes.push(current);
+    		current = current.left;
+    	}
         
+    	TreeNode tn = nodes.pop();
+    	current = tn.right;
+    	
+    	return tn.val;
     }
 	
 }

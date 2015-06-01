@@ -14,13 +14,26 @@ package com.leetcode.jyang;
  * 
  * 
  * @author jyang
+ * 
+ * https://leetcode.com/discuss/24282/dp-solution-in-6-lines-with-explanation-f-i-n-g-i-1-g-n-i
  *
  */
 
 public class LC096_UniqueBinaryTrees {
 
     public int numTrees(int n) {
+    	
+    	int[] res = new int[n+1];
+    	
+    	res[0] = 1;
+    	res[1] = 1;
         
+    	for (int i=2; i<=n; i++){
+    		for (int j=1; j<=i; j++)
+    			res[i] += res[j-1] * res[i-j];
+    	}
+    	
+    	return res[n];
     }
 	
 }
