@@ -1334,16 +1334,22 @@ public class LC999_TestSuite1 {
 		
 		trace();
 		
-		LC095_UniqueBinaryTreesII lc095 = new LC095_UniqueBinaryTreesII();
-		
 		int n = 3;
+		
+		LC095_UniqueBinaryTreesII lc095 = new LC095_UniqueBinaryTreesII();
+		LC096_UniqueBinaryTrees lc096 = new LC096_UniqueBinaryTrees();
+		
+		System.out.println("n = " + n + " unmber of unique trees = " + lc096.numTrees(n));
 		 
 		List<TreeNode> res = lc095.generateTrees(n);
 		
-		System.out.println("Unique trees for n = " + n);
+		//System.out.println("Unique trees for n = " + n);
 		
+		int count = 1;
 		for (TreeNode root : res) {
+			System.out.println("Unique BST # " + count + ":");
 			LeetCodeTreeUtils.printTreeByLevel(root);
+			count++;
 		}
 	}
 	

@@ -23,6 +23,8 @@ public class LC096_UniqueBinaryTrees {
 
     public int numTrees(int n) {
     	
+    	if (n==0) return 0;
+    	
     	int[] res = new int[n+1];
     	
     	res[0] = 1;
