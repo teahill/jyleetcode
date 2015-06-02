@@ -544,6 +544,22 @@ public class LC999_TestSuite2 {
 		System.out.println("Minimum sum of input triangle is: " + lc120.minimumTotal(triangle));
 	}
 	
+	@Test
+	public void testLC124(){
+		
+		trace();
+		
+		LC124_BinaryTreeMaxPathSum lc124 = new LC124_BinaryTreeMaxPathSum();
+		
+//		String tree = "1,2,3";
+//		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(15, 20, 5);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		
+		System.out.println("Max path sum for the tree is " + lc124.maxPathSum(root));
+	}
+	
 	//@Test
 	public void testLC125(){
 		
@@ -1079,7 +1095,7 @@ public class LC999_TestSuite2 {
            5        22        35       44 
          0  13   19    24   28  37  43    48 
     */ 	
-	@Test
+	//@Test
 	public void testLC173(){
 		
 		trace();

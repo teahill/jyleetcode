@@ -13,7 +13,12 @@ import java.util.Random;
 
 public class LeetCodeTreeUtils {
 
-	public static TreeNode generateBST(int size, int maxVal) {
+	public static TreeNode generateBST(int size, int maxVal){
+		
+		return generateBST(size, maxVal, 0);
+	}
+	
+	public static TreeNode generateBST(int size, int maxVal, int offset) {
 		
 		if (maxVal < size){
 			maxVal = size*2;
@@ -24,7 +29,7 @@ public class LeetCodeTreeUtils {
 		List<Integer> list = new ArrayList<Integer>();
 		
 		while (list.size() <= size){
-			int i = ran.nextInt(maxVal);
+			int i = ran.nextInt(maxVal) - offset;
 			if (!list.contains(i)){
 				list.add(i);
 			}
