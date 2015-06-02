@@ -49,12 +49,12 @@ public class LC095_UniqueBinaryTreesII {
     	return generateTreesDP(nums);
     }
 	
-    
     public List<TreeNode> generateTreesDP(int[] nums){
     	
     	List<TreeNode> res = new ArrayList<TreeNode>();
     	
     	if (nums.length==0){
+    		res.add(null);
     		return res;
     	}
     	
@@ -71,36 +71,14 @@ public class LC095_UniqueBinaryTreesII {
     		List<TreeNode> lRes = generateTreesDP(left);
     		List<TreeNode> rRes = generateTreesDP(right);
     		
-       		if (lRes.isEmpty() && rRes.isEmpty()){
-    			TreeNode root = new TreeNode(nums[j]);
-				res.add(root);
-    		}
-    		else if (lRes.isEmpty()){
-       			for (TreeNode rn : rRes) {
+    		for (TreeNode ln : lRes) {
+    			for (TreeNode rn : rRes) {	
     				TreeNode root = new TreeNode(nums[j]);
+    				root.left = ln;
     				root.right = rn;
     				res.add(root);
     			}
     		}
-       		else if (rRes.isEmpty()){
-       			for (TreeNode ln : lRes) {
-    				TreeNode root = new TreeNode(nums[j]);
-    				root.left = ln;
-    				res.add(root);
-    			}
-    		}
-       		else {
-	    		for (TreeNode ln : lRes) {
-	    			for (TreeNode rn : rRes) {
-	    				
-	    				TreeNode root = new TreeNode(nums[j]);
-	    				root.left = ln;
-	    				root.right = rn;
-	    				
-	    				res.add(root);
-	    			}
-	    		}
-       		}
     	}
     	
         return res;
