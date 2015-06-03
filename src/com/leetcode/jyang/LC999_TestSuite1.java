@@ -1329,7 +1329,7 @@ public class LC999_TestSuite1 {
 		LeetCodeUtils.printList(res);
 	}
 	
-	@Test
+	//@Test
 	public void testLC095(){
 		
 		trace();
@@ -1397,6 +1397,28 @@ public class LC999_TestSuite1 {
 		
 		LeetCodeTreeUtils.printTreeByLevel(root2);
 		System.out.println("Is this a valid BST? " + lc098.isValidBST(root2));
+	}
+	
+	@Test
+	public void testLC099(){
+		
+		trace();
+
+		LC099_RecoverBST lc099 = new LC099_RecoverBST();
+		
+		System.out.println("\nOriginal tree:");
+		String tree1 = "5,1,11,0,3,6,15,#,#,#,4,#,7,#,17";	
+		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree1);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+
+		System.out.println("\nBefore recovery:");
+		String tree2 = "5,1,11,0,4,6,15,#,#,#,3,#,7,#,17";	
+		TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(tree2);
+		LeetCodeTreeUtils.printTreeByLevel(root2);
+		
+		System.out.println("\nAfter recovery:");
+		lc099.recoverTree(root2);
+		LeetCodeTreeUtils.printTreeByLevel(root2);
 	}
 	
 	//@Test

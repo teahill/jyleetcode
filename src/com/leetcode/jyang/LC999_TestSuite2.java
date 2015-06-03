@@ -544,7 +544,7 @@ public class LC999_TestSuite2 {
 		System.out.println("Minimum sum of input triangle is: " + lc120.minimumTotal(triangle));
 	}
 	
-	@Test
+	//@Test
 	public void testLC124(){
 		
 		trace();
