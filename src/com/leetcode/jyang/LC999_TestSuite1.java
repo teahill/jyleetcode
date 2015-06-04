@@ -1403,22 +1403,39 @@ public class LC999_TestSuite1 {
 	public void testLC099(){
 		
 		trace();
-
-		LC099_RecoverBST lc099 = new LC099_RecoverBST();
 		
 		System.out.println("\nOriginal tree:");
 		String tree1 = "5,1,11,0,3,6,15,#,#,#,4,#,7,#,17";	
 		TreeNode root = LeetCodeTreeUtils.deserilizeBinaryTree(tree1);
 		LeetCodeTreeUtils.printTreeByLevel(root);
-
-		System.out.println("\nBefore recovery:");
-		String tree2 = "5,1,11,0,4,6,15,#,#,#,3,#,7,#,17";	
-		TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(tree2);
-		LeetCodeTreeUtils.printTreeByLevel(root2);
 		
-		System.out.println("\nAfter recovery:");
-		lc099.recoverTree(root2);
-		LeetCodeTreeUtils.printTreeByLevel(root2);
+		// some of the test cases may not be valid, as it swaps more then 2 elements to
+		// get the defective trees.
+		String[] trees = new String[] {		
+			"5,1,11,0,7,6,15,#,#,#,4,#,3,#,17",
+			"5,1,11,0,4,6,15,#,#,#,3,#,7,#,17",
+			"1,2,#",
+			"2,#,1",
+			"1,2,3",
+			"1,3,2",
+			"2,1,3",
+			"2,3,1",
+			"3,1,2",
+			"3,2,1",
+			"2,3,1,#,#,#,4",
+		};
+		
+		for (String tree : trees){
+		
+			TreeNode root2 = LeetCodeTreeUtils.deserilizeBinaryTree(tree);
+			System.out.println("\nBefore recovery:");
+			LeetCodeTreeUtils.printTreeByLevel(root2);
+		
+			LC099_RecoverBST lc099 = new LC099_RecoverBST();
+			lc099.recoverTree2(root2);
+			System.out.println("\nAfter recovery:");
+			LeetCodeTreeUtils.printTreeByLevel(root2);
+		}
 	}
 	
 	//@Test
