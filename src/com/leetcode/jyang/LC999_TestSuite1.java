@@ -1399,7 +1399,7 @@ public class LC999_TestSuite1 {
 		System.out.println("Is this a valid BST? " + lc098.isValidBST(root2));
 	}
 	
-	@Test
+	//@Test
 	public void testLC099(){
 		
 		trace();

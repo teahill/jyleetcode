@@ -894,6 +894,25 @@ public class LC999_TestSuite2 {
 	}
 	
 	//@Test
+	public void testLC150(){
+		
+		trace();
+		
+		String[][] input = new String[][]{
+			{"2", "1", "+", "3", "*"},
+			{"4", "13", "5", "/", "+"},
+		};
+		
+		LC150_ReversePolishNotation lc150 = new LC150_ReversePolishNotation();
+		
+		for (int i=0; i<input.length; i++){
+			System.out.println("input: ");
+			LeetCodeUtils.printStrArray(input[i]);
+			System.out.println("->output: " + lc150.evalRPN(input[i]));
+		}
+	}
+	
+	//@Test
 	public void testLC151(){
 		
 		trace();
@@ -1241,6 +1260,25 @@ public class LC999_TestSuite2 {
 			System.out.println("Input=" + input[i] + " , output=" + lc191.hammingWeight(input[i]));
 		}
 	}		
+	
+	@Test
+	public void testLC198(){
+		
+		trace();
+		
+		int[][] input = new int[][]{
+			{1,5,2,2,7,28,3,0,9,8,8},
+				
+		};
+		
+		LC198_HouseRobber lc198 = new LC198_HouseRobber();
+		
+		for (int i=0; i<input.length; i++){
+			LeetCodeUtils.printIntArray(input[i]);
+			int loot = lc198.rob(input[i]);
+			System.out.println("Loot amount = " + loot);
+		}
+	}
 	
 	//@Test
 	public void testLC199(){
