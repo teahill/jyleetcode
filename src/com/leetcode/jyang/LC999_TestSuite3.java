@@ -69,7 +69,7 @@ public class LC999_TestSuite3 {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC219(){
 		
 		trace();
@@ -91,6 +91,47 @@ public class LC999_TestSuite3 {
 		for (int i=0; i<input1.length; i++){
 			LeetCodeUtils.printIntArray(input1[i]);
 			System.out.println("Contains duplicate? " + lc219.containsNearbyDuplicate(input1[i], input2[i]));
+		}
+	}
+	
+	@Test
+	public void testLC220(){
+		
+		trace();
+		
+		int[][] input1 = new int[][]{
+			{6,5,2,7,28,2,0,9,3,8},
+			{6,5,2,7,28,3,0,9,2,8},
+			{1,0,1,1},
+			{-1,-1},
+			{-1,-1},
+			{-3,3},
+		};
+		
+		int[] input2 = new int[]{
+			3,
+			3,
+			1,
+			1,
+			1,
+			2,
+		};
+		
+		int[] input3 = new int[]{
+			3,
+			3,
+			1,
+			0,
+		   -1,
+			4
+		};
+			
+		LC220_ContainsDuplicateIII lc220 = new LC220_ContainsDuplicateIII();
+		
+		for (int i=0; i<input1.length; i++){
+			LeetCodeUtils.printIntArray(input1[i]);
+			System.out.println("Contains duplicate? " + 
+					lc220.containsNearbyAlmostDuplicate(input1[i], input2[i], input3[i]));
 		}
 	}
     
