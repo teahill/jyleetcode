@@ -1306,25 +1306,6 @@ public class LC999_TestSuite2 {
 		LeetCodeUtils.printList(res3);
 	}
 	
-	@Test
-	public void testLC213(){
-		
-		trace();
-		
-		int[][] input = new int[][]{
-			{6,5,2,2,7,28,3,0,9,2,8},
-			{5,6,2,2,7,28,3,0,9,2,8},	
-		};
-		
-		LC213_HouseRobberII lc213 = new LC213_HouseRobberII();
-		
-		for (int i=0; i<input.length; i++){
-			LeetCodeUtils.printIntArray(input[i]);
-			int loot = lc213.rob(input[i]);
-			System.out.println("Loot amount = " + loot);
-		}
-	}
-	
 	//@Test
 	public void testTreeUtils(){
 		
