@@ -402,6 +402,19 @@ public class LC999_TestSuite1 {
 	}
 	
 	//@Test
+	public void testLC029(){
+		
+		trace();
+		
+		LC029_DevideTwoIntegers lc029 = new LC029_DevideTwoIntegers();
+		
+		int dividend = 17;
+		int divisor = 3;
+		
+		System.out.println(dividend + "/" + divisor + "=" + lc029.divide(dividend, divisor));
+	}
+	
+	//@Test
 	public void testLC024(){
 		
 		trace();
@@ -410,7 +423,8 @@ public class LC999_TestSuite1 {
 				{1,2,3,4,5,6,7,8},
 				{1,2,3,4,5,6,7,8,9},
 				{1,2},
-				{1}
+				{1},
+
 		};
 		
 		LC024_SwapPairs lc024 = new LC024_SwapPairs();
@@ -421,6 +435,27 @@ public class LC999_TestSuite1 {
 			
 			head = lc024.swapPairs(head);
 			LeetCodeUtils.printlist(head);
+		}
+	}
+	
+	//@Test
+	public void testLC031(){
+		
+		trace();
+		
+		int[][] input = new int[][] {
+			{1,2,3},
+			{3,2,1},
+			{1,1,5},
+			{1,3,1,4,2,0}
+		};
+		
+		LC031_NextPermutation lc031 = new LC031_NextPermutation();
+		
+		for (int i=0; i<input.length; i++) {	
+			LeetCodeUtils.printIntArray(input[i]);
+			lc031.nextPermutation(input[i]);
+			LeetCodeUtils.printIntArray(input[i]);
 		}
 	}
 	
@@ -650,6 +685,22 @@ public class LC999_TestSuite1 {
 			List<List<Integer>> res = lc040.combinationSum2(input[i], target[i]);
 			LeetCodeUtils.printList(res);
 		}		
+	}
+	
+	@Test
+	public void testLC043(){
+		
+		trace();
+		
+		String num1 = "8123456";
+		String num2 = "7123456";
+		
+//		String num1 = "999";
+//		String num2 = "888";
+		
+		LC043_MultiplyStrings lc043 = new LC043_MultiplyStrings();
+		
+		System.out.println("num1 = " + num1 + " num2 = " + num2 + " product = " + lc043.multiply(num1, num2));
 	}
 	
 	//@Test

@@ -94,7 +94,7 @@ public class LC999_TestSuite3 {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC220(){
 		
 		trace();
