@@ -687,7 +687,7 @@ public class LC999_TestSuite1 {
 		}		
 	}
 	
-	@Test
+	//@Test
 	public void testLC043(){
 		
 		trace();
@@ -789,6 +789,38 @@ public class LC999_TestSuite1 {
 		lc048.rotate(input);
 		System.out.println();
 		LeetCodeUtils.printIntArray2D(input);		
+	}
+	
+	//@Test
+	public void testLC049(){
+		
+		trace();
+		
+		String[][] input = new String[][] {
+//			{"cat","rye","aye","dog", "god","cud","cat","old","fop","bra", "tac"},
+			{"","",""},	
+		};
+		
+		//LC049_Anagrams lc049 = new LC049_Anagrams();
+		
+		for (int i=0; i<input.length; i++){
+			LC049_Anagrams lc049 = new LC049_Anagrams();
+			LeetCodeUtils.printStrArray(input[i]);
+			LeetCodeUtils.printList(lc049.anagrams(input[i]));
+		}		
+	}
+	
+	@Test
+	public void testLC050(){
+		
+		trace();
+		
+		LC050_Pow lc050 = new LC050_Pow();
+
+		double x = 2.5; //0.00001; //2.5;
+		int n = -2147483647;  //Integer.MIN_VALUE;
+		
+		System.out.println("x=" + x + " n=" + n + " pow=" + lc050.myPow(x, n));
 	}
 	
 	//@Test
