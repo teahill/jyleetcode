@@ -810,7 +810,7 @@ public class LC999_TestSuite1 {
 		}		
 	}
 	
-	@Test
+	//@Test
 	public void testLC050(){
 		
 		trace();
@@ -854,6 +854,21 @@ public class LC999_TestSuite1 {
 		int c = lc052.totalNQueens(n);
 		
 		System.out.println("Total distinct solutions for input: " + n + " is " + c);
+	}
+	
+	@Test
+	public void testLC053(){
+		
+		int[][] input = new int[][] {
+			{-2,1,-3,4,-1,2,1,-5,4},
+		};
+		
+		LC053_MaximumSubarray lc053 = new LC053_MaximumSubarray();
+		
+		for (int[] nums : input){
+			LeetCodeUtils.printIntArray(nums);
+			System.out.println("Maximum sum of subarray is " + lc053.maxSubArray(nums));
+		}
 	}
 	
 	//@Test
