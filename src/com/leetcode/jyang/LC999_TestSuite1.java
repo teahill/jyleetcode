@@ -859,8 +859,12 @@ public class LC999_TestSuite1 {
 	@Test
 	public void testLC053(){
 		
+		trace();
+		
 		int[][] input = new int[][] {
 			{-2,1,-3,4,-1,2,1,-5,4},
+			{-2,1},
+			{-2,1,-2},
 		};
 		
 		LC053_MaximumSubarray lc053 = new LC053_MaximumSubarray();
@@ -868,6 +872,52 @@ public class LC999_TestSuite1 {
 		for (int[] nums : input){
 			LeetCodeUtils.printIntArray(nums);
 			System.out.println("Maximum sum of subarray is " + lc053.maxSubArray(nums));
+		}
+	}
+	
+	//@Test
+	public void testLC054(){
+		
+		trace();
+		
+		int row = 1;
+		int col = 4;
+		
+		int[][] input = new int[row][col]; 
+		
+		int v = 10;
+		
+		for (int i=0; i<row; i++){
+			for (int j=0; j<col; j++){
+				input[i][j] = v++;
+			}
+		}
+		
+		LC054_SprialMatrix lc054 = new LC054_SprialMatrix();
+		
+		LeetCodeUtils.printIntArray2D(input);
+		List<Integer> r = lc054.spiralOrder(input);
+		
+		LeetCodeUtils.printList(r);
+	}
+	
+	//@Test
+	public void testLC055(){
+		
+		trace();
+		
+		int[][] input = new int[][] {
+				{2,3,1,1,4},
+				{3,2,1,0,4},
+				{0,2,3},
+				{3,0,1,0,0,2,6},
+		};
+		
+		LC055_JumpGame lc055 = new LC055_JumpGame();
+		
+		for (int[] nums : input) {
+			LeetCodeUtils.printIntArray(nums);
+			System.out.println("Can jump?" + lc055.canJump2(nums));
 		}
 	}
 	
