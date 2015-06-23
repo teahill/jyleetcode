@@ -703,6 +703,23 @@ public class LC999_TestSuite1 {
 		System.out.println("num1 = " + num1 + " num2 = " + num2 + " product = " + lc043.multiply(num1, num2));
 	}
 	
+	@Test
+	public void testLC045(){
+		
+		trace();
+		
+		int[][] input = new int[][] {
+				{2,3,1,1,4,1},
+		};
+		
+		LC045_JumpGameII lc045 = new LC045_JumpGameII();
+		
+		for (int[] nums : input) {
+			LeetCodeUtils.printIntArray(nums);
+			System.out.println("Minimum jumps = " + lc045.jump(nums));
+		}
+	}
+	
 	//@Test
 	public void testLC046(){
 		
@@ -856,7 +873,7 @@ public class LC999_TestSuite1 {
 		System.out.println("Total distinct solutions for input: " + n + " is " + c);
 	}
 	
-	@Test
+	//@Test
 	public void testLC053(){
 		
 		trace();
@@ -865,6 +882,7 @@ public class LC999_TestSuite1 {
 			{-2,1,-3,4,-1,2,1,-5,4},
 			{-2,1},
 			{-2,1,-2},
+			{-99,-98,-90,-2,-30,-50},
 		};
 		
 		LC053_MaximumSubarray lc053 = new LC053_MaximumSubarray();
@@ -945,6 +963,17 @@ public class LC999_TestSuite1 {
 		for (String str : s) {
 			System.out.println("Input: " + str + " length of last word is " + lc058.lengthOfLastWord(str));
 		}
+	}
+	
+	//@Test
+	public void testLC059(){
+		
+		trace();
+		
+		int n = 0;
+		
+		LC059_SpiralMatrix lc059 = new LC059_SpiralMatrix();
+		LeetCodeUtils.printIntArray2D(lc059.generateMatrix(n));
 	}
 	
 	//@Test
