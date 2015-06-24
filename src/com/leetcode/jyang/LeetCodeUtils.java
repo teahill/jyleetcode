@@ -63,12 +63,15 @@ public class LeetCodeUtils {
 	}
 	
 	public static void printIntArray2D(int[][] a){
+		System.out.println("{");
 		for (int i = 0; i<a.length; i++) {
+			System.out.print("{");
 			for (int j = 0; j<a[0].length; j++){
-				System.out.print(a[i][j] + " ");				
+				System.out.print(a[i][j] + ", ");				
 			}
-			System.out.println();
+			System.out.println("},");
 		}
+		System.out.println("}");
 	}	
 
 	public static void printStack(Stack<?> s){

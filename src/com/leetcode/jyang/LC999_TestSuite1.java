@@ -9,6 +9,7 @@ package com.leetcode.jyang;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 import org.junit.*;
 
@@ -703,7 +704,7 @@ public class LC999_TestSuite1 {
 		System.out.println("num1 = " + num1 + " num2 = " + num2 + " product = " + lc043.multiply(num1, num2));
 	}
 	
-	@Test
+	//@Test
 	public void testLC045(){
 		
 		trace();
@@ -1155,6 +1156,28 @@ public class LC999_TestSuite1 {
 	}
 	
 	//@Test
+	public void testLC069(){
+		
+		trace();
+		
+		int[] input = new int[] {
+				1,
+				2,
+				4,
+				7, 
+				9,
+				20,
+				30,
+		};
+		
+		LC069_SquareRoot lc069 = new LC069_SquareRoot();
+		
+		for (int i=0; i<input.length; i++) {
+			System.out.println("#" + input[i] + ": " + lc069.mySqrt(input[i]));
+		}
+	}
+	
+	//@Test
 	public void testLC070(){
 		
 		trace();
@@ -1188,6 +1211,68 @@ public class LC999_TestSuite1 {
 		for (String str : s) {
 			System.out.println("Input: " + str + " simplified path is " + lc071.simplifyPath(str));
 		}	
+	}
+	
+	//@Test
+	public void testLC073(){
+		
+		trace();
+		
+		int row = 1;
+		int col = 1;		
+		int cnt = 1;
+		int[][] input = new int[row][col]; 
+		
+		for (int i=0; i<row; i++){
+			for (int j=0; j<col; j++){	
+				cnt++;
+				input[i][j] = cnt%11 ==0 ? 0 : 1;
+			}
+		}
+		
+		LC073_SetMatrixZeros lc073 = new LC073_SetMatrixZeros();
+		
+		LeetCodeUtils.printIntArray2D(input);
+		lc073.setZeroes(input);
+		System.out.println("After");
+		LeetCodeUtils.printIntArray2D(input);
+	}
+	
+	//@Test
+	public void testLC074(){
+		
+		trace();
+		
+		int row = 5;
+		int col = 8;		
+		int v = 10;
+		
+		int[][] input = new int[row][col]; 
+		int target = 51;
+		
+		for (int i=0; i<row; i++){
+			for (int j=0; j<col; j++){				
+				Random ran = new Random();
+				int offset = 1 + ran.nextInt(3);
+				v += offset;				
+				input[i][j] = v;
+			}
+		}
+		
+//		input = new int[][] 
+//				{
+//				{13, 14, 15, 16, 19, 20, 22, 24, },
+//				{26, 28, 29, 30, 31, 33, 34, 37, },
+//				{40, 41, 43, 46, 49, 50, 52, 54, },
+//				{55, 57, 60, 61, 63, 65, 66, 68, },
+//				{69, 70, 73, 75, 77, 80, 83, 85, },
+//				};
+		
+		LeetCodeUtils.printIntArray2D(input);
+		
+		LC074_Search2DMatrix lc074 = new LC074_Search2DMatrix();
+		System.out.println("Target " + target + " exists? " + lc074.searchMatrix(input, target));
+		System.out.println("Target " + target + " really exists? " + lc074.searchMatrixRef(input, target));
 	}
 	
 	//@Test
@@ -1437,6 +1522,34 @@ public class LC999_TestSuite1 {
 		for (int i=0; i<input.length; i++){
 			List<List<Integer>> res = lc090.subsetsWithDup2(input[i]);
 			LeetCodeUtils.printList(res);
+		}		
+	}
+	
+	@Test
+	public void testLC091(){
+		
+		trace();
+		
+		String[] input = new String[]{
+				"0",
+				"000",
+				"12",
+				"10",
+				"30",
+				"100",
+				"101",
+				"110",
+				"301",
+				"1011",
+				"1212",
+				"123",
+				"2085393587263438197362839792651187379538211951318577884164713291143976212416731331985661435443671959",
+			};
+		
+		LC091_DecodeWays lc091 = new LC091_DecodeWays();
+		
+		for (String s : input){
+			System.out.println("Input: " + s + " # of ways decoding = " + lc091.numDecodings2(s));
 		}		
 	}
 	
