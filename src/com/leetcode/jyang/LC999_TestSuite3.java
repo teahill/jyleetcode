@@ -74,7 +74,7 @@ public class LC999_TestSuite3 {
 		}	
 	}
 	
-	@Test
+	//@Test
 	public void testLC204(){
 		
 		trace();
@@ -92,6 +92,41 @@ public class LC999_TestSuite3 {
 		for (Integer n : input){
 			System.out.println("Number of primes < " + n + "=" + lc204.countPrimes(n));
 		}
+	}
+	
+	//@Test
+	public void testLC205(){
+		
+		trace();
+		
+		LC205_IsomorphicStrings lc205 = new LC205_IsomorphicStrings();
+		
+		String[][] input = new String[][] {
+				{"egg", "add"},
+				{"foo", "bar"},
+				{"paper", "title"},
+				{"ab", "aa"},
+				{"a", "a"},
+		};
+		
+		for (String[] s : input){
+			System.out.println("Is isomorphic strings? " + lc205.isIsomorphic(s[0], s[1]));
+		}
+	}
+	
+	@Test
+	public void testLC206(){
+		
+		trace();
+		
+		LC206_ReverseLinkedList lc206 = new LC206_ReverseLinkedList();
+		
+		//int[] list = new int[]{1,2,3,4,5,6,7};
+		int[] list = new int[]{1};
+		ListNode head = LeetCodeUtils.buildList(list);
+		LeetCodeUtils.printlist(head);
+		head = lc206.reverseList2(head);
+		LeetCodeUtils.printlist(head);
 	}
 	
 	//@Test
