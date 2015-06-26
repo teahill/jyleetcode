@@ -1276,6 +1276,26 @@ public class LC999_TestSuite1 {
 	}
 	
 	//@Test
+	public void testLC075(){
+		
+		trace();
+		
+		LC075_SortColors lc075 = new LC075_SortColors();
+		
+		int[][] input = new int[][]{
+				{0,0},
+				{1,2,0,2,1,0,0,2,1,1,2,0,1,1,0,2,0},
+				{1,2,0,2,1,0,0,2},
+		};
+		
+		for (int[] nums : input){
+			LeetCodeUtils.printIntArray(nums);
+			lc075.sortColors(nums);
+			LeetCodeUtils.printIntArray(nums);
+		}
+	}
+	
+	//@Test
 	public void testLC077(){
 		
 		trace();
@@ -1525,7 +1545,7 @@ public class LC999_TestSuite1 {
 		}		
 	}
 	
-	@Test
+	//@Test
 	public void testLC091(){
 		
 		trace();

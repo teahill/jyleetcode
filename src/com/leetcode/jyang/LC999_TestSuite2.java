@@ -496,19 +496,22 @@ public class LC999_TestSuite2 {
 		
 		trace();
 		
-		LC129_SumRootToLeaf lc129 = new LC129_SumRootToLeaf();
+		LC119_PascalsTriangleII lc119 = new LC119_PascalsTriangleII();
+		int[] input = new int[] {
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+		};
 		
-		int size = 4;
-		int max = 9;
+		for (Integer rowIndex : input){
+			List<Integer> res = lc119.getRow(rowIndex);
+			LeetCodeUtils.printList(res);	
+		}
 		
-		TreeNode root = LeetCodeTreeUtils.generateBST(size, max);
-		LeetCodeTreeUtils.printTreeByLevel(root);
-		
-		int sum = lc129.sumNumbers(root);
-		
-		System.out.println("Sum of root to leaf numbers is " + sum);
 	}
-	
 	
 	//@Test
 	public void testLC120(){
@@ -613,6 +616,24 @@ public class LC999_TestSuite2 {
 				LeetCodeUtils.printList(l);
 			}
 		}
+	}
+	
+	//@Test
+	public void testLC129(){
+		
+		trace();
+		
+		LC129_SumRootToLeaf lc129 = new LC129_SumRootToLeaf();
+		
+		int size = 4;
+		int max = 9;
+		
+		TreeNode root = LeetCodeTreeUtils.generateBST(size, max);
+		LeetCodeTreeUtils.printTreeByLevel(root);
+		
+		int sum = lc129.sumNumbers(root);
+		
+		System.out.println("Sum of root to leaf numbers is " + sum);
 	}
 	
 	//@Test
@@ -1261,7 +1282,7 @@ public class LC999_TestSuite2 {
 		}
 	}		
 	
-	@Test
+	//@Test
 	public void testLC198(){
 		
 		trace();
