@@ -1,5 +1,7 @@
 package com.leetcode.jyang;
 
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.junit.After;
@@ -114,7 +116,7 @@ public class LC999_TestSuite3 {
 		}
 	}
 	
-	@Test
+	//@Test
 	public void testLC206(){
 		
 		trace();
@@ -261,6 +263,41 @@ public class LC999_TestSuite3 {
 							input[i][4], input[i][5], input[i][6], input[i][7]);
 			System.out.println("Case #" + (i+1) + " area=" + area);
 		}
+	}
+	
+	//@Test
+	public void testLC225(){
+		
+		trace();
+		
+		LC225_QueueStack lc225 = new LC225_QueueStack();
+		
+//		Deque<Integer> test = new LinkedList<Integer>();
+//		
+//		test.offer(1);  // vs. push
+//		test.offer(2);
+//		test.offer(3);
+//		
+//		while (!test.isEmpty()){
+//			System.out.println(test.poll());  // vs.pop
+//		}
+		
+		lc225.push(1);
+		lc225.push(2);
+		lc225.push(3);
+		
+		System.out.println("top of the stack=" + lc225.top());
+		lc225.pop();
+		System.out.println("top of the stack=" + lc225.top());
+		
+		lc225.pop();
+		System.out.println("top of the stack=" + lc225.top());
+		
+		System.out.println("is stack empty? " + lc225.empty());
+		
+		lc225.pop();
+		
+		System.out.println("is stack empty? " + lc225.empty());
 	}
     
 	//@Test

@@ -952,6 +952,31 @@ public class LC999_TestSuite2 {
 	}
 	
 	//@Test
+	public void testLC153(){
+		
+		trace();
+		
+		int [][] input = new int[][] {
+			{0, 1, 2, 4, 5, 6, 7},
+			{1, 2, 4, 5, 6, 7, 0},
+			{2, 4, 5, 6, 7, 0, 1},
+			{4, 5, 6, 7, 0, 1, 2},
+			{5, 6, 7, 0, 1, 2, 4},
+			{6, 7, 0, 1, 2, 4, 5},
+			{7, 0, 1, 2, 4, 5, 6}, 
+			{5, 6, 7, 8, 9, 1, 2, 3, 4},
+		};
+		
+		LC153_FindMinRotatedArray lc153 = new LC153_FindMinRotatedArray();
+		
+		for (int[] nums : input){
+			LeetCodeUtils.printIntArray(nums);
+			System.out.println("Mininum number in arry is " + lc153.findMin(nums));
+		}
+		
+	}
+	
+	//@Test
 	public void testLC155(){
 		
 		trace();

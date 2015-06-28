@@ -479,6 +479,31 @@ public class LC999_TestSuite1 {
 		}
 	}	
 	
+	@Test
+	public void testLC033(){
+	
+		trace();
+		
+		int [][] input = new int[][] {
+			{0, 1, 2, 4, 5, 6, 7},
+			{1, 2, 4, 5, 6, 7, 0},
+			{2, 4, 5, 6, 7, 0, 1},
+			{4, 5, 6, 7, 0, 1, 2},
+			{5, 6, 7, 0, 1, 2, 4},
+			{6, 7, 0, 1, 2, 4, 5},
+			{7, 0, 1, 2, 4, 5, 6}, 
+//			{5, 6, 7, 8, 9, 1, 2, 3, 4},
+		};
+		
+		int n = 2;
+		
+		for (int i=0; i<input.length; i++){
+			LeetCodeUtils.printIntArray(input[i]);
+			LC033_SearchRotatedArray lc033 = new LC033_SearchRotatedArray();
+			System.out.println("Index of element of " + n + " is " + lc033.search(input[i], n));
+		}
+	}
+	
 	//@Test
 	public void testLC034(){
 		
