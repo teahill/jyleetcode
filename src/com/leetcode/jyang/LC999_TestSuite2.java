@@ -655,6 +655,24 @@ public class LC999_TestSuite2 {
 		}	
 	}
 	
+	@Test
+	public void testLC136(){
+		
+		trace();
+
+		int[][] input = new int[][]{
+			//{5,7,5},
+			{1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8},
+		};
+			
+		LC136_SingleNumber lc136 = new LC136_SingleNumber();
+			
+		for (int[] nums : input) {
+			LeetCodeUtils.printIntArray(nums);
+			System.out.println("Single number is " + lc136.singleNumber(nums));
+		}	
+	}
+	
 	//@Test
 	public void testLC139(){
 		
@@ -948,6 +966,27 @@ public class LC999_TestSuite2 {
 		
 		for (int i=0; i<input.length; i++){
 			System.out.println("input: " + input[i] + "->output: " + lc151.reverseWords(input[i]));
+		}
+	}
+	
+	//@Test
+	public void testLC152(){
+		
+		trace();
+		
+		int[][] input = new int[][] {
+				{-2,1},
+				{-2,3,-4},
+				{2,0,3,-2,4},
+				{3,-1,4},
+
+		};
+		
+		LC152_MaxProductSubarray lc152 = new LC152_MaxProductSubarray();
+		
+		for (int[] nums : input){
+			LeetCodeUtils.printIntArray(nums);
+			System.out.println("Maximum sum of subarray is " + lc152.maxProduct(nums));
 		}
 	}
 	
