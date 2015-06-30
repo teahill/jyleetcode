@@ -655,7 +655,7 @@ public class LC999_TestSuite2 {
 		}	
 	}
 	
-	@Test
+	//@Test
 	public void testLC136(){
 		
 		trace();
@@ -670,6 +670,25 @@ public class LC999_TestSuite2 {
 		for (int[] nums : input) {
 			LeetCodeUtils.printIntArray(nums);
 			System.out.println("Single number is " + lc136.singleNumber(nums));
+		}	
+	}
+	
+	@Test
+	public void testLC137(){
+		
+		trace();
+
+		int[][] input = new int[][]{
+			//{5,7,5},
+			{1,2,3,1,2,3,1,2},
+			{1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9,1,2,3,4,5,6,7,8,9},
+		};
+			
+		LC137_SingleNumberII lc137 = new LC137_SingleNumberII();
+			
+		for (int[] nums : input) {
+			LeetCodeUtils.printIntArray(nums);
+			System.out.println("Single number is " + lc137.singleNumber(nums));
 		}	
 	}
 	
