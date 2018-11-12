@@ -325,4 +325,42 @@ public class LeetCodeTreeUtils {
 		return root;
 	}
 	
+	public static void printTreeByLevel2(TreeNode root) {
+
+        Queue<TreeNode> currentLevel = new LinkedList<TreeNode>();
+        Queue<TreeNode> nextLevel = new LinkedList<TreeNode>();
+
+        currentLevel.add(root);
+
+        while (!currentLevel.isEmpty()) {
+            Iterator<TreeNode> iter = currentLevel.iterator();
+            while (iter.hasNext()) {
+                TreeNode currentNode = iter.next();
+                
+                if (currentNode==null){
+                	System.out.print("# ");
+                	continue;
+                }                
+                
+                if (currentNode.left != null) {
+                    nextLevel.add(currentNode.left);
+                }
+                
+                if (currentNode.right != null) {
+                    nextLevel.add(currentNode.right);
+                }
+                
+                System.out.print(currentNode.val + " ");
+            }
+            System.out.println();
+            
+            currentLevel = nextLevel;
+            nextLevel = new LinkedList<TreeNode>();
+        }
+    }
+	
+	public static void printTreeLevelSums(TreeNode root) {
+		
+		
+	}
 }

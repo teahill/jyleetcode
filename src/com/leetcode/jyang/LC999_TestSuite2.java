@@ -548,6 +548,69 @@ public class LC999_TestSuite2 {
 	}
 	
 	//@Test
+	public void testLC121(){
+		
+		trace();
+		
+		Random ran = new Random();
+		int size = 20;
+		
+		int[] prices = new int[size];
+		
+		for (int i=0; i<size; i++){
+			prices[i] = 80 + ran.nextInt(10);
+		}
+		
+		LeetCodeUtils.printIntArray(prices);
+		
+		LC121_StockMaxProfitI lc121 = new LC121_StockMaxProfitI();
+		
+		System.out.println("Maximum profit is " + lc121.maxProfit(prices));
+	}
+	
+	//@Test
+	public void testLC122(){
+		
+		trace();
+		
+		Random ran = new Random();
+		int size = 20;
+		
+		int[] prices = new int[size];
+		
+		for (int i=0; i<size; i++){
+			prices[i] = 80 + ran.nextInt(10);
+		}
+		
+		LeetCodeUtils.printIntArray(prices);
+		
+		LC122_StockMaxProfitII lc122 = new LC122_StockMaxProfitII();
+		
+		System.out.println("Maximum profit is " + lc122.maxProfit(prices));
+	}
+	
+	//@Test
+	public void testLC123(){
+		
+		trace();
+		
+		Random ran = new Random();
+		int size = 20;
+		
+		int[] prices = new int[size];
+		
+		for (int i=0; i<size; i++){
+			prices[i] = 80 + ran.nextInt(10);
+		}
+		
+		LeetCodeUtils.printIntArray(prices);
+		
+		LC123_StockMaxProfitIII lc123 = new LC123_StockMaxProfitIII();
+		
+		System.out.println("Maximum profit is " + lc123.maxProfit(prices));
+	}	
+	
+	//@Test
 	public void testLC124(){
 		
 		trace();
@@ -673,7 +736,7 @@ public class LC999_TestSuite2 {
 		}	
 	}
 	
-	@Test
+	//@Test
 	public void testLC137(){
 		
 		trace();
@@ -1408,6 +1471,104 @@ public class LC999_TestSuite2 {
 		root3.left = new TreeNode(2);
 		List<Integer> res3 = lc199.rightSideView(root3);		
 		LeetCodeUtils.printList(res3);
+	}
+	
+	//@Test
+	public void testLC200() {
+		
+		trace();
+		
+		char[][] grid = new char[][] {
+			
+			{'1', '1', '1', '1', '0'},
+			{'1', '1', '0', '1', '0'},
+			{'1', '1', '0', '0', '0'},
+			{'0', '0', '0', '0', '0'},
+		};
+		
+		char[][] grid2 = new char[][] {
+			
+			{'1', '1', '0', '0', '0'},
+			{'1', '1', '0', '0', '0'},
+			{'0', '0', '1', '0', '0'},
+			{'0', '0', '0', '1', '1'},
+		};
+		
+		LC200_NumberIslandsDFS lc200 = new LC200_NumberIslandsDFS();
+		
+		int res = lc200.numIslands(grid2);
+		
+		System.out.println("res=" + res);
+	}
+	
+	@Test
+	public void testLC200BFS() {
+		
+		trace();
+		
+		char[][] grid = new char[][] {
+			
+			{'1', '1', '1', '1', '0'},
+			{'1', '1', '0', '1', '0'},
+			{'1', '1', '0', '0', '0'},
+			{'0', '0', '0', '0', '0'},
+		};
+		
+		char[][] grid2 = new char[][] {
+			
+			{'1', '1', '0', '0', '0'},
+			{'1', '1', '0', '0', '0'},
+			{'0', '0', '1', '0', '0'},
+			{'0', '0', '0', '1', '1'},
+		};
+		
+		LC200_NumberIslandsBFS lc200 = new LC200_NumberIslandsBFS();
+		
+		int res = lc200.numIslands(grid2);
+		
+		System.out.println("res=" + res);
+	}
+	
+	//@Test
+	public void testLC387() {
+		
+		trace();
+		
+		LC387_FirstUniqueChar lc387 = new LC387_FirstUniqueChar();
+		
+		String s = "leetcode";
+		
+		int res = lc387.firstUniqChar(s);
+		
+		System.out.println("res=" + res);
+	}
+	
+	//@Test
+	public void testLC448() {
+		
+		trace();
+		
+		LC448_NumbersDisappeared lc448 = new LC448_NumbersDisappeared();
+		
+		int[] nums = new int[] {4,3,2,7,8,2,3,1};
+		
+		List<Integer> res = lc448.findDisappearedNumbers(nums);
+		
+		System.out.println("res=" + res);
+	}
+	
+	//@Test
+	public void testLC929() {
+		
+		trace();
+		
+		LC929_UniqueEmailAddress lc929 = new LC929_UniqueEmailAddress();
+		
+		String[] emails = new String[]{"test.email+alex@leetcode.com","test.e.mail+bob.cathy@leetcode.com","testemail+david@lee.tcode.com"};
+		
+		int res = lc929.numUniqueEmails(emails);
+		
+		System.out.println("res=" + res);
 	}
 	
 	//@Test

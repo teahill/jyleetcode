@@ -1598,6 +1598,29 @@ public class LC999_TestSuite1 {
 		}		
 	}
 	
+	@Test
+	public void testLC092(){
+		
+		trace();
+		
+		int [][] input = new int[][] {
+				{1,2,3,4,5,6,7,8,9},
+		};
+		
+		int [][] input2= new int[][] {
+				{3,6},
+		};
+		
+		LC092_ReverseLinkedListII lc092 = new LC092_ReverseLinkedListII();
+		
+		for (int i=0; i<input.length; i++){
+			LeetCodeUtils.printIntArray(input[i]);
+			ListNode head = LeetCodeUtils.buildList(input[i]);
+			lc092.reverse(head, input2[i][0], input2[i][1]);
+			LeetCodeUtils.printlist(head);
+		}
+	}
+	
 	//@Test
 	public void testLC093(){
 		

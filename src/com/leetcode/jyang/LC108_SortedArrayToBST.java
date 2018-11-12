@@ -1,7 +1,5 @@
 package com.leetcode.jyang;
 
-import java.util.Arrays;
-
 /**
  * 
  * Given an array where elements are sorted in ascending order, convert it to a height balanced BST.

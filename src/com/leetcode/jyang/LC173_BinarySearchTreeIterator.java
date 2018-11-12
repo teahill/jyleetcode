@@ -19,7 +19,7 @@ import java.util.Stack;
  * 
  * @author jyang
  * 
- * This problemis essentially the same as Problem 94, using a stack to do in-order traversal.
+ * This problem is essentially the same as Problem 94, using a stack to do in-order traversal.
  *
  */
 
